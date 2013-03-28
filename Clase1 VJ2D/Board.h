@@ -12,4 +12,8 @@
 @interface Board : NSObject
 
 @property (nonatomic) NSMutableSet* pieces;
+
+
+- (Board*) createNewBoard: (Board*) board;
+
 @end
