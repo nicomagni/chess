@@ -12,7 +12,7 @@
 
 -(void) printPosition
 {
-    NSLog(@"%d:%d",_position/8, _position%8);
+    NSLog(@"%d:%d",(_position/8), (_position%8));
 }
 
 - (BOOL) move :(int)toPosition  {

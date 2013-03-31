@@ -16,4 +16,6 @@
 
 - (Board*) createNewBoard: (Board*) board;
 
+- (void) printBoard;
+
 @end

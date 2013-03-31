@@ -10,17 +10,19 @@
 #import "Piece.h"
 #import "ViewController.h"
 #import "GameViewController.h"
+#import "Board.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    Piece *piece = [[Piece alloc] init];
-
+    Board *board = [[Board alloc] init];
+    [board createNewBoard:board];
+    [board printBoard];
+    NSLog(@"Hello App");
     
-    [piece printPosition];
-    ViewController* menuVC = [[ViewController alloc] initWithNibName:@"View" bundle:Nil];
-    GameViewController* gameVC = [[GameViewController alloc] initWithNibName:@"GameView" bundle:Nil];
+//    ViewController* menuVC = [[ViewController alloc] initWithNibName:@"View" bundle:Nil];
+//    GameViewController* gameVC = [[GameViewController alloc] initWithNibName:@"GameView" bundle:Nil];
     
     // Override point for customization after application launch.
     return YES;

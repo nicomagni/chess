@@ -34,6 +34,14 @@
     return board;
 }
 
+- (void) printBoard{
+    NSLog(@"Pieces loaded: %d", [self.pieces count]);
+    for (Piece *piece in _pieces) {
+        [piece printPosition];
+    }
+        
+}
+
 + (NSMutableArray*) getPawns {
     NSMutableArray * pawns = [[NSMutableArray alloc] initWithCapacity:16];
     for (int i = 8; i < 2 * 8; i ++) {

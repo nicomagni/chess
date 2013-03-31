@@ -10,4 +10,8 @@
 
 @implementation Knight
 
+- (void) printPosition{
+    NSLog(@"Knight: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
+}
+
 @end

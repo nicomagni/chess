@@ -10,10 +10,30 @@
 
 @implementation Pawn
 
-- (BOOL) move:(int)toPosition {
-    if([self position] - toPosition == 1 + 8){
-        
-    }
+- (void) printPosition{
+    NSLog(@"Pawn: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
 }
+
+ BOOL initialPosition(int pos) {
+    
+    if(pos/8 == 1 ||  pos/8 == 6){
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL) move:(int)toPosition {
+
+    // If pawn is black it should move foward if not backwards
+    int pawnDirection = self.color == 1 ? 8 : -8;
+    
+    if(initialPosition(self.position) &&
+       (toPosition == self.position + pawnDirection || toPosition == self.position + (2* pawnDirection))){
+        self.position = toPosition;
+        return YES;
+    }
+    return NO;
+}
+
 
 @end
