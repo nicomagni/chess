@@ -39,7 +39,7 @@ BOOL isEmpty(int position){
     int pawnDirection = self.color == 1 ? 8 : -8;
     
     if(initialPosition(self.position) && [self isEmpty:toPosition] &&
-       (toPosition == self.position + pawnDirection || toPosition == self.position + (2* pawnDirection))){
+       (toPosition == self.position + pawnDirection || (toPosition == self.position + (2* pawnDirection) && [self.board positions][self.position + pawnDirection] == [NSNull null] ))){
         [self.board positions][self.position] = [NSNull null];
         [self.board positions][toPosition] = self;
         self.position = toPosition;
