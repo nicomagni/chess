@@ -14,4 +14,8 @@
     NSLog(@"Queen: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
 }
 
+- (NSString*) description{
+    return (self.color == 1 ? @"Black-Queen " : @"White-Queen");
+}
+
 @end

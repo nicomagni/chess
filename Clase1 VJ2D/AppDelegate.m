@@ -17,9 +17,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     Board *board = [[Board alloc] init];
-    [board createNewBoard:board];
+    [board createNewBoard];
+//    [board printBoard];
+    NSLog([[board positions][50] move:34] ? @"YES" : @"NO");
     [board printBoard];
-    NSLog(@"Hello App");
+
     
 //    ViewController* menuVC = [[ViewController alloc] initWithNibName:@"View" bundle:Nil];
 //    GameViewController* gameVC = [[GameViewController alloc] initWithNibName:@"GameView" bundle:Nil];

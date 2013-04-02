@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Piece.h"
+
+@class Piece;
 
 @interface Board : NSObject
 
 @property (nonatomic) NSMutableSet* pieces;
+@property (nonatomic) NSMutableArray *positions;
 
-
-- (Board*) createNewBoard: (Board*) board;
+- (Board*) createNewBoard;
 
 - (void) printBoard;
 

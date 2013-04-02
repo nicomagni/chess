@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Piece : NSObject
-{
+@class Board;
 
-}
+@interface Piece : NSObject
+
+@property (nonatomic) int color; // 0 = white 1 = black
+@property (nonatomic) int position;
+@property (nonatomic) Board * board;
 
 - (void) printPosition;
 
 - (BOOL) move :(int)toPosition;
-
-@property (nonatomic) int color; // 0 = white 1 = black
-@property (nonatomic) int position;
 
 @end
