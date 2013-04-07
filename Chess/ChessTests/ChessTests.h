@@ -7,7 +7,8 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "Board.h"
 
 @interface ChessTests : SenTestCase
-
+@property (nonatomic) Board * board;
 @end

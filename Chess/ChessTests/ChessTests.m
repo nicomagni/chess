@@ -10,6 +10,7 @@
 #import "King.h"
 #import "Pawn.h"
 #import "Tower.h"
+#import "Board.h"
 
 @implementation ChessTests
 
@@ -23,8 +24,16 @@
 - (void)tearDown
 {
     // Tear-down code here.
-    
     [super tearDown];
+
+    Board *board = [[Board alloc] init];
+
+    [board createNewBoard];
+    //    [board printBoard];
+    self.board = board;
+    [board printBoard];
+
+
 }
 
 - (void)testExample
@@ -37,8 +46,9 @@
 
 - (void)testTower
 {
-    Tower *tower = [[Tower alloc] init];
-    tower.position = 0;
+
+    Tower *tower = [self.board positions][0];
+
     /*
     STAssertTrue([tower move:48], @"Moving King to back and right");
     STAssertTrue([tower move:7], @"Moving King to back and right");
