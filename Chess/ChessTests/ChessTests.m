@@ -11,6 +11,7 @@
 #import "Pawn.h"
 #import "Tower.h"
 #import "Board.h"
+#import "Bishop.h"
 
 @implementation ChessTests
 
@@ -87,6 +88,17 @@
 
     STAssertFalse([pawn move:41], @"Bad Moving");
     STAssertFalse([pawn move:10], @"Bad Moving");
+}
+
+-(void) testBishop
+{
+    Bishop *bishop = [self.board positions][2];
+    
+    STAssertTrue([bishop couldMoveToPosition:9], @"Moving King to back and right");
+    STAssertTrue([bishop couldMoveToPosition:47], @"Moving King to back and right");
+    STAssertFalse([bishop couldMoveToPosition:26], @"Bad Moving");
+    STAssertFalse([bishop couldMoveToPosition:10], @"Bad Moving");
+    STAssertFalse([bishop couldMoveToPosition:48], @"Bad Moving");
 }
 
 

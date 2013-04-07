@@ -24,18 +24,81 @@
         return NO;
     }
     
-    int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
-    int startRow = [self.mathUtils getRowIndexForPosition:self.position];
+    BOOL ans = [self lookInBackDiagonalFor:toPosition];
+    ans |= [self lookInLeftDiagonalFor:toPosition];
+    ans |= [self lookInRightDiagonalFor:toPosition];
+    ans |= [self lookInTopDiagonalFor:toPosition];
     
-    int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
-    int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
-    
-    //Creating diagonal point
-    for (int i = 0; i < 8; i++) {
+    return ans;
 
-    }
-    
 }
 
+- (BOOL)lookInTopDiagonalFor:(int)toPosition
+{
+    //Creating diagonal point
+    int currentPosition = self.position;
+    
+    BOOL outsideBoard = NO;
+    while (!outsideBoard) {
+        if(toPosition == currentPosition){
+            //HERE remains the validation if exist another piece in the path
+            return YES;
+        }
+    currentPosition -= 7;
+    outsideBoard = currentPosition < 0;
+    }
+return NO;
+}
+
+- (BOOL)lookInBackDiagonalFor:(int)toPosition
+{
+    //Creating diagonal point
+    int currentPosition = self.position;
+    
+    BOOL outsideBoard = NO;
+    while (!outsideBoard) {
+        if(toPosition == currentPosition){
+            //HERE remains the validation if exist another piece in the path
+            return YES;
+        }
+        currentPosition += 7;
+        outsideBoard = currentPosition > 63;
+    }
+    return NO;
+}
+
+- (BOOL)lookInRightDiagonalFor:(int)toPosition
+{
+    //Creating diagonal point
+    int currentPosition = self.position;
+    
+    BOOL outsideBoard = NO;
+    while (!outsideBoard) {
+        if(toPosition == currentPosition){
+            //HERE remains the validation if exist another piece in the path
+            return YES;
+        }
+        currentPosition += 9;
+        outsideBoard = currentPosition > 63;
+    }
+    return NO;
+}
+
+- (BOOL)lookInLeftDiagonalFor:(int)toPosition
+{
+    //Creating diagonal point
+    int currentPosition = self.position;
+    
+    BOOL outsideBoard = NO;
+    while (!outsideBoard) {
+        if(toPosition == currentPosition){
+            //HERE remains the validation if exist another piece in the path
+            return YES;
+        }
+        currentPosition -= 9;
+        outsideBoard = currentPosition < 0;
+    }
+    return NO;
+}
 
 @end
