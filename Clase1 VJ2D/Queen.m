@@ -18,4 +18,22 @@
     return (self.color == 1 ? @"Black-Queen " : @"White-Queen");
 }
 
+- (BOOL)couldMoveToPosition:(int)toPosition{
+    
+    if(toPosition < 0 || toPosition > 63){
+        return NO;
+    }
+    
+    int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
+    int startRow = [self.mathUtils getRowIndexForPosition:self.position];
+    
+    int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
+    int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
+    
+    //This wolud be the same logic than the Tower || bishop
+    return NO;
+    
+}
+
+
 @end

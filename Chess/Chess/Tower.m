@@ -20,12 +20,10 @@
         return NO;
     }
     
-    int actualRow = [self.mathUtils getRowIndexForPosition:self.position];
-    int newRow = [self.mathUtils getRowIndexForPosition:toPosition];
-    int actualCol = [self.mathUtils getColumnIndexForPosition:self.position];
-    int newCol =  [self.mathUtils getColumnIndexForPosition:toPosition];
-    
-    NSLog(@" acltal row %d new row %d actual column %d new columns %d", actualRow, newRow , actualCol, newCol);
+    int actualRow = self.position/8;
+    int newRow = toPosition/8;
+    int actualCol = self.position%8;
+    int newCol = toPosition%8;
     
     if(actualRow == newRow){
         

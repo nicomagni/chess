@@ -18,4 +18,24 @@
     return (self.color == 1 ? @"Black-Bishop" : @"White-Bishop");
 }
 
+- (BOOL)couldMoveToPosition:(int)toPosition{
+    
+    if(toPosition < 0 || toPosition > 63){
+        return NO;
+    }
+    
+    int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
+    int startRow = [self.mathUtils getRowIndexForPosition:self.position];
+    
+    int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
+    int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
+    
+    //Creating diagonal point
+    for (int i = 0; i < 8; i++) {
+
+    }
+    
+}
+
+
 @end
