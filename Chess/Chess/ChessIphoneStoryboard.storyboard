@@ -83,7 +83,6 @@
         <!--New Game View Controller-->
         <scene sceneID="zRh-63-Xjr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qnj-lp-ofE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="grd-z7-gfO" customClass="NewGameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8nI-hp-RzN">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
@@ -92,13 +91,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="kL5-2A-zB6"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qnj-lp-ofE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="445" y="284"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="dTr-Za-VbA">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rmG-k1-G1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="ykY-U7-2LF" customClass="GameViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9GX-90-Zyo">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
@@ -530,6 +529,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="VX6-y0-kYo"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rmG-k1-G1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="451" y="-438"/>
         </scene>
