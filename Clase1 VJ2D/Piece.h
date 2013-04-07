@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MathUtils.h"
-#import "Board.h"
+@class Board;
 
 @interface Piece : NSObject
 
