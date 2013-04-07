@@ -21,7 +21,7 @@
 //    [board printBoard];
     NSLog([[board positions][50] move:34] ? @"YES" : @"NO");
     [board printBoard];
-
+    
     
 //    ViewController* menuVC = [[ViewController alloc] initWithNibName:@"View" bundle:Nil];
 //    GameViewController* gameVC = [[GameViewController alloc] initWithNibName:@"GameView" bundle:Nil];

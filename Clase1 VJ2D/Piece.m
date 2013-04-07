@@ -7,9 +7,18 @@
 //
 
 #import "Piece.h"
+#import "MathUtils.h"
 
-@implementation Piece
+@implementation Piece :NSObject
 
+
+- (id) init
+{
+    self = [super init];
+    self.mathUtils = [[MathUtils alloc] initWithColumngCount:8 andRowCount:8];
+    
+    return self;
+}
 
 -(void) printPosition
 {
@@ -17,6 +26,11 @@
 }
 
 - (BOOL) move :(int)toPosition{
+    NSAssert(NO, @"You must implement me!");
+    return NO;
+}
+
+- (BOOL)couldMoveToPosition:(int)position{
     NSAssert(NO, @"You must implement me!");
     return NO;
 }

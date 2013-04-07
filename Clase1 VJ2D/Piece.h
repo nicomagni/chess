@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MathUtils.h"
 
 @class Board;
 
@@ -15,9 +16,12 @@
 @property (nonatomic) int color; // 0 = white 1 = black
 @property (nonatomic) int position;
 @property (nonatomic) Board * board;
+@property (nonatomic)  MathUtils * mathUtils;
 
 - (void) printPosition;
 
 - (BOOL) move :(int)toPosition;
+
+- (BOOL)couldMoveToPosition:(int)position;
 
 @end
