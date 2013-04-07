@@ -15,7 +15,6 @@
 		A7F0F3E91710DDCB00A1F406 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F3E81710DDCB00A1F406 /* Default.png */; };
 		A7F0F3EB1710DDCB00A1F406 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F3EA1710DDCB00A1F406 /* Default@2x.png */; };
 		A7F0F3ED1710DDCB00A1F406 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F3EC1710DDCB00A1F406 /* Default-568h@2x.png */; };
-		A7F0F3F01710DDCB00A1F406 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F3EE1710DDCB00A1F406 /* MainStoryboard.storyboard */; };
 		A7F0F3FB1710DDCB00A1F406 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F0F3FA1710DDCB00A1F406 /* SenTestingKit.framework */; };
 		A7F0F3FC1710DDCB00A1F406 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F0F3D61710DDCB00A1F406 /* UIKit.framework */; };
 		A7F0F3FD1710DDCB00A1F406 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F0F3D81710DDCB00A1F406 /* Foundation.framework */; };
@@ -51,6 +50,13 @@
 		A7F0F44A1710DE6B00A1F406 /* King.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F42A1710DE6B00A1F406 /* King.m */; };
 		A7F0F44B1710DE6B00A1F406 /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F42C1710DE6B00A1F406 /* MathUtils.m */; };
 		A7F0F44C1710DE6B00A1F406 /* MathUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F42C1710DE6B00A1F406 /* MathUtils.m */; };
+		A7F0F4571711C49400A1F406 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4551711C49400A1F406 /* HomeViewController.m */; };
+		A7F0F45A1711C59700A1F406 /* ChessIphoneStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F4591711C59700A1F406 /* ChessIphoneStoryboard.storyboard */; };
+		A7F0F45C1711C5DA00A1F406 /* ChessIpadStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F45B1711C5DA00A1F406 /* ChessIpadStoryboard.storyboard */; };
+		A7F0F4611711C7F900A1F406 /* NewGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4601711C7F900A1F406 /* NewGameViewController.m */; };
+		A7F0F4AD1711D49600A1F406 /* chess_board.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F4AC1711D49600A1F406 /* chess_board.png */; };
+		A7F0F4B01711DFE300A1F406 /* black_pawn.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F4AE1711DFE300A1F406 /* black_pawn.png */; };
+		A7F0F4B11711DFE300A1F406 /* white_pawn.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F4AF1711DFE300A1F406 /* white_pawn.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +81,6 @@
 		A7F0F3E81710DDCB00A1F406 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A7F0F3EA1710DDCB00A1F406 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A7F0F3EC1710DDCB00A1F406 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		A7F0F3EF1710DDCB00A1F406 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A7F0F3F91710DDCB00A1F406 /* ChessTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChessTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F0F3FA1710DDCB00A1F406 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A7F0F4021710DDCB00A1F406 /* ChessTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChessTests-Info.plist"; sourceTree = "<group>"; };
@@ -110,6 +115,15 @@
 		A7F0F42A1710DE6B00A1F406 /* King.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = King.m; path = "../../Clase1 VJ2D/King.m"; sourceTree = "<group>"; };
 		A7F0F42B1710DE6B00A1F406 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MathUtils.h; path = "../../Clase1 VJ2D/MathUtils.h"; sourceTree = "<group>"; };
 		A7F0F42C1710DE6B00A1F406 /* MathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MathUtils.m; path = "../../Clase1 VJ2D/MathUtils.m"; sourceTree = "<group>"; };
+		A7F0F4541711C49400A1F406 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		A7F0F4551711C49400A1F406 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		A7F0F4591711C59700A1F406 /* ChessIphoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChessIphoneStoryboard.storyboard; sourceTree = "<group>"; };
+		A7F0F45B1711C5DA00A1F406 /* ChessIpadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChessIpadStoryboard.storyboard; sourceTree = "<group>"; };
+		A7F0F45F1711C7F900A1F406 /* NewGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGameViewController.h; sourceTree = "<group>"; };
+		A7F0F4601711C7F900A1F406 /* NewGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGameViewController.m; sourceTree = "<group>"; };
+		A7F0F4AC1711D49600A1F406 /* chess_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chess_board.png; path = Chess/chess_board.png; sourceTree = "<group>"; };
+		A7F0F4AE1711DFE300A1F406 /* black_pawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = black_pawn.png; path = Chess/black_pawn.png; sourceTree = "<group>"; };
+		A7F0F4AF1711DFE300A1F406 /* white_pawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_pawn.png; path = Chess/white_pawn.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +153,7 @@
 		A7F0F3CA1710DDCB00A1F406 = {
 			isa = PBXGroup;
 			children = (
+				A7F0F4AB1711D39A00A1F406 /* Resources */,
 				A7F0F3DC1710DDCB00A1F406 /* Chess */,
 				A7F0F4001710DDCB00A1F406 /* ChessTests */,
 				A7F0F3D51710DDCB00A1F406 /* Frameworks */,
@@ -169,6 +184,12 @@
 		A7F0F3DC1710DDCB00A1F406 /* Chess */ = {
 			isa = PBXGroup;
 			children = (
+				A7F0F4541711C49400A1F406 /* HomeViewController.h */,
+				A7F0F4551711C49400A1F406 /* HomeViewController.m */,
+				A7F0F4591711C59700A1F406 /* ChessIphoneStoryboard.storyboard */,
+				A7F0F45F1711C7F900A1F406 /* NewGameViewController.h */,
+				A7F0F4601711C7F900A1F406 /* NewGameViewController.m */,
+				A7F0F45B1711C5DA00A1F406 /* ChessIpadStoryboard.storyboard */,
 				A7F0F4111710DE6B00A1F406 /* AppDelegate.h */,
 				A7F0F4121710DE6B00A1F406 /* AppDelegate.m */,
 				A7F0F4131710DE6B00A1F406 /* ViewController.h */,
@@ -197,7 +218,6 @@
 				A7F0F42A1710DE6B00A1F406 /* King.m */,
 				A7F0F42B1710DE6B00A1F406 /* MathUtils.h */,
 				A7F0F42C1710DE6B00A1F406 /* MathUtils.m */,
-				A7F0F3EE1710DDCB00A1F406 /* MainStoryboard.storyboard */,
 				A7F0F3DD1710DDCB00A1F406 /* Supporting Files */,
 			);
 			path = Chess;
@@ -234,6 +254,16 @@
 				A7F0F4031710DDCB00A1F406 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7F0F4AB1711D39A00A1F406 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A7F0F4AE1711DFE300A1F406 /* black_pawn.png */,
+				A7F0F4AF1711DFE300A1F406 /* white_pawn.png */,
+				A7F0F4AC1711D49600A1F406 /* chess_board.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,9 +341,13 @@
 				A7F0F3E91710DDCB00A1F406 /* Default.png in Resources */,
 				A7F0F3EB1710DDCB00A1F406 /* Default@2x.png in Resources */,
 				A7F0F3ED1710DDCB00A1F406 /* Default-568h@2x.png in Resources */,
-				A7F0F3F01710DDCB00A1F406 /* MainStoryboard.storyboard in Resources */,
 				A7F0F4391710DE6B00A1F406 /* View.xib in Resources */,
 				A7F0F43D1710DE6B00A1F406 /* GameView.xib in Resources */,
+				A7F0F45A1711C59700A1F406 /* ChessIphoneStoryboard.storyboard in Resources */,
+				A7F0F45C1711C5DA00A1F406 /* ChessIpadStoryboard.storyboard in Resources */,
+				A7F0F4AD1711D49600A1F406 /* chess_board.png in Resources */,
+				A7F0F4B01711DFE300A1F406 /* black_pawn.png in Resources */,
+				A7F0F4B11711DFE300A1F406 /* white_pawn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +398,8 @@
 				A7F0F4471710DE6B00A1F406 /* Queen.m in Sources */,
 				A7F0F4491710DE6B00A1F406 /* King.m in Sources */,
 				A7F0F44B1710DE6B00A1F406 /* MathUtils.m in Sources */,
+				A7F0F4571711C49400A1F406 /* HomeViewController.m in Sources */,
+				A7F0F4611711C7F900A1F406 /* NewGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,14 +441,6 @@
 				A7F0F3E01710DDCB00A1F406 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A7F0F3EE1710DDCB00A1F406 /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A7F0F3EF1710DDCB00A1F406 /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		A7F0F4031710DDCB00A1F406 /* InfoPlist.strings */ = {
@@ -557,6 +585,7 @@
 				A7F0F40D1710DDCB00A1F406 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7F0F40E1710DDCB00A1F406 /* Build configuration list for PBXNativeTarget "ChessTests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +594,7 @@
 				A7F0F4101710DDCB00A1F406 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
