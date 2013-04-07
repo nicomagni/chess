@@ -19,7 +19,8 @@
     Board *board = [[Board alloc] init];
     [board createNewBoard];
 //    [board printBoard];
-    NSLog([[board positions][50] move:34] ? @"YES" : @"NO");
+    NSLog(@"HOLA");
+    NSLog([[board positions][48] move:32] ? @"YES" : @"NO");
     [board printBoard];
     
     
