@@ -12,6 +12,7 @@
 #import "Tower.h"
 #import "Board.h"
 #import "Bishop.h"
+#import "Knight.h"
 
 @implementation ChessTests
 
@@ -21,7 +22,7 @@
     Board *board = [[Board alloc] init];
     
     [board createNewBoard];
-    [board printBoard];
+//    [board printBoard];
     self.board = board;
     // Set-up code here.
 }
@@ -100,6 +101,21 @@
     STAssertFalse([bishop couldMoveToPosition:10], @"Bad Moving");
     STAssertFalse([bishop couldMoveToPosition:48], @"Bad Moving");
 }
-
+ -(void) testKnight
+{
+    Knight *knight = [self.board positions][1];
+    [knight setPosition:27];
+    
+    STAssertTrue([knight couldMoveToPosition:12], @"Moving Knight to back and right");
+    STAssertTrue([knight couldMoveToPosition:10], @"Moving Knight to back and right");
+    STAssertTrue([knight couldMoveToPosition:21], @"Moving Knight to back and right");
+    STAssertTrue([knight couldMoveToPosition:44], @"Moving Knight to back and right");
+    STAssertTrue([knight couldMoveToPosition:42], @"Moving Knight to back and right");
+    STAssertTrue([knight couldMoveToPosition:33], @"Moving Knight to back and right");
+    STAssertTrue([knight couldMoveToPosition:17], @"Moving Knight to back and right");
+    STAssertFalse([knight couldMoveToPosition:0], @"Bad Moving");
+    STAssertFalse([knight couldMoveToPosition:66], @"Bad Moving");
+    STAssertFalse([knight couldMoveToPosition:22], @"Bad Moving");
+}
 
 @end
