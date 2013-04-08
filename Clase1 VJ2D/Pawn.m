@@ -11,6 +11,17 @@
 
 @implementation Pawn
 
+- (id) initWithColor:(int)color {
+    self = [super init];
+    self.color = color;
+    if(color == 1){
+        self.imageResourceName = @"black_pawn.png";
+    }else{
+        self.imageResourceName = @"white_pawn.png";
+    }
+    return self;
+}
+
 - (void) printPosition{
     NSLog(@"Pawn: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
 }

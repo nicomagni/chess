@@ -11,6 +11,17 @@
 
 @implementation Tower
 
+- (id) initWithColor:(int)color {
+    self = [super init];
+    if(color == 1){
+            self.color = color;
+        self.imageResourceName = @"black_tower.png";
+    }else{
+        self.imageResourceName = @"white_tower.png";
+    }
+    return self;
+}
+
 - (void) printPosition{
     NSLog(@"Tower: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
 }

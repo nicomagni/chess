@@ -35,4 +35,10 @@
     return NO;
 }
 
+- (id) initWithColor:(int)color
+{
+    NSAssert(NO, @"You must implement me!");
+    return Nil;
+}
+
 @end

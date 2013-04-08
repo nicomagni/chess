@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Board.h"
 
 @interface GameViewController : UIViewController
+@property (nonatomic) Board * board;
+@property (nonatomic, strong) IBOutletCollection(UIImageView) NSArray *pieces;
 
 @end

@@ -10,6 +10,17 @@
 
 @implementation Bishop
 
+- (id) initWithColor:(int)color {
+    self = [super init];
+    self.color = color;
+    if(color == 1){
+        self.imageResourceName = @"black_bishop.png";
+    }else{
+        self.imageResourceName = @"white_bishop.png";
+    }
+    return self;
+}
+
 - (void) printPosition{
     NSLog(@"Bishop: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
 }
