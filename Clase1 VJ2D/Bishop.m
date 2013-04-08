@@ -39,7 +39,7 @@
 
 - (BOOL)couldMoveToPosition:(int)toPosition{
     
-    if(toPosition < 0 || toPosition > 63){
+    if(![super couldMoveToPosition:toPosition]){
         return NO;
     }
     

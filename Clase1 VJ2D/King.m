@@ -35,23 +35,30 @@
 - (BOOL)move:(int)toPosition
 {
     if([self couldMoveToPosition:toPosition]){
-        [super move:toPosition];
+        return [super move:toPosition];
     }
+    return NO;
 }
 
 - (BOOL)couldMoveToPosition:(int)toPosition{
     
-    if(toPosition < 0 || toPosition > 63){
+    if(![super couldMoveToPosition:toPosition]){
         return NO;
     }
-    
+    NSLog(@"Salio antes");
     int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
     int startRow = [self.mathUtils getRowIndexForPosition:self.position];
     
     int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
-    
-    return abs(startColumn - endColumn) <= 1 && abs(startRow - endRow) <= 1;
+    if(abs(startColumn - endColumn) <= 1 && abs(startRow - endRow) <= 1){
+        Piece * endPiece = [self.board positions][toPosition];
+        Piece * startPiece = [self.board positions][self.position];
+        return[startPiece color] != [endPiece color];
+    }else{
+        return NO;
+    }
+
 
 }
 
