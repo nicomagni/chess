@@ -13,11 +13,11 @@
 @interface GameViewController : UIViewController
 @property (nonatomic) Board * board;
 @property (nonatomic) Piece * startPiece;
+@property (nonatomic) BOOL confirmationNeeded;
 
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event;
 - (IBAction)cancelButton:(UIButton *)sender;
 - (IBAction)confirmButton:(UIButton *)sender;
-
-
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end

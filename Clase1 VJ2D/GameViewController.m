@@ -32,7 +32,7 @@
     [super viewDidLoad];
     Board * board= [[Board alloc] init];
     self.board = [board createNewBoard];
-     
+    self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
 }
 
@@ -61,26 +61,31 @@
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
     int pieceTag = [sender tag] - 100;
 
-    if (self.startPiece != nil) {
-        //This is the target button
-
-        Piece *endPosition = [self.board positions][pieceTag];
-        NSLog(@"Setting the destintion");
-        if([self.startPiece move:pieceTag]){
-            self.startPiece = nil;
+    if(!self.confirmationNeeded){
+        if (self.startPiece != nil) {
+            //This is the target button
+            
+            Piece *endPosition = [self.board positions][pieceTag];
+            NSLog(@"Setting the destintion");
+            if([self.startPiece move:pieceTag]){
+                self.startPiece = nil;
+               // self.confirmationNeeded = YES;
+            }else{
+                self.startPiece = nil;
+            }
+            [self loadPiecesFromBoard];
+            
+        }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]]){
+            
+            self.startPiece = [self.board positions][pieceTag];
+            NSLog(@"Setting the origin");
         }else{
+            NSLog(@"Reset the origin");
             self.startPiece = nil;
         }
-        [self loadPiecesFromBoard];
-        
-    }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]]){
 
-        self.startPiece = [self.board positions][pieceTag];
-        NSLog(@"Setting the origin");
-    }else{
-        NSLog(@"Reset the origin");
-        self.startPiece = nil;
     }
+    [self.confirmButton setEnabled:self.confirmationNeeded];
 }
 
 - (IBAction)cancelButton:(UIButton *)sender {
