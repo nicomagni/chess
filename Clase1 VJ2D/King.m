@@ -51,13 +51,7 @@
     
     int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
-    if(abs(startColumn - endColumn) <= 1 && abs(startRow - endRow) <= 1){
-        Piece * endPiece = [self.board positions][toPosition];
-        Piece * startPiece = [self.board positions][self.position];
-        return[startPiece color] != [endPiece color];
-    }else{
-        return NO;
-    }
+    return (abs(startColumn - endColumn) <= 1 && abs(startRow - endRow) <= 1);
 
 
 }

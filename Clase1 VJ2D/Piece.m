@@ -37,9 +37,9 @@
 - (BOOL)couldMoveToPosition:(int)position{
     Piece * endPiece = [self.board positions][position];
     Piece * startPiece = [self.board positions][self.position];
-    BOOL isValid = position < 0 || position > 63 || self.position != position;
+    BOOL isValid = position >= 0 || position <= 63 || self.position != position;
     
-    if([endPiece isEqual:[NSNull null]]){
+    if([endPiece isEqual:[NSNull null]] || [startPiece isEqual:[NSNull null]]){
         return isValid;
     }else{
         return isValid && [startPiece color] != [endPiece color];
