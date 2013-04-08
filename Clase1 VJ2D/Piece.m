@@ -9,7 +9,7 @@
 #import "Piece.h"
 #import "MathUtils.h"
 
-@implementation Piece :NSObject
+@implementation Piece : NSObject
 
 
 - (id) init

@@ -525,6 +525,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="Afs-PC-lr6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="133" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b5-NP-YtX">
                                 <constraints>
@@ -538,6 +541,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="fIz-2A-KKn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="134" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4oL-BX-eIT">
                                 <constraints>
@@ -551,6 +557,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="wUJ-Mm-Zxi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="135" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uW-F6-0jp">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -561,6 +570,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="vFQ-as-eUF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="136" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9O-Rt-OuM">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -571,6 +583,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="l4r-W8-Bbq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="137" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MNT-Ac-WvC">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -581,6 +596,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="zaa-DM-BDS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="138" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7pv-Zn-X29">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -591,6 +609,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="eyJ-W3-0En"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="139" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECl-jH-JOV">
                                 <constraints>
@@ -604,6 +625,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="2nL-PQ-HHI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="140" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5IA-Qo-1dZ">
                                 <constraints>
@@ -618,6 +642,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="Ff0-sk-dJV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="141" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQd-4b-ahf">
                                 <constraints>
@@ -631,6 +658,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="Ma3-kW-W6a"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="142" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMS-gb-CwJ">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -641,6 +671,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="XG1-p6-TnG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="143" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xT-s8-kSK">
                                 <constraints>
@@ -654,6 +687,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="JAp-l8-MRe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="144" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTv-PU-b1N">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -664,6 +700,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="Olg-XF-nKj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="145" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCh-03-obB">
                                 <constraints>
@@ -677,6 +716,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="tP3-qn-VyW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="146" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKK-JL-R8m">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -687,6 +729,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="2rB-4D-248"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="147" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gkg-Yr-ivI">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -697,6 +742,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="zqc-Qe-jQ3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="148" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kee-uk-HlX">
                                 <constraints>
@@ -711,6 +759,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="yMN-Z9-xoh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="149" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw1-Lp-Bss">
                                 <constraints>
@@ -724,6 +775,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="dHu-Ie-5fp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="150" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrN-hp-Xle">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -734,6 +788,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="zwe-9o-AIn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="151" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQV-uD-oyl">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -744,6 +801,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="DsK-A7-gC7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="152" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOx-jK-tvk">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -754,6 +814,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="BIx-as-42Q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="153" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osi-nN-sD8">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -764,6 +827,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="Vca-zR-cBj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="154" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sg7-Z8-HeC">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -774,6 +840,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="zEv-bL-c2g"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="155" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQZ-A4-5T2">
                                 <constraints>
@@ -787,6 +856,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="anx-Ii-f0p"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="156" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIT-hf-JY3">
                                 <constraints>
@@ -800,6 +872,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="eep-1e-BXe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="157" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfE-kL-4JQ">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -810,6 +885,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="hay-6Y-djK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="158" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZX-q0-G8h">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -820,6 +898,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="ST5-eQ-tcf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="159" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Jq-6C-zFg">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -830,6 +911,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="VeX-bb-VIK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="160" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLL-DA-LGn">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -840,6 +924,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="kHv-K0-mpR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="161" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-xf-Z8B">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -850,6 +937,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="hl3-If-TIo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="162" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUB-OK-nUU">
                                 <constraints>
@@ -863,6 +953,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="lYf-hH-eKy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="163" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzy-Km-5tZ">
                                 <constraints>
@@ -876,6 +969,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="uWm-Xi-Bk6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -1122,7 +1218,7 @@
         <class className="GameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameViewController.h"/>
             <relationships>
-                <relationship kind="outletCollection" name="pieces" candidateClass="UIImageView"/>
+                <relationship kind="action" name="pieceSelected:forEvent:" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="HomeViewController" superclassName="ViewController">

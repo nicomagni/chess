@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Board.h"
+#import "Piece.h"
 
 @interface GameViewController : UIViewController
 @property (nonatomic) Board * board;
-@property (nonatomic, strong) IBOutletCollection(UIImageView) NSArray *pieces;
+@property (nonatomic) Piece * startPiece;
+
+- (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event;
 
 @end

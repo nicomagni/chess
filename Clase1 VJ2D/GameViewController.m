@@ -61,4 +61,16 @@
     }
 }
 
+- (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
+    int pieceTag = [sender tag] - 100;
+    if (![self.startPiece isEqual:[NSNull null]]) {
+        //This is the target button
+        self.startPiece = [NSNull null];
+        Piece *endPosition = [self.board positions][pieceTag];
+    }else{
+
+        self.startPiece = [self.board positions][pieceTag];
+        NSLog(@"Setting the origin");
+    }
+}
 @end
