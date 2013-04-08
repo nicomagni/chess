@@ -69,7 +69,7 @@
             NSLog(@"Setting the destintion");
             if([self.startPiece move:pieceTag]){
                 self.startPiece = nil;
-               // self.confirmationNeeded = YES;
+                self.confirmationNeeded = YES;
             }else{
                 self.startPiece = nil;
             }

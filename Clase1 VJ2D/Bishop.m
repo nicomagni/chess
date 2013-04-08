@@ -56,32 +56,45 @@
 {
     //Creating diagonal point
     int currentPosition = self.position;
-    
+    int piecesInpathCount = 0;
     BOOL outsideBoard = NO;
+    
     while (!outsideBoard) {
+        currentPosition -= 7;
+        outsideBoard = currentPosition < 0;
+        
         if(toPosition == currentPosition){
             //HERE remains the validation if exist another piece in the path
-            return YES;
+            return piecesInpathCount == 0;
+        }else if(!outsideBoard && ![[self.board positions][currentPosition] isEqual:[NSNull null]]){
+            //The end posiiton it's empty or is another piece.
+            piecesInpathCount++;
         }
-    currentPosition -= 7;
-    outsideBoard = currentPosition < 0;
+
     }
-return NO;
+    
+    return NO;
 }
 
 - (BOOL)lookInBackDiagonalFor:(int)toPosition
 {
     //Creating diagonal point
     int currentPosition = self.position;
-    
+    int piecesInpathCount = 0;
     BOOL outsideBoard = NO;
+    
     while (!outsideBoard) {
-        if(toPosition == currentPosition){
-            //HERE remains the validation if exist another piece in the path
-            return YES;
-        }
         currentPosition += 7;
         outsideBoard = currentPosition > 63;
+        
+        if(toPosition == currentPosition){
+            //HERE remains the validation if exist another piece in the path
+           return piecesInpathCount == 0;
+        }else if(!outsideBoard && ![[self.board positions][currentPosition] isEqual:[NSNull null]]){
+            //The end posiiton it's empty or is another piece.
+            piecesInpathCount++;
+        }
+
     }
     return NO;
 }
@@ -90,15 +103,21 @@ return NO;
 {
     //Creating diagonal point
     int currentPosition = self.position;
-    
+    int piecesInpathCount = 0;
     BOOL outsideBoard = NO;
+    
     while (!outsideBoard) {
-        if(toPosition == currentPosition){
-            //HERE remains the validation if exist another piece in the path
-            return YES;
-        }
         currentPosition += 9;
         outsideBoard = currentPosition > 63;
+        
+        if(toPosition == currentPosition){
+            //HERE remains the validation if exist another piece in the path
+            return piecesInpathCount == 0;
+        }else if(!outsideBoard && ![[self.board positions][currentPosition] isEqual:[NSNull null]]){
+            //The end posiiton it's empty or is another piece.
+            piecesInpathCount++;
+        }
+
     }
     return NO;
 }
@@ -107,15 +126,20 @@ return NO;
 {
     //Creating diagonal point
     int currentPosition = self.position;
-    
+    int piecesInpathCount = 0;
     BOOL outsideBoard = NO;
+    
     while (!outsideBoard) {
-        if(toPosition == currentPosition){
-            //HERE remains the validation if exist another piece in the path
-            return YES;
-        }
         currentPosition -= 9;
         outsideBoard = currentPosition < 0;
+        
+        if(toPosition == currentPosition){
+            //HERE remains the validation if exist another piece in the path
+           return piecesInpathCount == 0;
+        }else if(!outsideBoard && ![[self.board positions][currentPosition] isEqual:[NSNull null]]){
+            //The end posiiton it's empty or is another piece.
+            piecesInpathCount++;
+        }
     }
     return NO;
 }
