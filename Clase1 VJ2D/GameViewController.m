@@ -34,6 +34,8 @@
     self.board = [board createNewBoard];
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
+    [self.confirmButton setTitle:@"Su Turno" forState:UIControlStateDisabled];
+    [self.confirmButton setTitle:@"Confirmar" forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +72,7 @@
             if([self.startPiece move:pieceTag]){
                 self.startPiece = nil;
                 self.confirmationNeeded = YES;
+
             }else{
                 self.startPiece = nil;
             }
