@@ -25,6 +25,13 @@
     NSLog(@"Knight: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
 }
 
+- (BOOL)move:(int)toPosition
+{
+    if([self couldMoveToPosition:toPosition]){
+        [super move:toPosition];
+    }
+}
+
 - (NSString*) description{
     return (self.color == 1 ? @"Black-Knight" : @"White-Knight");
 }
@@ -42,56 +49,56 @@
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
     //TOP LEFT
     if (startColumn - 1 >= 0 && startRow - 2 >= 0) {
-//        NSLog(@"TOP LEFT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+        NSLog(@"TOP LEFT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if (startColumn - 1 == endColumn && startRow - 2 == endRow) {
             return YES;
         }
     }
     //TOP RIGHT
     if(startColumn + 1 <= 7 && startRow - 2 >= 0){
-//        NSLog(@"TOP RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+        NSLog(@"TOP RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn + 1 == endColumn && startRow - 2 == endRow){
             return YES;
         }
     }
     //Right TOP
     if(startColumn + 2 <= 7 && startRow - 1 >= 0){
-//        NSLog(@"RIGHT TOP Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+        NSLog(@"RIGHT TOP Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn + 2 == endColumn && startRow - 1 == endRow){
             return YES;
         }
     }
     //Right BOTTOM
     if(startColumn + 2 <= 7 && startRow + 1 <= 7){
-//        NSLog(@"BOTTOM RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+        NSLog(@"BOTTOM RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn + 2 == endColumn && startRow + 1 == endRow){
             return YES;
         }
     }
     //BOTTOM RIGHT
     if (startColumn - 1 >= 0 && startRow + 2 <= 7) {
-//        NSLog(@"BOTTOM RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+        NSLog(@"BOTTOM RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn - 1 == endColumn && startRow + 2 == endRow){
             return YES;
         }
     }
     //BOTTOM LEFT
     if(startColumn + 1 <= 7 && startRow + 2 <= 7){
-//        NSLog(@"BOTTOM LEFT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+        NSLog(@"BOTTOM LEFT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn + 1 == endColumn && startRow + 2 == endRow){
             return YES;
         }
     }
     //LEFT BOTTOM
     if(startColumn - 2 >= 0 && startRow - 1 >= 0){
-//        NSLog(@"LEFT BOTTOM Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+        NSLog(@"LEFT BOTTOM Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn - 2 == endColumn && startRow - 1 == endRow){
             return YES;
         }
     }
     //LEFT TOP
     if(startColumn - 2 >= 0 && startRow + 1 <= 7){
-//        NSLog(@"LEFT TOP Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+        NSLog(@"LEFT TOP Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn - 2 == endColumn && startRow + 1 == endRow){
             return YES;
         }

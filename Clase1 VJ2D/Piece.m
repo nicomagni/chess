@@ -8,6 +8,7 @@
 
 #import "Piece.h"
 #import "MathUtils.h"
+#import "Board.h"
 
 @implementation Piece : NSObject
 
@@ -26,8 +27,11 @@
 }
 
 - (BOOL) move :(int)toPosition{
-    NSAssert(NO, @"You must implement me!");
-    return NO;
+    [self.board positions][self.position] = [NSNull null];
+    self.position = toPosition;
+    [self.board positions][toPosition] = self;
+
+    return YES;
 }
 
 - (BOOL)couldMoveToPosition:(int)position{
@@ -40,5 +44,7 @@
     NSAssert(NO, @"You must implement me!");
     return Nil;
 }
+
+
 
 @end

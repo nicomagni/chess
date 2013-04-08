@@ -7,6 +7,7 @@
 //
 
 #import "Bishop.h"
+#import "Board.h"
 
 @implementation Bishop
 
@@ -27,6 +28,13 @@
 
 - (NSString*) description{
     return (self.color == 1 ? @"Black-Bishop" : @"White-Bishop");
+}
+
+- (BOOL)move:(int)toPosition
+{
+    if([self couldMoveToPosition:toPosition]){
+        [super move:toPosition];
+    }
 }
 
 - (BOOL)couldMoveToPosition:(int)toPosition{

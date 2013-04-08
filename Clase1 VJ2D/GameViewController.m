@@ -44,12 +44,6 @@
 
 -(void)loadPiecesFromBoard
 {
-    /*
-    NSLog(@"Tamaño %d", [self.pieces count]);
-    for (id imageView in self.pieces) {
-        NSLog(@"Image View %d", [imageView tag]);
-    }
-    */
     for (int i = 0; i < [[self.board positions] count] ; i++) {
         Piece *piece = [self.board positions][i];
         if(![piece isEqual:[NSNull null]]){
@@ -57,20 +51,42 @@
             UIImage * image = [UIImage imageNamed:resource];
             UIButton *button = (UIButton *)[[self view] viewWithTag:i + 100] ;
             [button setBackgroundImage:image forState:UIControlStateNormal];
+        }else{
+            UIButton *button = (UIButton *)[[self view] viewWithTag:i + 100] ;
+            [button setBackgroundImage:nil forState:UIControlStateNormal];
         }
     }
 }
 
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
     int pieceTag = [sender tag] - 100;
-    if (![self.startPiece isEqual:[NSNull null]]) {
+
+    if (self.startPiece != nil) {
         //This is the target button
-        self.startPiece = [NSNull null];
+
         Piece *endPosition = [self.board positions][pieceTag];
-    }else{
+        NSLog(@"Setting the destintion");
+        if([self.startPiece move:pieceTag]){
+            self.startPiece = nil;
+        }else{
+            self.startPiece = nil;
+        }
+        [self loadPiecesFromBoard];
+        
+    }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]]){
 
         self.startPiece = [self.board positions][pieceTag];
         NSLog(@"Setting the origin");
+    }else{
+        NSLog(@"Reset the origin");
+        self.startPiece = nil;
     }
 }
+
+- (IBAction)cancelButton:(UIButton *)sender {
+}
+
+- (IBAction)confirmButton:(UIButton *)sender {
+}
+
 @end

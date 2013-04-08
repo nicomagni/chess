@@ -29,6 +29,13 @@
     return (self.color == 1 ? @"Black-Queen " : @"White-Queen");
 }
 
+- (BOOL)move:(int)toPosition
+{
+    if([self couldMoveToPosition:toPosition]){
+        [super move:toPosition];
+    }
+}
+
 - (BOOL)couldMoveToPosition:(int)toPosition{
     
     if(toPosition < 0 || toPosition > 63){

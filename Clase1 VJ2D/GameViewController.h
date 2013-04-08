@@ -15,5 +15,9 @@
 @property (nonatomic) Piece * startPiece;
 
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event;
+- (IBAction)cancelButton:(UIButton *)sender;
+- (IBAction)confirmButton:(UIButton *)sender;
+
+
 
 @end

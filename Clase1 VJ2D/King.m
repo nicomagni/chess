@@ -32,12 +32,11 @@
 
 }
 
-- (BOOL)move:(int)toPosition{
+- (BOOL)move:(int)toPosition
+{
     if([self couldMoveToPosition:toPosition]){
-       //Make a move
-        return YES;
+        [super move:toPosition];
     }
-    return NO;
 }
 
 - (BOOL)couldMoveToPosition:(int)toPosition{
