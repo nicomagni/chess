@@ -14,6 +14,7 @@
 
 @property (nonatomic) int color; // 0 = white 1 = black
 @property (nonatomic) int position;
+@property (nonatomic) NSString *imageResourceName;
 @property (nonatomic) Board * board;
 @property (nonatomic)  MathUtils * mathUtils;
 
@@ -23,4 +24,5 @@
 
 - (BOOL)couldMoveToPosition:(int)position;
 
+- (id) initWithColor:(int)color;
 @end

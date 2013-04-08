@@ -12,6 +12,16 @@
 
 @implementation King : Piece
 
+- (id) initWithColor:(int)color {
+    self = [super init];
+    self.color = color;
+    if(color == 1){
+        self.imageResourceName = @"black_king.png";
+    }else{
+        self.imageResourceName = @"white_king.png";
+    }
+    return self;
+}
 
 - (void) printPosition{
     NSLog(@"King: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
@@ -22,27 +32,27 @@
 
 }
 
-- (BOOL)move:(int)toPosition{
+- (BOOL)move:(int)toPosition
+{
     if([self couldMoveToPosition:toPosition]){
-       //Make a move
-        return YES;
+        return [super move:toPosition];
     }
     return NO;
 }
 
 - (BOOL)couldMoveToPosition:(int)toPosition{
     
-    if(toPosition < 0 || toPosition > 63){
+    if(![super couldMoveToPosition:toPosition]){
         return NO;
     }
-    
+    NSLog(@"Salio antes");
     int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
     int startRow = [self.mathUtils getRowIndexForPosition:self.position];
     
     int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
-    
-    return abs(startColumn - endColumn) <= 1 && abs(startRow - endRow) <= 1;
+    return (abs(startColumn - endColumn) <= 1 && abs(startRow - endRow) <= 1);
+
 
 }
 

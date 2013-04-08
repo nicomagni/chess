@@ -8,8 +8,9 @@
 
 #import "Piece.h"
 #import "MathUtils.h"
+#import "Board.h"
 
-@implementation Piece :NSObject
+@implementation Piece : NSObject
 
 
 - (id) init
@@ -26,13 +27,32 @@
 }
 
 - (BOOL) move :(int)toPosition{
-    NSAssert(NO, @"You must implement me!");
-    return NO;
+    [self.board positions][self.position] = [NSNull null];
+    self.position = toPosition;
+    [self.board positions][toPosition] = self;
+
+    return YES;
 }
 
 - (BOOL)couldMoveToPosition:(int)position{
-    NSAssert(NO, @"You must implement me!");
-    return NO;
+    Piece * endPiece = [self.board positions][position];
+    Piece * startPiece = [self.board positions][self.position];
+    BOOL isValid = position >= 0 || position <= 63 || self.position != position;
+    
+    if([endPiece isEqual:[NSNull null]] || [startPiece isEqual:[NSNull null]]){
+        return isValid;
+    }else{
+        return isValid && [startPiece color] != [endPiece color];
+    }
+    
 }
+
+- (id) initWithColor:(int)color
+{
+    NSAssert(NO, @"You must implement me!");
+    return Nil;
+}
+
+
 
 @end

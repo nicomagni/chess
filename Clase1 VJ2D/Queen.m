@@ -10,12 +10,30 @@
 
 @implementation Queen
 
+- (id) initWithColor:(int)color {
+    self = [super init];
+    self.color = color;
+    if(color == 1){
+        self.imageResourceName = @"black_queen.png";
+    }else{
+        self.imageResourceName = @"white_queen.png";
+    }
+    return self;
+}
+
 - (void) printPosition{
     NSLog(@"Queen: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
 }
 
 - (NSString*) description{
     return (self.color == 1 ? @"Black-Queen " : @"White-Queen");
+}
+
+- (BOOL)move:(int)toPosition
+{
+    if([self couldMoveToPosition:toPosition]){
+        [super move:toPosition];
+    }
 }
 
 - (BOOL)couldMoveToPosition:(int)toPosition{
