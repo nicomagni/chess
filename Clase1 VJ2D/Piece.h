@@ -15,7 +15,7 @@
 @property (nonatomic) int color; // 0 = white 1 = black
 @property (nonatomic) int position;
 @property (nonatomic) NSString *imageResourceName;
-@property (nonatomic) Board * board;
+@property (nonatomic,weak) Board * board;
 @property (nonatomic)  MathUtils * mathUtils;
 
 - (void) printPosition;

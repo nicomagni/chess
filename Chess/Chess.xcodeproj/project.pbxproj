@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A72BFDF31714D50800A03D63 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF21714D50800A03D63 /* libicucore.dylib */; };
+		A72BFDF51714D51100A03D63 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF41714D51100A03D63 /* Security.framework */; };
+		A72BFDF71714D51900A03D63 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF61714D51900A03D63 /* CFNetwork.framework */; };
 		A7F0F3D71710DDCB00A1F406 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F0F3D61710DDCB00A1F406 /* UIKit.framework */; };
 		A7F0F3D91710DDCB00A1F406 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F0F3D81710DDCB00A1F406 /* Foundation.framework */; };
 		A7F0F3DB1710DDCB00A1F406 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F0F3DA1710DDCB00A1F406 /* CoreGraphics.framework */; };
@@ -60,6 +63,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A72BFDFF1714D7A400A03D63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A72BFDF81714D7A400A03D63 /* SocketRocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6B2082D1450F597009315AF;
+			remoteInfo = SocketRocket;
+		};
+		A72BFE011714D7A400A03D63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A72BFDF81714D7A400A03D63 /* SocketRocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F668C880153E91210044DBAC;
+			remoteInfo = SocketRocketOSX;
+		};
+		A72BFE031714D7A400A03D63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A72BFDF81714D7A400A03D63 /* SocketRocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F6BDA802145900D200FE3253;
+			remoteInfo = SRWebSocketTests;
+		};
+		A72BFE051714D7A400A03D63 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A72BFDF81714D7A400A03D63 /* SocketRocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F62417E314D52F3C003CE997;
+			remoteInfo = TestChat;
+		};
 		A7F0F3FE1710DDCB00A1F406 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A7F0F3CB1710DDCB00A1F406 /* Project object */;
@@ -70,6 +101,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A72BFDF21714D50800A03D63 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		A72BFDF41714D51100A03D63 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A72BFDF61714D51900A03D63 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A72BFDF81714D7A400A03D63 /* SocketRocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SocketRocket.xcodeproj; path = SocketRocket/SocketRocket.xcodeproj; sourceTree = "<group>"; };
 		A7F0F3D31710DDCB00A1F406 /* Chess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F0F3D61710DDCB00A1F406 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A7F0F3D81710DDCB00A1F406 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +166,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A72BFDF71714D51900A03D63 /* CFNetwork.framework in Frameworks */,
+				A72BFDF51714D51100A03D63 /* Security.framework in Frameworks */,
+				A72BFDF31714D50800A03D63 /* libicucore.dylib in Frameworks */,
 				A7F0F3D71710DDCB00A1F406 /* UIKit.framework in Frameworks */,
 				A7F0F3D91710DDCB00A1F406 /* Foundation.framework in Frameworks */,
 				A7F0F3DB1710DDCB00A1F406 /* CoreGraphics.framework in Frameworks */,
@@ -150,9 +188,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A72BFDF91714D7A400A03D63 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A72BFE001714D7A400A03D63 /* libSocketRocket.a */,
+				A72BFE021714D7A400A03D63 /* SocketRocket.framework */,
+				A72BFE041714D7A400A03D63 /* SRWebSocketTests.octest */,
+				A72BFE061714D7A400A03D63 /* TestChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A7F0F3CA1710DDCB00A1F406 = {
 			isa = PBXGroup;
 			children = (
+				A72BFDF81714D7A400A03D63 /* SocketRocket.xcodeproj */,
+				A72BFDF61714D51900A03D63 /* CFNetwork.framework */,
+				A72BFDF41714D51100A03D63 /* Security.framework */,
+				A72BFDF21714D50800A03D63 /* libicucore.dylib */,
 				A7F0F4AB1711D39A00A1F406 /* Resources */,
 				A7F0F3DC1710DDCB00A1F406 /* Chess */,
 				A7F0F4001710DDCB00A1F406 /* ChessTests */,
@@ -324,6 +377,12 @@
 			mainGroup = A7F0F3CA1710DDCB00A1F406;
 			productRefGroup = A7F0F3D41710DDCB00A1F406 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A72BFDF91714D7A400A03D63 /* Products */;
+					ProjectRef = A72BFDF81714D7A400A03D63 /* SocketRocket.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A7F0F3D21710DDCB00A1F406 /* Chess */,
@@ -331,6 +390,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A72BFE001714D7A400A03D63 /* libSocketRocket.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSocketRocket.a;
+			remoteRef = A72BFDFF1714D7A400A03D63 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A72BFE021714D7A400A03D63 /* SocketRocket.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SocketRocket.framework;
+			remoteRef = A72BFE011714D7A400A03D63 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A72BFE041714D7A400A03D63 /* SRWebSocketTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SRWebSocketTests.octest;
+			remoteRef = A72BFE031714D7A400A03D63 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A72BFE061714D7A400A03D63 /* TestChat.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestChat.app;
+			remoteRef = A72BFE051714D7A400A03D63 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A7F0F3D11710DDCB00A1F406 /* Resources */ = {
@@ -515,6 +605,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chess/Chess-Prefix.pch";
+				HEADER_SEARCH_PATHS = ./;
 				INFOPLIST_FILE = "Chess/Chess-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -526,6 +617,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chess/Chess-Prefix.pch";
+				HEADER_SEARCH_PATHS = ./;
 				INFOPLIST_FILE = "Chess/Chess-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

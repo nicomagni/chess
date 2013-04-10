@@ -88,7 +88,7 @@ BOOL isEmpty(int position){
                 [self.board positions][toPosition] = self;
                 self.position = toPosition;
                 return YES;
-            }
+            }   
             return NO;
         }
 

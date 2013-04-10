@@ -7,6 +7,9 @@
 //
 
 #import "Queen.h"
+#import "Bishop.h"
+#import "Tower.h"
+
 
 @implementation Queen
 
@@ -37,19 +40,15 @@
 }
 
 - (BOOL)couldMoveToPosition:(int)toPosition{
-    
-    if(toPosition < 0 || toPosition > 63){
+    if(![super couldMoveToPosition:toPosition]){
         return NO;
     }
-    
-    int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
-    int startRow = [self.mathUtils getRowIndexForPosition:self.position];
-    
-    int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
-    int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
-    
-    //This wolud be the same logic than the Tower || bishop
-    return NO;
+    Bishop * bishop = [[Bishop alloc] initWithColor:self.color];
+    bishop.position = self.position;
+    Tower * tower = [[Tower alloc] initWithColor:self.color];
+    tower.position = self.position;
+
+    return [bishop couldMoveToPosition:toPosition] || [tower couldMoveToPosition:toPosition];
     
 }
 
