@@ -32,8 +32,8 @@
 //    GameViewController* gameVC = [[GameViewController alloc] initWithNibName:@"GameView" bundle:Nil];
     
     // Override point for customization after application launch.
-    [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError *error) {
-    }];
+//    [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError *error) {
+//    }];
 
     return YES;
 }
@@ -67,7 +67,7 @@
 
 - (SRWebSocket*) socket {
     if (_socket == nil) {
-        NSMutableURLRequest* joinMatchRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"ws://localhost:9000/connectWS"]];
+        NSMutableURLRequest* joinMatchRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"ws://192.168.1.117:9000/connectWS"]];
         _socket = [[SRWebSocket alloc] initWithURLRequest:joinMatchRequest];
     }
     return _socket;

@@ -15,6 +15,8 @@
 		A7D249F4171A309A002BE00C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D249F3171A309A002BE00C /* SystemConfiguration.framework */; };
 		A7D249F6171A30AC002BE00C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7D249F5171A30AC002BE00C /* MobileCoreServices.framework */; };
 		A7D249F9171A314C002BE00C /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A772AF46171A29D7003C95C2 /* libSocketRocket.a */; };
+		A7D24A09171B18C0002BE00C /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D24A08171B18C0002BE00C /* NSString+MD5Addition.m */; };
+		A7D24A0C171B191A002BE00C /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D24A0B171B191A002BE00C /* UIDevice+IdentifierAddition.m */; };
 		A7F0F3D71710DDCB00A1F406 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F0F3D61710DDCB00A1F406 /* UIKit.framework */; };
 		A7F0F3D91710DDCB00A1F406 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F0F3D81710DDCB00A1F406 /* Foundation.framework */; };
 		A7F0F3DB1710DDCB00A1F406 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7F0F3DA1710DDCB00A1F406 /* CoreGraphics.framework */; };
@@ -114,6 +116,10 @@
 		A7D249F1171A3082002BE00C /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		A7D249F3171A309A002BE00C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A7D249F5171A30AC002BE00C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A7D24A07171B18C0002BE00C /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		A7D24A08171B18C0002BE00C /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		A7D24A0A171B191A002BE00C /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		A7D24A0B171B191A002BE00C /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		A7F0F3D31710DDCB00A1F406 /* Chess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F0F3D61710DDCB00A1F406 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A7F0F3D81710DDCB00A1F406 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -290,6 +296,10 @@
 				A7F0F42B1710DE6B00A1F406 /* MathUtils.h */,
 				A7F0F42C1710DE6B00A1F406 /* MathUtils.m */,
 				A7F0F3DD1710DDCB00A1F406 /* Supporting Files */,
+				A7D24A07171B18C0002BE00C /* NSString+MD5Addition.h */,
+				A7D24A08171B18C0002BE00C /* NSString+MD5Addition.m */,
+				A7D24A0A171B191A002BE00C /* UIDevice+IdentifierAddition.h */,
+				A7D24A0B171B191A002BE00C /* UIDevice+IdentifierAddition.m */,
 			);
 			path = Chess;
 			sourceTree = "<group>";
@@ -508,6 +518,8 @@
 				A7F0F44B1710DE6B00A1F406 /* MathUtils.m in Sources */,
 				A7F0F4571711C49400A1F406 /* HomeViewController.m in Sources */,
 				A7F0F4611711C7F900A1F406 /* NewGameViewController.m in Sources */,
+				A7D24A09171B18C0002BE00C /* NSString+MD5Addition.m in Sources */,
+				A7D24A0C171B191A002BE00C /* UIDevice+IdentifierAddition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

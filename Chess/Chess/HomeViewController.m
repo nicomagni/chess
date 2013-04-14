@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import <GameKit/GameKit.h>
 #import "AppDelegate.h"
+#import "UIDevice+IdentifierAddition.h"
 
 @interface HomeViewController ()
 @property (nonatomic) BOOL connected;
@@ -69,7 +70,9 @@
 {
     SRWebSocket* socket = [AppDelegate sharedInstance].socket;
     NSLog(@"Socket open");
-    NSDictionary* connectDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Connect", @"Command", [GKLocalPlayer localPlayer].playerID, @"Id", nil];
+    NSString * uniqueIdentifier = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
+    NSLog(@"Unique identifier For device %s",uniqueIdentifier);
+    NSDictionary* connectDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Connect", @"Command", uniqueIdentifier, @"Id", nil];
     
     NSError* error = nil;
     NSData* data = [NSJSONSerialization dataWithJSONObject:connectDict options:0 error:&error];
