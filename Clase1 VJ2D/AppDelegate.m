@@ -11,23 +11,30 @@
 #import "ViewController.h"
 #import "GameViewController.h"
 #import "Board.h"
+#import <GameKit/GameKit.h>
+#import <SocketRocket/SRWebSocket.h>
 
 @implementation AppDelegate
 
+@synthesize socket = _socket;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    Board *board = [[Board alloc] init];
-    [board createNewBoard];
+   // Board *board = [[Board alloc] init];
+    //[board createNewBoard];
 //    [board printBoard];
 
-    NSLog([[board positions][48] move:32] ? @"YES" : @"NO");
-    [board printBoard];
+  //  NSLog([[board positions][48] move:32] ? @"YES" : @"NO");
+//    [board printBoard];
     
     
 //    ViewController* menuVC = [[ViewController alloc] initWithNibName:@"View" bundle:Nil];
 //    GameViewController* gameVC = [[GameViewController alloc] initWithNibName:@"GameView" bundle:Nil];
     
     // Override point for customization after application launch.
+    [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError *error) {
+    }];
+
     return YES;
 }
 							
@@ -56,6 +63,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (SRWebSocket*) socket {
+    if (_socket == nil) {
+        NSMutableURLRequest* joinMatchRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"ws://localhost:9000/connectWS"]];
+        _socket = [[SRWebSocket alloc] initWithURLRequest:joinMatchRequest];
+    }
+    return _socket;
+}
+
++ (AppDelegate*) sharedInstance {
+    return [UIApplication sharedApplication].delegate;
 }
 
 @end
