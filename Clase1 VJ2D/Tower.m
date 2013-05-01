@@ -64,8 +64,8 @@
 }
 
 - (BOOL) isRowEmpty:(int)row from: (int)actualCol to: (int) newCol{
-    for(int i = actualCol + 1; i < newCol; ++i){
-        if([self.board positions][(row*8)+i] != [NSNull null]){
+    for(int i = actualCol - 1; i < newCol; --i){
+        if([[self.board positions][(row*8)+i] isEqual:[NSNull null]]){
             return NO;
         }
     }
@@ -73,13 +73,11 @@
 }
 
 - (BOOL) isColEmpty:(int)col from: (int)actualRow to: (int) newRow{
-    for(int i = actualRow + 1; i < newRow; ++i){
-        if([self.board positions][(i*8)+col] != [NSNull null]){
+    for(int i = actualRow - 1; i < newRow; --i){
+        if([[self.board positions][(i*8)+col] isEqual:[NSNull null]]){
             return NO;
         }
     }
     return YES;
 }
-
-
 @end

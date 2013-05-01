@@ -9,6 +9,7 @@
 #import "NewGameViewController.h"
 #import <GameKit/GameKit.h>
 #import "AppDelegate.h"
+#import "UIDevice+IdentifierAddition.h"
 
 @interface NewGameViewController ()
 @property (nonatomic) BOOL connected;
@@ -31,16 +32,6 @@
     [super viewDidLoad];
     [AppDelegate sharedInstance].socket.delegate = self;
 
-    SRWebSocket* socket = [AppDelegate sharedInstance].socket;
-    NSLog(@"Find Match");
-    NSDictionary* connectDict = [NSDictionary dictionaryWithObjectsAndKeys:@"FindMatch", @"Command", @"12341235", @"Id", nil];
-    
-    NSError* error = nil;
-    NSData* data = [NSJSONSerialization dataWithJSONObject:connectDict options:0 error:&error];
-    
-    [socket send:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
-
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -60,7 +51,8 @@
         self.connected = YES;
         NSLog(@"Conected");
     } else if ([messageId isEqualToString:@"StartMatch"]) {
-        NSLog(@"Start mstch");
+        NSLog(@"Start match");
+        [self.confirmationButton setEnabled:YES];
     }
 }
 
@@ -76,4 +68,30 @@
 }
 
 
+- (IBAction)blackColorButton:(UIButton *)sender {
+    [[self whiteButton] setEnabled:NO];
+    [self sendStartMathcWithColor:@"Balck"];
+}
+
+- (IBAction)whiteColorButton:(UIButton *)sender {
+    [[self blackButton] setEnabled:NO];
+    [self sendStartMathcWithColor:@"White"];
+}
+
+- (IBAction)confirmationButton:(UIButton *)sender {
+    //Start Match
+}
+
+- (void)sendStartMathcWithColor:(NSString *)color {
+    SRWebSocket* socket = [AppDelegate sharedInstance].socket;
+    NSLog(@"Find Match");
+    NSString * uniqueIdentifier = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
+    
+    NSDictionary* connectDict = [NSDictionary dictionaryWithObjectsAndKeys:@"FindMatch", @"Command", uniqueIdentifier, @"Id", nil];
+    
+    NSError* error = nil;
+    NSData* data = [NSJSONSerialization dataWithJSONObject:connectDict options:0 error:&error];
+    
+    [socket send:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+}
 @end

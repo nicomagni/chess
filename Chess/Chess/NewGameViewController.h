@@ -9,5 +9,11 @@
 #import "ViewController.h"
 
 @interface NewGameViewController : ViewController
+- (IBAction)blackColorButton:(UIButton *)sender;
+- (IBAction)whiteColorButton:(UIButton *)sender;
+- (IBAction)confirmationButton:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *blackButton;
+@property (weak, nonatomic) IBOutlet UIButton *whiteButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmationButton;
 
 @end

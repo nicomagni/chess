@@ -43,7 +43,8 @@
         return NO;
     }
     
-    BOOL ans = [self lookInBackDiagonalFor:toPosition];
+    BOOL ans = false;
+    ans |= [self lookInBackDiagonalFor:toPosition];
     ans |= [self lookInLeftDiagonalFor:toPosition];
     ans |= [self lookInRightDiagonalFor:toPosition];
     ans |= [self lookInTopDiagonalFor:toPosition];

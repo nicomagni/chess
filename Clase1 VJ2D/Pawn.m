@@ -26,12 +26,8 @@
     NSLog(@"Pawn: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
 }
 
-BOOL initialPosition(int pos) {
-    
-    if(pos/8 == 1 ||  pos/8 == 6){
-        return YES;
-    }
-    return NO;
+BOOL initialPosition(int row) {
+    return row == 6;
 }
 
 BOOL isEmpty(int position){
@@ -40,87 +36,43 @@ BOOL isEmpty(int position){
     return YES;
 }
 
+
+
 - (BOOL) move:(int)toPosition {
     
-    if(toPosition < 0 || toPosition > 63){
+    if([self couldMoveToPosition:toPosition]){
+        [super move:toPosition];
+    }
+}
+
+-(BOOL) couldMoveToPosition:(int)toPosition{
+    
+    if(![super couldMoveToPosition:toPosition]){
         return NO;
     }
-
-    // If pawn is black it should move foward if not backwards
-    int pawnDirection = self.color == 1 ? 8 : -8;
     
-    if(initialPosition(self.position) && [self isEmpty:toPosition] &&
-       (toPosition == self.position + pawnDirection || (toPosition == self.position + (2* pawnDirection) && [self.board positions][self.position + pawnDirection] == [NSNull null] ))){
-        [self.board positions][self.position] = [NSNull null];
-        [self.board positions][toPosition] = self;
-        self.position = toPosition;
-        return YES;
-    }else if(self.position%8 > 0 && self.position%8 < 7 && [self isOponentPiece:toPosition for:self.color]){
-        if(pawnDirection == 8){
-            if( self.position + 7 == toPosition || self.position + 9 == toPosition){
-                [self.board positions][self.position] = [NSNull null];
-                [self.board positions][toPosition] = self;
-                self.position = toPosition;
-                return YES;
-            }
-            return NO;
-        }else{
-            if( self.position - 7 == toPosition || self.position - 9 == toPosition){
-                [self.board positions][self.position] = [NSNull null];
-                [self.board positions][toPosition] = self;
-                self.position = toPosition;
-                return YES;
-            }
-            return NO;
+    // If pawn is black it should move foward if not backwards
+    int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
+    int startRow = [self.mathUtils getRowIndexForPosition:self.position];
+    
+    int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
+    int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
+    
+    if((endRow - startRow) == 2 && startColumn == endColumn){
+        return initialPosition(startRow);
+    }else{
+        if((endRow - startRow) == 1 && startColumn == endColumn){
+            return true;
+        }else if((endRow - startRow) == 1 && startColumn - endColumn >= 1 ){
+            //right movement
+            return true;
+        }else if((endRow - startRow) == 1 && endColumn - startColumn <= 1){
+            //left movement
+            return true;
         }
-    }else if(self.position%8 == 0  && [self isOponentPiece:toPosition for:self.color]){
-        if(pawnDirection == 8){
-            if(self.position + 9 == toPosition){
-                [self.board positions][self.position] = [NSNull null];
-                [self.board positions][toPosition] = self;
-                self.position = toPosition;
-                return YES;
-            }
-            return NO;
-        }else{
-            if( self.position - 7 == toPosition){
-                [self.board positions][self.position] = [NSNull null];
-                [self.board positions][toPosition] = self;
-                self.position = toPosition;
-                return YES;
-            }   
-            return NO;
-        }
-
-    }else if(self.position%8 == 7 && [self isOponentPiece:toPosition for:self.color]){
-        if(pawnDirection == 8){
-            if( self.position + 7 == toPosition){
-                [self.board positions][self.position] = [NSNull null];
-                [self.board positions][toPosition] = self;
-                self.position = toPosition;
-                return YES;
-            }
-            return NO;
-        }else{
-            if(self.position - 9 == toPosition){
-                [self.board positions][self.position] = [NSNull null];
-                [self.board positions][toPosition] = self;
-                self.position = toPosition;
-                return YES;
-            }
-            return NO;
-        }
-
     }
-    return NO;
 }
 
-- (BOOL) isEmpty: (int) position{
-    if([self.board positions][position] == [NSNull null]){
-        return YES;
-    }
-    return NO;
-}
 
 - (BOOL) isOponentPiece: (int) position for: (int) myColor{
     if([self.board positions][position] != [NSNull null] &&
