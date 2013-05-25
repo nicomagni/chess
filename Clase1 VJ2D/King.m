@@ -20,6 +20,7 @@
     }else{
         self.imageResourceName = @"white_king.png";
     }
+    self.type = 5;
     return self;
 }
 

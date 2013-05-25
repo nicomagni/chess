@@ -19,6 +19,7 @@
     }else{
         self.imageResourceName = @"white_bishop.png";
     }
+    self.type = 2;
     return self;
 }
 
