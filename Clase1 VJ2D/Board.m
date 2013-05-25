@@ -162,4 +162,9 @@ NSMutableArray* getKings(Board* board) {
 
 }
 
+NSDictionary* getBoardDictionary(){
+    
+    NSDictionary* piece = [NSDictionary dictionaryWithObjectsAndKeys:@"type", @"Command", uniqueIdentifier, @"Id", nil];
+}
+
 @end
