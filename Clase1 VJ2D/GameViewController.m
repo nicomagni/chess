@@ -98,7 +98,7 @@
 }
 
 - (IBAction)confirmButton:(UIButton *)sender {
-    [self sendBoard];
+   // [self sendBoard];
 }
 
 
