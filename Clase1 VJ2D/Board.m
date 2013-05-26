@@ -54,6 +54,19 @@
         
 }
 
+- (NSMutableArray*) getBoardDictionary{
+    NSMutableArray* piecesArray = [[NSMutableArray alloc] initWithCapacity:64];
+    for(int i = 0; i< 64; i++){
+        Piece *piece = self.positions[i];
+        if(![piece isEqual:[NSNull null]]){
+            NSNumber *type = [[NSNumber alloc] initWithInt:piece.type];
+            [piecesArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:type ,@"type", piece.color == 0, @"color", nil]];
+        }
+    }
+
+    return piecesArray;
+}
+
 NSMutableArray* getPawns(Board* board) {
     NSMutableArray * pawns = [[NSMutableArray alloc] initWithCapacity:16];
     for (int i = 8; i < 2 * 8; i ++) {
@@ -162,9 +175,6 @@ NSMutableArray* getKings(Board* board) {
 
 }
 
-NSDictionary* getBoardDictionary(){
-    
-    NSDictionary* piece = [NSDictionary dictionaryWithObjectsAndKeys:@"type", @"Command", uniqueIdentifier, @"Id", nil];
-}
+
 
 @end

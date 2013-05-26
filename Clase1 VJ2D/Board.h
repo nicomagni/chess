@@ -18,5 +18,6 @@
 - (Board*) createNewBoard;
 
 - (void) printBoard;
+- (NSMutableArray*) getBoardDictionary;
 
 @end

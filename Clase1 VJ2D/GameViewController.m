@@ -138,10 +138,14 @@
     
     int theValue = [results intValue];
     NSLog(@"Move %d", theValue);
-    NSDictionary* connectDict = [NSDictionary dictionaryWithObjectsAndKeys:@"GameMessage", @"Command",results,@"MatchId",uniqueIdentifier, @"Id", @"Move",@"MessageType",@"GAME",@"Game",nil];
+    NSMutableArray *boardArray = [self.board getBoardDictionary];
+    NSDictionary* gameDict = [NSDictionary dictionaryWithObjectsAndKeys:boardArray,@"array",1,@"turn",nil];
+    
+    NSDictionary* commandDict = [NSDictionary dictionaryWithObjectsAndKeys:@"GameMessage", @"Command",results,@"MatchId",uniqueIdentifier, @"Id", @"Move",@"MessageType",gameDict,@"Game",nil];
+
     
     NSError* error = nil;
-    NSData* data = [NSJSONSerialization dataWithJSONObject:connectDict options:0 error:&error];
+    NSData* data = [NSJSONSerialization dataWithJSONObject:commandDict options:0 error:&error];
     
     [socket send:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
 }
