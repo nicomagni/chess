@@ -39,6 +39,9 @@
     for (Piece *piece in _pieces) {
         _positions[[piece position]] = piece;
     }
+    [self setCheck:NO];
+    [self setCheckmate:NO];
+    
     return self;
 }
 
