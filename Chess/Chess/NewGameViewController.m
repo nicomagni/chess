@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     [AppDelegate sharedInstance].socket.delegate = self;
+        [self sendStartMatch];
 
 }
 
@@ -51,8 +52,22 @@
         self.connected = YES;
         NSLog(@"Conected");
     } else if ([messageId isEqualToString:@"StartMatch"]) {
+        
         NSLog(@"Start match");
+        NSNumber* matchId = [messageJSON valueForKey:@"MatchId"];
+        int theValue = [matchId intValue];
+        NSLog(@"Conected %d", theValue);
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        NSString *storedVal = matchId;
+        NSString *key = @"MatchId";
+        
+        [defaults setObject:storedVal forKey:key];
+        [defaults synchronize];
+        
         [self.confirmationButton setEnabled:YES];
+        [self performSegueWithIdentifier:@"GOTO_GAME" sender:self];
     }
 }
 
@@ -67,22 +82,12 @@
     NSLog(@"socket closed");
 }
 
-
-- (IBAction)blackColorButton:(UIButton *)sender {
-    [[self whiteButton] setEnabled:NO];
-    [self sendStartMathcWithColor:@"Balck"];
-}
-
-- (IBAction)whiteColorButton:(UIButton *)sender {
-    [[self blackButton] setEnabled:NO];
-    [self sendStartMathcWithColor:@"White"];
-}
-
 - (IBAction)confirmationButton:(UIButton *)sender {
     //Start Match
+
 }
 
-- (void)sendStartMathcWithColor:(NSString *)color {
+- (void)sendStartMatch {
     SRWebSocket* socket = [AppDelegate sharedInstance].socket;
     NSLog(@"Find Match");
     NSString * uniqueIdentifier = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];

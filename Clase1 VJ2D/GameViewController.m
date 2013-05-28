@@ -9,6 +9,8 @@
 #import "GameViewController.h"
 #import "Board.h"
 #import "Piece.h"
+#import "AppDelegate.h"
+#import "UIDevice+IdentifierAddition.h"
 
 @interface GameViewController ()
 
@@ -36,6 +38,7 @@
     [self loadPiecesFromBoard];
     [self.confirmButton setTitle:@"Su Turno" forState:UIControlStateDisabled];
     [self.confirmButton setTitle:@"Confirmar" forState:UIControlStateNormal];
+    [AppDelegate sharedInstance].socket.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,6 +98,58 @@
 }
 
 - (IBAction)confirmButton:(UIButton *)sender {
+   // [self sendBoard];
 }
+
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
+{
+    NSError* error;
+    NSDictionary* messageJSON = [NSJSONSerialization JSONObjectWithData:[(NSString*)message dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+    
+    NSString* messageId = [messageJSON valueForKey:@"Command"];
+    
+    if ([messageId isEqualToString:@"Connected"]) {
+ 
+        NSLog(@"Conected");
+    } else if ([messageId isEqualToString:@"StartMatch"]) {
+        NSLog(@"Start match");
+ 
+    }
+}
+
+
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
+{
+    NSLog(@"%@", error);
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
+{
+    NSLog(@"socket closed");
+}
+
+- (void)sendBoard {
+    SRWebSocket* socket = [AppDelegate sharedInstance].socket;
+    NSLog(@"Move");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *results = [defaults stringForKey:@"MatchId"];
+    NSString * uniqueIdentifier = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
+    
+    int theValue = [results intValue];
+    NSLog(@"Move %d", theValue);
+    NSMutableArray *boardArray = [self.board getBoardDictionary];
+    NSDictionary* gameDict = [NSDictionary dictionaryWithObjectsAndKeys:boardArray,@"array",1,@"turn",nil];
+    
+    NSDictionary* commandDict = [NSDictionary dictionaryWithObjectsAndKeys:@"GameMessage", @"Command",results,@"MatchId",uniqueIdentifier, @"Id", @"Move",@"MessageType",gameDict,@"Game",nil];
+
+    
+    NSError* error = nil;
+    NSData* data = [NSJSONSerialization dataWithJSONObject:commandDict options:0 error:&error];
+    
+    [socket send:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+}
+
+
 
 @end

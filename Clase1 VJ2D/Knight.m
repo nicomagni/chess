@@ -19,6 +19,7 @@
     }else{
         self.imageResourceName = @"white_hourse.png";
     }
+    self.type = 1;
     return self;
 }
 

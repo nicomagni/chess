@@ -13,6 +13,7 @@
 @interface Piece : NSObject
 
 @property (nonatomic) int color; // 0 = white 1 = black
+@property (nonatomic) int type; // 0 = Pawn 1 = Knight, 2 = Bishop, 3 = Tower, 4 = Queen, 5 = King 
 @property (nonatomic) int position;
 @property (nonatomic) NSString *imageResourceName;
 @property (nonatomic,weak) Board * board;

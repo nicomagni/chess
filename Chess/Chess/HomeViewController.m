@@ -71,7 +71,8 @@
     SRWebSocket* socket = [AppDelegate sharedInstance].socket;
     NSLog(@"Socket open");
     NSString * uniqueIdentifier = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
-    NSLog(@"Unique identifier For device %s",uniqueIdentifier);
+//    NSString * uniqueIdentifier = [NSString stringWithFormat:@"%d%",rand()];
+    NSLog(@"Unique identifier For device %d%",uniqueIdentifier);
     NSDictionary* connectDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Connect", @"Command", uniqueIdentifier, @"Id", nil];
     
     NSError* error = nil;

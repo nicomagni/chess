@@ -185,17 +185,17 @@
 		A7F0F4071710DDCB00A1F406 /* ChessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessTests.m; sourceTree = "<group>"; };
 		A7F0F4111710DE6B00A1F406 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../../Clase1 VJ2D/AppDelegate.h"; sourceTree = "<group>"; };
 		A7F0F4121710DE6B00A1F406 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../../Clase1 VJ2D/AppDelegate.m"; sourceTree = "<group>"; };
-		A7F0F4131710DE6B00A1F406 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "../../Clase1 VJ2D/ViewController.h"; sourceTree = "<group>"; };
-		A7F0F4141710DE6B00A1F406 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "../../Clase1 VJ2D/ViewController.m"; sourceTree = "<group>"; };
+		A7F0F4131710DE6B00A1F406 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "../Clase1 VJ2D/ViewController.h"; sourceTree = "<group>"; };
+		A7F0F4141710DE6B00A1F406 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "../Clase1 VJ2D/ViewController.m"; sourceTree = "<group>"; };
 		A7F0F4151710DE6B00A1F406 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Piece.h; path = "../../Clase1 VJ2D/Piece.h"; sourceTree = "<group>"; };
 		A7F0F4161710DE6B00A1F406 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Piece.m; path = "../../Clase1 VJ2D/Piece.m"; sourceTree = "<group>"; };
 		A7F0F4171710DE6B00A1F406 /* Pawn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pawn.h; path = "../../Clase1 VJ2D/Pawn.h"; sourceTree = "<group>"; };
 		A7F0F4181710DE6B00A1F406 /* Pawn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Pawn.m; path = "../../Clase1 VJ2D/Pawn.m"; sourceTree = "<group>"; };
-		A7F0F4191710DE6B00A1F406 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = "../../Clase1 VJ2D/MenuViewController.h"; sourceTree = "<group>"; };
-		A7F0F41A1710DE6B00A1F406 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = "../../Clase1 VJ2D/MenuViewController.m"; sourceTree = "<group>"; };
+		A7F0F4191710DE6B00A1F406 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = "../Clase1 VJ2D/MenuViewController.h"; sourceTree = "<group>"; };
+		A7F0F41A1710DE6B00A1F406 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = "../Clase1 VJ2D/MenuViewController.m"; sourceTree = "<group>"; };
 		A7F0F41B1710DE6B00A1F406 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = View.xib; path = "../../Clase1 VJ2D/View.xib"; sourceTree = "<group>"; };
-		A7F0F41C1710DE6B00A1F406 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = "../../Clase1 VJ2D/GameViewController.h"; sourceTree = "<group>"; };
-		A7F0F41D1710DE6B00A1F406 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = "../../Clase1 VJ2D/GameViewController.m"; sourceTree = "<group>"; };
+		A7F0F41C1710DE6B00A1F406 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = "../Clase1 VJ2D/GameViewController.h"; sourceTree = "<group>"; };
+		A7F0F41D1710DE6B00A1F406 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = "../Clase1 VJ2D/GameViewController.m"; sourceTree = "<group>"; };
 		A7F0F41E1710DE6B00A1F406 /* GameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameView.xib; path = "../../Clase1 VJ2D/GameView.xib"; sourceTree = "<group>"; };
 		A7F0F41F1710DE6B00A1F406 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Board.h; path = "../../Clase1 VJ2D/Board.h"; sourceTree = "<group>"; };
 		A7F0F4201710DE6B00A1F406 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Board.m; path = "../../Clase1 VJ2D/Board.m"; sourceTree = "<group>"; };
@@ -211,12 +211,12 @@
 		A7F0F42A1710DE6B00A1F406 /* King.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = King.m; path = "../../Clase1 VJ2D/King.m"; sourceTree = "<group>"; };
 		A7F0F42B1710DE6B00A1F406 /* MathUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MathUtils.h; path = "../../Clase1 VJ2D/MathUtils.h"; sourceTree = "<group>"; };
 		A7F0F42C1710DE6B00A1F406 /* MathUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MathUtils.m; path = "../../Clase1 VJ2D/MathUtils.m"; sourceTree = "<group>"; };
-		A7F0F4541711C49400A1F406 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		A7F0F4551711C49400A1F406 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		A7F0F4541711C49400A1F406 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Chess/HomeViewController.h; sourceTree = "<group>"; };
+		A7F0F4551711C49400A1F406 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Chess/HomeViewController.m; sourceTree = "<group>"; };
 		A7F0F4591711C59700A1F406 /* ChessIphoneStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChessIphoneStoryboard.storyboard; sourceTree = "<group>"; };
 		A7F0F45B1711C5DA00A1F406 /* ChessIpadStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChessIpadStoryboard.storyboard; sourceTree = "<group>"; };
-		A7F0F45F1711C7F900A1F406 /* NewGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGameViewController.h; sourceTree = "<group>"; };
-		A7F0F4601711C7F900A1F406 /* NewGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGameViewController.m; sourceTree = "<group>"; };
+		A7F0F45F1711C7F900A1F406 /* NewGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewGameViewController.h; path = Chess/NewGameViewController.h; sourceTree = "<group>"; };
+		A7F0F4601711C7F900A1F406 /* NewGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewGameViewController.m; path = Chess/NewGameViewController.m; sourceTree = "<group>"; };
 		A7F0F4AC1711D49600A1F406 /* chess_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chess_board.png; path = Chess/chess_board.png; sourceTree = "<group>"; };
 		A7F0F4AE1711DFE300A1F406 /* black_pawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = black_pawn.png; path = Chess/black_pawn.png; sourceTree = "<group>"; };
 		A7F0F4AF1711DFE300A1F406 /* white_pawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_pawn.png; path = Chess/white_pawn.png; sourceTree = "<group>"; };
@@ -254,6 +254,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A74D8ECE17511BAB00F8BAFF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7F0F4541711C49400A1F406 /* HomeViewController.h */,
+				A7F0F4551711C49400A1F406 /* HomeViewController.m */,
+				A7F0F45F1711C7F900A1F406 /* NewGameViewController.h */,
+				A7F0F4601711C7F900A1F406 /* NewGameViewController.m */,
+				A7F0F4131710DE6B00A1F406 /* ViewController.h */,
+				A7F0F4141710DE6B00A1F406 /* ViewController.m */,
+				A7F0F4191710DE6B00A1F406 /* MenuViewController.h */,
+				A7F0F41A1710DE6B00A1F406 /* MenuViewController.m */,
+				A7F0F41C1710DE6B00A1F406 /* GameViewController.h */,
+				A7F0F41D1710DE6B00A1F406 /* GameViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		A772AF3F171A29D7003C95C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +291,7 @@
 				A772AF3E171A29D7003C95C2 /* SocketRocket.xcodeproj */,
 				A72BFDF41714D51100A03D63 /* Security.framework */,
 				A72BFDF21714D50800A03D63 /* libicucore.dylib */,
+				A74D8ECE17511BAB00F8BAFF /* Controllers */,
 				A7F0F4AB1711D39A00A1F406 /* Resources */,
 				A7F0F3DC1710DDCB00A1F406 /* Chess */,
 				A7F0F4001710DDCB00A1F406 /* ChessTests */,
@@ -307,25 +325,15 @@
 		A7F0F3DC1710DDCB00A1F406 /* Chess */ = {
 			isa = PBXGroup;
 			children = (
-				A7F0F4541711C49400A1F406 /* HomeViewController.h */,
-				A7F0F4551711C49400A1F406 /* HomeViewController.m */,
 				A7F0F4591711C59700A1F406 /* ChessIphoneStoryboard.storyboard */,
-				A7F0F45F1711C7F900A1F406 /* NewGameViewController.h */,
-				A7F0F4601711C7F900A1F406 /* NewGameViewController.m */,
 				A7F0F45B1711C5DA00A1F406 /* ChessIpadStoryboard.storyboard */,
 				A7F0F4111710DE6B00A1F406 /* AppDelegate.h */,
 				A7F0F4121710DE6B00A1F406 /* AppDelegate.m */,
-				A7F0F4131710DE6B00A1F406 /* ViewController.h */,
-				A7F0F4141710DE6B00A1F406 /* ViewController.m */,
 				A7F0F4151710DE6B00A1F406 /* Piece.h */,
 				A7F0F4161710DE6B00A1F406 /* Piece.m */,
 				A7F0F4171710DE6B00A1F406 /* Pawn.h */,
 				A7F0F4181710DE6B00A1F406 /* Pawn.m */,
-				A7F0F4191710DE6B00A1F406 /* MenuViewController.h */,
-				A7F0F41A1710DE6B00A1F406 /* MenuViewController.m */,
 				A7F0F41B1710DE6B00A1F406 /* View.xib */,
-				A7F0F41C1710DE6B00A1F406 /* GameViewController.h */,
-				A7F0F41D1710DE6B00A1F406 /* GameViewController.m */,
 				A7F0F41E1710DE6B00A1F406 /* GameView.xib */,
 				A7F0F41F1710DE6B00A1F406 /* Board.h */,
 				A7F0F4201710DE6B00A1F406 /* Board.m */,
@@ -678,6 +686,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sebastian Palatnik (X6QR98EEHT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -694,6 +703,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "219CBC67-B12F-4C73-87D6-0A7CED0D6AA4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -710,6 +720,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sebastian Palatnik (X6QR98EEHT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -719,6 +730,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "219CBC67-B12F-4C73-87D6-0A7CED0D6AA4";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
