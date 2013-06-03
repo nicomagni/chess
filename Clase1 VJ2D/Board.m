@@ -150,12 +150,12 @@ NSMutableArray* getBishops(Board* board) {
 NSMutableArray* getQueens(Board* board) {
     NSMutableArray * queens = [[NSMutableArray alloc] initWithCapacity:2];
     Queen * queen1 = [[Queen alloc] initWithColor:1];
-    [queen1 setPosition:3];
+    [queen1 setPosition:4];
     [queen1 setColor:1];
     [queen1 setBoard:board];
     [queens addObject:queen1];
     Queen * queen2 = [[Queen alloc] initWithColor:2];
-    [queen2 setPosition:59];
+    [queen2 setPosition:60];
     [queen2 setColor:2];
     [queen2 setBoard:board];
     [queens addObject:queen2];
@@ -165,12 +165,12 @@ NSMutableArray* getQueens(Board* board) {
 NSMutableArray* getKings(Board* board) {
     NSMutableArray * kings = [[NSMutableArray alloc] initWithCapacity:2];
     King * king1 = [[King alloc] initWithColor:1];
-    [king1 setPosition:4];
+    [king1 setPosition:3];
     [king1 setColor:1];
     [king1 setBoard:board];
     [kings addObject:king1];
     King * king2 = [[King alloc] initWithColor:2];
-    [king2 setPosition:60];
+    [king2 setPosition:59];
     [king2 setColor:2];
     [king2 setBoard:board];
     [kings addObject:king2];

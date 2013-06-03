@@ -27,14 +27,13 @@
     NSLog(@"Pawn: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
 }
 
-BOOL initialPosition(int row) {
+- (BOOL) initialPosition:(int) row {
     return row == 6;
 }
 
-BOOL isEmpty(int position){
+- (BOOL) isEmpty:(int) position{
     
-    //Implement Me
-    return YES;
+    return [[[self board] positions][position] isEqual: [NSNull null]];
 }
 
 
@@ -42,8 +41,9 @@ BOOL isEmpty(int position){
 - (BOOL) move:(int)toPosition {
     
     if([self couldMoveToPosition:toPosition]){
-        [super move:toPosition];
+        return [super move:toPosition];
     }
+    return NO;
 }
 
 -(BOOL) couldMoveToPosition:(int)toPosition{
@@ -59,28 +59,30 @@ BOOL isEmpty(int position){
     int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
     
-    if((endRow - startRow) == 2 && startColumn == endColumn){
-        return initialPosition(startRow);
+    if((startRow - endRow) == 2 && startColumn == endColumn){
+        return [self initialPosition:startRow];
     }else{
-        if((endRow - startRow) == 1 && startColumn == endColumn){
-            return true;
-        }else if((endRow - startRow) == 1 && startColumn - endColumn >= 1 ){
+        if((startRow - endRow) == 1 && startColumn == endColumn && [self isEmpty:toPosition]){
+            return YES;
+        }else if((startRow - endRow) == 1 && startColumn - endColumn == 1 && [self isOponentPiece:toPosition for:2]){
             //right movement
-            return true;
-        }else if((endRow - startRow) == 1 && endColumn - startColumn <= 1){
+            return YES;
+        }else if((startRow - endRow) == 1 && endColumn - startColumn == 1 && [self isOponentPiece:toPosition for:2]){
             //left movement
-            return true;
+            return YES;
         }
     }
+    return NO;
 }
 
 
 - (BOOL) isOponentPiece: (int) position for: (int) myColor{
-    if([self.board positions][position] != [NSNull null] &&
-       [((Piece*)[self.board positions][position]) color]  != myColor){
-        return YES;
+    if(![[self.board positions][position] isEqual:[NSNull null]]){
+        if([((Piece*)[self.board positions][position]) color]  != myColor){
+            return YES;
+        }
     }
-    return NO;
+return NO;
 }
 
 - (NSString*) description{

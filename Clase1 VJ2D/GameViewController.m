@@ -70,7 +70,7 @@
         if (self.startPiece != nil) {
             //This is the target button
             
-            Piece *endPosition = [self.board positions][pieceTag];
+
             NSLog(@"Setting the destintion");
             if([self.startPiece move:pieceTag]){
                 self.startPiece = nil;
