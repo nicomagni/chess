@@ -73,8 +73,8 @@
     NSString * uniqueIdentifier = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
 //    NSString * uniqueIdentifier = [NSString stringWithFormat:@"%d%",rand()];
     NSLog(@"Unique identifier For device %d%",uniqueIdentifier);
-    NSDictionary* connectDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Connect", @"Command", uniqueIdentifier, @"Id", nil];
-    
+//    NSDictionary* connectDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Connect", @"Command", uniqueIdentifier, @"Id", nil];
+    NSDictionary* connectDict = @{@"Command": @"Connect", @"Id":uniqueIdentifier};
     NSError* error = nil;
     NSData* data = [NSJSONSerialization dataWithJSONObject:connectDict options:0 error:&error];
     

@@ -21,7 +21,7 @@
 - (Board*) createNewBoard;
 
 - (void) printBoard;
-- (NSMutableArray*) getBoardDictionary;
+- (NSMutableArray*) getBoardArray;
 
 - (BOOL) lookForChecks;
 

@@ -98,7 +98,7 @@
 }
 
 - (IBAction)confirmButton:(UIButton *)sender {
-   // [self sendBoard];
+    [self sendBoard];
 }
 
 
@@ -109,7 +109,7 @@
     
     NSString* messageId = [messageJSON valueForKey:@"Command"];
     
-    if ([messageId isEqualToString:@"Connected"]) {
+    if ([messageId isEqualToString:@"GameMessage"]) {
  
         NSLog(@"Conected");
     } else if ([messageId isEqualToString:@"StartMatch"]) {
@@ -138,11 +138,14 @@
     
     int theValue = [results intValue];
     NSLog(@"Move %d", theValue);
-    NSMutableArray *boardArray = [self.board getBoardDictionary];
-    NSDictionary* gameDict = [NSDictionary dictionaryWithObjectsAndKeys:boardArray,@"array",1,@"turn",nil];
-    
-    NSDictionary* commandDict = [NSDictionary dictionaryWithObjectsAndKeys:@"GameMessage", @"Command",results,@"MatchId",uniqueIdentifier, @"Id", @"Move",@"MessageType",gameDict,@"Game",nil];
-
+    NSMutableArray *boardArray = [self.board getBoardArray];
+    NSDictionary* gameDict = @{@"turn":[NSNumber numberWithInt:1],@"array":boardArray};
+//    NSMutableDictionary* commandDict = [NSDictionary dictionaryWithObjectsAndKeys:@"GameMessage", @"Command",results,@"MatchId",uniqueIdentifier, @"Id", @"Move",@"MessageType",gameDict,@"Game",nil];
+    NSDictionary* commandDict = @{@"Command": @"GameMessage",
+                                         @"MatchId":results,
+                                         @"Id":uniqueIdentifier,
+                                         @"MessageType":@"Move",
+                                         @"Game":gameDict};
     
     NSError* error = nil;
     NSData* data = [NSJSONSerialization dataWithJSONObject:commandDict options:0 error:&error];

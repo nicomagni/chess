@@ -78,13 +78,16 @@
     return NO;
 }
 
-- (NSMutableArray*) getBoardDictionary{
+- (NSMutableArray*) getBoardArray{
     NSMutableArray* piecesArray = [[NSMutableArray alloc] initWithCapacity:64];
     for(int i = 0; i< 64; i++){
         Piece *piece = self.positions[i];
         if(![piece isEqual:[NSNull null]]){
             NSNumber *type = [[NSNumber alloc] initWithInt:piece.type];
-            [piecesArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:type ,@"type", piece.color == 0, @"color", nil]];
+            [piecesArray addObject:@{@"type":type , @"white": [NSNumber numberWithInt:piece.color]}];
+           // [piecesArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:type ,@"type", piece.color == 0, @"color", nil]];
+        }else{
+            [piecesArray addObject:[NSNull null]];
         }
     }
 
