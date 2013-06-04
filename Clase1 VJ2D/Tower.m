@@ -64,6 +64,67 @@
     return (self.color == 1 ? @"Black-Tower " : @"White-Tower");
 }
 
+- (NSMutableArray *) canEat:(Board *)board{
+    NSMutableArray * positions = [[NSMutableArray alloc] init];
+    [self addPositionsFromRowTo: positions at: self.position/8];
+    [self addPositionsFromColTo: positions at: self.position%8];
+    return positions;
+}
+
+- (void) addPositionsFromRowTo: (NSMutableArray*) positions at:(int) position{
+    for(int i = position + 1; i < 8 ; ++i){
+        if([[self.board positions][(position*8)+i] isEqual:[NSNull null]]){
+            [positions addObject:[NSNumber numberWithInt:i]];
+        }else if(((Tower*)([self.board positions][(position*8)+i])).color != 2){
+            //Oposite Pice found, could be eaten and position should be added. No more positions to look in row
+            i = 8;
+            [positions addObject:[NSNumber numberWithInt:i]];
+        }else{
+            //My Pice found, no more positions to look
+            i = 8;
+        }
+    }
+    for(int i = position - 1; i > 0 ; --i){
+        if([[self.board positions][(position*8)+i] isEqual:[NSNull null]]){
+            [positions addObject:[NSNumber numberWithInt:i]];
+        }else if(((Tower*)([self.board positions][(position*8)+i])).color != 2){
+            //Oposite Pice found, could be eaten and position should be added. No more positions to look in row
+            i = 8;
+            [positions addObject:[NSNumber numberWithInt:i]];
+        }else{
+            //My Pice found, no more positions to look
+            i = 8;
+        }
+    }
+}
+
+- (void) addPositionsFromColTo: (NSMutableArray*) positions at:(int) position{
+    for(int i = position + 1; i < 8 ; ++i){
+        if([[self.board positions][(i*8)+position] isEqual:[NSNull null]]){
+            [positions addObject:[NSNumber numberWithInt:i]];
+        }else if(((Tower*)([self.board positions][(position*8)+i])).color != 2){
+            //Oposite Pice found, could be eaten and position should be added. No more positions to look in row
+            i = 8;
+            [positions addObject:[NSNumber numberWithInt:i]];
+        }else{
+            //My Pice found, no more positions to look
+            i = 8;
+        }
+    }
+    for(int i = position - 1; i > 0 ; --i){
+        if([[self.board positions][(i*8)+position] isEqual:[NSNull null]]){
+            [positions addObject:[NSNumber numberWithInt:i]];
+        }else if(((Tower*)([self.board positions][(position*8)+i])).color != 2){
+            //Oposite Pice found, could be eaten and position should be added. No more positions to look in row
+            i = 8;
+            [positions addObject:[NSNumber numberWithInt:i]];
+        }else{
+            //My Pice found, no more positions to look
+            i = 8;
+        }
+    }
+}
+
 - (BOOL) isRowEmpty:(int)row from: (int)actualCol to: (int) newCol{
     if(actualCol > newCol){
         int aux = actualCol;

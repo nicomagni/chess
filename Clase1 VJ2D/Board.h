@@ -14,13 +14,15 @@
 
 @property (nonatomic) NSMutableSet* pieces;
 @property (nonatomic) NSMutableArray *positions;
-@property (nonatomic) BOOL check;
-@property (nonatomic) BOOL checkmate;
+@property (nonatomic) int check;        // 0 no, 1 black, 2 white
+@property (nonatomic) int checkmate;    // 0 no, 1 black, 2 white
 
 
 - (Board*) createNewBoard;
 
 - (void) printBoard;
 - (NSMutableArray*) getBoardDictionary;
+
+- (BOOL) lookForChecks;
 
 @end

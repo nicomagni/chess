@@ -30,6 +30,7 @@
     [self.board positions][self.position] = [NSNull null];
     self.position = toPosition;
     [self.board positions][toPosition] = self;
+    [self.board lookForChecks];
 
     return YES;
 }
@@ -45,6 +46,12 @@
         return isValid && [startPiece color] != [endPiece color];
     }
     
+}
+
+- (Piece *) copyPiece{
+    Piece * piece = [[Piece alloc] initWithColor:self.color];
+    [piece setPosition:self.position];
+    return piece;
 }
 
 - (id) initWithColor:(int)color

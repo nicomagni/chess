@@ -10,7 +10,5 @@
 
 @interface Pawn : Piece
 
-BOOL initialPosition (int position);
-
 @end
 

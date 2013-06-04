@@ -39,8 +39,8 @@
     for (Piece *piece in _pieces) {
         _positions[[piece position]] = piece;
     }
-    [self setCheck:NO];
-    [self setCheckmate:NO];
+    [self setCheck:0];
+    [self setCheckmate:0];
     
     return self;
 }
@@ -55,6 +55,27 @@
         NSLog(@"| %@ | %@ | %@ | %@ | %@ | %@ | %@ | %@ |",_positions[i],_positions[i + 1],_positions[i + 2],_positions[i + 3],_positions[i + 4],_positions[i + 5],_positions[i + 6],_positions[i + 7]);
     }
         
+}
+
+- (Board*) copyBoard{
+    Board * newBoard = [[Board alloc] init];
+    for (Piece * piece in self.pieces) {
+        Piece * auxPiece = [piece copy];
+        [auxPiece setBoard:newBoard];
+        [newBoard.pieces addObject:auxPiece];
+    }
+    for (Piece *piece in newBoard.pieces) {
+        newBoard.positions[piece.position] = piece;
+    }
+    [self setCheck:0];
+    [self setCheckmate:0];
+
+    return newBoard;
+}
+
+- (BOOL) lookForChecks{
+    //TODO:
+    return NO;
 }
 
 - (NSMutableArray*) getBoardDictionary{
