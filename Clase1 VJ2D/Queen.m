@@ -36,8 +36,9 @@
 - (BOOL)move:(int)toPosition
 {
     if([self couldMoveToPosition:toPosition]){
-        [super move:toPosition];
+       return [super move:toPosition];
     }
+    return NO;
 }
 
 - (BOOL)couldMoveToPosition:(int)toPosition{
@@ -45,11 +46,17 @@
         return NO;
     }
     Bishop * bishop = [[Bishop alloc] initWithColor:self.color];
-    bishop.position = self.position;
+    [bishop setPosition: self.position];
+    [bishop setBoard: self.board];
     Tower * tower = [[Tower alloc] initWithColor:self.color];
-    tower.position = self.position;
+    [tower setPosition: self.position ];
+    [tower setBoard: self.board];
 
-    return [bishop couldMoveToPosition:toPosition] || [tower couldMoveToPosition:toPosition];
+    //return [bishop couldMoveToPosition:toPosition] || [tower couldMoveToPosition:toPosition];
+    BOOL towerType = [tower couldMoveToPosition:toPosition];
+    BOOL bishopType = [bishop couldMoveToPosition:toPosition];
+
+    return towerType || bishopType;
     
 }
 

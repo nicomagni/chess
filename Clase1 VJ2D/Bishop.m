@@ -34,8 +34,9 @@
 - (BOOL)move:(int)toPosition
 {
     if([self couldMoveToPosition:toPosition]){
-        [super move:toPosition];
+        return [super move:toPosition];
     }
+    return NO;
 }
 
 - (BOOL)couldMoveToPosition:(int)toPosition{

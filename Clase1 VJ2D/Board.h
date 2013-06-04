@@ -14,6 +14,9 @@
 
 @property (nonatomic) NSMutableSet* pieces;
 @property (nonatomic) NSMutableArray *positions;
+@property (nonatomic) BOOL check;
+@property (nonatomic) BOOL checkmate;
+
 
 - (Board*) createNewBoard;
 
