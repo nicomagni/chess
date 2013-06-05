@@ -29,7 +29,15 @@
 
 - (BOOL) move:(int)toPosition{
     
-    if(![super couldMoveToPosition:toPosition]){
+    if([self couldMoveToPosition:toPosition checkingCheck:YES]){
+        return [super move:toPosition];
+    }
+    return NO;
+}
+
+- (BOOL) couldMoveToPosition:(int)toPosition checkingCheck:(BOOL)checkCheck{
+    
+    if(![super couldMoveToPosition:toPosition checkingCheck:checkCheck]){
         return NO;
     }
     
@@ -62,6 +70,12 @@
 
 - (NSString*) description{
     return (self.color == 1 ? @"Black-Tower " : @"White-Tower");
+}
+
+- (Tower *) copyPiece{
+    Tower * piece = [[Tower alloc] initWithColor:self.color];
+    [piece setPosition:self.position];
+    return piece;
 }
 
 - (NSMutableArray *) canEat:(Board *)board{

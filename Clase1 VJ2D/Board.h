@@ -21,8 +21,11 @@
 - (Board*) createNewBoard;
 
 - (void) printBoard;
+
 - (NSMutableArray*) getBoardArray;
 
-- (BOOL) lookForChecks;
+- (Board *) copyBoard;
+
+- (BOOL) lookForChecks: (int) color;
 
 @end
