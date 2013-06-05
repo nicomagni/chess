@@ -66,7 +66,7 @@
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
     
     if((startRow - endRow) == (2 * move) && startColumn == endColumn && [self isEmpty:toPosition]){
-            return [self initialPosition:startRow player: self.color];
+            return [self initialPosition:startRow player: self.color] && [self validateCheck: self.color piece: self.position to: toPosition];
     }else{
         if((startRow - endRow) == (1 * move) && startColumn == endColumn && [self isEmpty:toPosition]){
             return [self validateCheck:self.color piece: self.position to: toPosition];
@@ -119,6 +119,7 @@ return NO;
             return NO;
         }
     }
+    return YES;
 }
 
 - (NSString*) description{
