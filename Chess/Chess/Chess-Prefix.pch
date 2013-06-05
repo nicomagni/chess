@@ -12,3 +12,10 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define kPawn 0
+#define kKnight 1
+#define kBishop 2
+#define kTower 3
+#define kQueen 4
+#define kKing 5

@@ -109,12 +109,10 @@
     
     NSString* messageId = [messageJSON valueForKey:@"Command"];
     
-    if ([messageId isEqualToString:@"GameMessage"]) {
- 
-        NSLog(@"Conected");
-    } else if ([messageId isEqualToString:@"StartMatch"]) {
-        NSLog(@"Start match");
- 
+    if ([messageId isEqualToString:@"Move"]) {
+        NSLog(@"Move");
+        NSArray *boardArray = [messageJSON objectForKey:@"Game"];
+        Board* boardFromServer = [[Board alloc] initWithArray:boardArray];
     }
 }
 

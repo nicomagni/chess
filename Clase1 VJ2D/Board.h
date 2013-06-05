@@ -24,5 +24,6 @@
 - (NSMutableArray*) getBoardArray;
 
 - (BOOL) lookForChecks;
+- (id) initWithArray:(NSArray*)boardArray;
 
 @end

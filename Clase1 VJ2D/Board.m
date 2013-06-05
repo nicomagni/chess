@@ -29,6 +29,44 @@
     return self;
 }
 
+- (id) initWithArray:(NSArray*)boardArray{
+     if(self = [super init]){
+         _pieces = [[NSMutableSet alloc] initWithCapacity:32];
+         _positions = [[NSMutableArray alloc] initWithCapacity:64];
+         for (int i = 0; i < 64; i++) {
+             if([boardArray[i] isEqual:[NSNull null]]){
+                 [_positions addObject:[NSNull null]];
+             }else{
+                 int type = [[boardArray[i] objectForKey:@"type"] intValue];
+                 int color = [[boardArray[i] objectForKey:@"color"] intValue];
+                 Piece* currentPiece = [self getPieceFromType:type andColor:color];
+                 [currentPiece setPosition:i];
+                 [_positions addObject:currentPiece];
+             }
+         }
+
+     }
+    return self;
+}
+
+- (Piece*) getPieceFromType:(int)type andColor:(int)color{
+    switch (type) {
+        case kPawn:
+            return [[Pawn alloc] initWithColor:color];
+        case kBishop:
+            return [[Bishop alloc] initWithColor:color];
+        case kKing:
+            return [[King alloc] initWithColor:color];
+        case kTower:
+            return [[Tower alloc] initWithColor:color];
+        case kQueen:
+            return [[Queen alloc] initWithColor:color];
+        case kKnight:
+            return [[Knight alloc] initWithColor:color];
+
+    }
+}
+
 - (Board*) createNewBoard{
     [_pieces addObjectsFromArray:(getPawns(self))];
     [_pieces addObjectsFromArray:(getTowers(self))];
