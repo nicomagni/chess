@@ -19,7 +19,7 @@
     }else{
         self.imageResourceName = @"white_tower.png";
     }
-    self.type = 3;
+    self.type = kTower;
     return self;
 }
 

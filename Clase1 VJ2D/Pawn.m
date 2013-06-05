@@ -19,7 +19,7 @@
     }else{
         self.imageResourceName = @"white_pawn.png";
     }
-    self.type = 0;
+    self.type = kPawn;
     return self;
 }
 

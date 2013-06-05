@@ -27,5 +27,6 @@
 - (Board *) copyBoard;
 
 - (BOOL) lookForChecks: (int) color;
+- (id) initWithArray:(NSArray*)boardArray;
 
 @end
