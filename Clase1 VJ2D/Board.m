@@ -102,15 +102,15 @@
 - (Board*) copyBoard{
     Board * newBoard = [[Board alloc] init];
     for (Piece * piece in self.pieces) {
-        Piece * auxPiece = [piece copy];
+        Piece * auxPiece = [piece copyPiece];
         [auxPiece setBoard:newBoard];
         [newBoard.pieces addObject:auxPiece];
     }
     for (Piece *piece in newBoard.pieces) {
         newBoard.positions[piece.position] = piece;
     }
-    [self setCheck:0];
-    [self setCheckmate:0];
+    [newBoard setCheck:0];
+    [newBoard setCheckmate:0];
 
     return newBoard;
 }
@@ -126,9 +126,13 @@
     }
 }
 
-- (BOOL) lookForChecks{
-    //TODO:
-    return NO;
+- (BOOL) lookForChecks: (int) color{
+    NSMutableSet* positions = [[NSMutableSet alloc] init];
+    for (Piece * piece in self.pieces) {
+        if(piece.color == color){
+            [positions addObjectsFromArray:[piece canEat]];
+        }
+    }
 }
 
 - (NSMutableArray*) getBoardArray{

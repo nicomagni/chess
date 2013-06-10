@@ -30,12 +30,12 @@
     [self.board positions][self.position] = [NSNull null];
     self.position = toPosition;
     [self.board positions][toPosition] = self;
-    [self.board lookForChecks];
+    [self.board lookForChecks: self.color];
 
     return YES;
 }
 
-- (BOOL)couldMoveToPosition:(int)position{
+- (BOOL)couldMoveToPosition:(int)position checkingCheck:(BOOL) checkCheck{
     Piece * endPiece = [self.board positions][position];
     Piece * startPiece = [self.board positions][self.position];
     BOOL isValid = position >= 0 || position <= 63 || self.position != position;
@@ -49,9 +49,12 @@
 }
 
 - (Piece *) copyPiece{
-    Piece * piece = [[Piece alloc] initWithColor:self.color];
-    [piece setPosition:self.position];
-    return piece;
+    NSAssert(NO, @"You must implement me!");
+    return Nil;
+}
+
+-(NSMutableArray *)canEat{
+    return [NSMutableArray array];
 }
 
 - (id) initWithColor:(int)color

@@ -29,7 +29,7 @@
 
 - (BOOL)move:(int)toPosition
 {
-    if([self couldMoveToPosition:toPosition]){
+    if([self couldMoveToPosition:toPosition checkingCheck:YES]){
         return [super move:toPosition];
     }
     return NO;
@@ -39,9 +39,15 @@
     return (self.color == 0 ? @"Black-Knight" : @"White-Knight");
 }
 
-- (BOOL)couldMoveToPosition:(int)toPosition{
+- (Knight *) copyPiece{
+    Knight * piece = [[Knight alloc] initWithColor:self.color];
+    [piece setPosition:self.position];
+    return piece;
+}
+
+- (BOOL)couldMoveToPosition:(int)toPosition checkingCheck:(BOOL)checkCheck{
     
-    if(![super couldMoveToPosition:toPosition]){
+    if(![super couldMoveToPosition:toPosition checkingCheck:checkCheck]){
         return NO;
     }
     

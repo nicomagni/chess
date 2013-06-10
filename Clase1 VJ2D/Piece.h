@@ -23,9 +23,11 @@
 
 - (BOOL) move :(int)toPosition;
 
-- (BOOL) couldMoveToPosition:(int)position;
+- (BOOL) couldMoveToPosition:(int)position checkingCheck:(BOOL) checkCheck;
 
-- (NSMutableArray*) canEat: (Board*) board;
+- (NSMutableArray*) canEat;
+
+- (Piece *) copyPiece;
 
 - (id) initWithColor:(int)color;
 @end

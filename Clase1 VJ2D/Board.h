@@ -21,9 +21,12 @@
 - (Board*) createNewBoardMyColoris:(int)myColor;
 
 - (void) printBoard;
+
 - (NSMutableArray*) getBoardArray;
 
-- (BOOL) lookForChecks;
+- (Board *) copyBoard;
+
+- (BOOL) lookForChecks: (int) color;
 - (id) initWithArray:(NSArray*)boardArray;
 - (void) rotateBoard;
 

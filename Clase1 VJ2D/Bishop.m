@@ -31,17 +31,23 @@
     return (self.color == 0 ? @"Black-Bishop" : @"White-Bishop");
 }
 
+- (Bishop *) copyPiece{
+    Bishop * piece = [[Bishop alloc] initWithColor:self.color];
+    [piece setPosition:self.position];
+    return piece;
+}
+
 - (BOOL)move:(int)toPosition
 {
-    if([self couldMoveToPosition:toPosition]){
+    if([self couldMoveToPosition:toPosition checkingCheck:YES]){
         return [super move:toPosition];
     }
     return NO;
 }
 
-- (BOOL)couldMoveToPosition:(int)toPosition{
+- (BOOL)couldMoveToPosition:(int)toPosition checkingCheck:(BOOL)checkCheck{
     
-    if(![super couldMoveToPosition:toPosition]){
+    if(![super couldMoveToPosition:toPosition checkingCheck:checkCheck]){
         return NO;
     }
     

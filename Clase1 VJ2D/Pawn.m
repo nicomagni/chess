@@ -41,19 +41,23 @@
     return [[[self board] positions][position] isEqual: [NSNull null]];
 }
 
-
+- (Pawn *) copyPiece{
+    Pawn * piece = [[Pawn alloc] initWithColor:self.color];
+    [piece setPosition:self.position];
+    return piece;
+}
 
 - (BOOL) move:(int)toPosition {
     
-    if([self couldMoveToPosition:toPosition]){
+    if([self couldMoveToPosition:toPosition checkingCheck:YES]){
         return [super move:toPosition];
     }
     return NO;
 }
 
--(BOOL) couldMoveToPosition:(int)toPosition{
+-(BOOL) couldMoveToPosition:(int)toPosition checkingCheck:(BOOL) checkCheck{
     
-    if(![super couldMoveToPosition:toPosition]){
+    if(![super couldMoveToPosition:toPosition checkingCheck:YES]){
         return NO;
     }
     
@@ -66,14 +70,33 @@
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
     
     if((startRow - endRow) == (2 * move) && startColumn == endColumn && [self isEmpty:toPosition]){
-            return [self initialPosition:startRow player: self.color] && [self validateCheck: self.color piece: self.position to: toPosition];
+        BOOL initPos = [self initialPosition:startRow player: self.color];
+        if(checkCheck){
+            return initPos && [self validateCheck: self.color piece: self.position to: toPosition];
+        }else{
+            return initPos;
+        }
+
     }else{
         if((startRow - endRow) == (1 * move) && startColumn == endColumn && [self isEmpty:toPosition]){
-            return [self validateCheck:self.color piece: self.position to: toPosition];
+            if(checkCheck){
+                return [self validateCheck:self.color piece: self.position to: toPosition];
+            }else{
+                return YES;
+            }
+
         }else if((startRow - endRow) == (1 * move) && startColumn - endColumn == (1 * move) && [self isOponentPiece:toPosition for:self.color]){
-            return [self validateCheck: self.color piece: self.position to: toPosition];
+            if(checkCheck){
+                return [self validateCheck:self.color piece: self.position to: toPosition];
+            }else{
+                return YES;
+            }
         }else if((startRow - endRow) == (1 * move) && endColumn - startColumn == (1 * move) && [self isOponentPiece:toPosition for:self.color]){
-            return [self validateCheck: self.color piece: self.position to: toPosition];
+            if(checkCheck){
+                return [self validateCheck:self.color piece: self.position to: toPosition];
+            }else{
+                return YES;
+            }
         }
     }
     return NO;
@@ -89,21 +112,21 @@
 return NO;
 }
 
--(NSMutableArray *)canEat:(Board *)board{
-    NSMutableArray * positions = [[NSMutableArray alloc] initWithCapacity:4];
+-(NSMutableArray *)canEat{
+    NSMutableArray * positions = [[NSMutableArray alloc] init];
 
     int move = self.color == 1? -1 : 1;
     
-    if( [self couldMoveToPosition:(self.position - (7 * move))]){
+    if( [self couldMoveToPosition:(self.position - (7 * move)) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position - (7 * move))]];
     }
-    if( [self couldMoveToPosition:(self.position - (8 * move))]){
+    if( [self couldMoveToPosition:(self.position - (8 * move)) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position - (8 * move))]];
     }
-    if( [self couldMoveToPosition:(self.position - (9 * move))]){
+    if( [self couldMoveToPosition:(self.position - (9 * move)) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position - (9 * move))]];
     }
-    if( [self couldMoveToPosition:(self.position - (2 * 8 * move))]){
+    if( [self couldMoveToPosition:(self.position - (2 * 8 * move)) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position - (2 * 8 * move))]];
     }
 
@@ -112,15 +135,22 @@ return NO;
 
 - (BOOL) validateCheck: (int) color piece: (int) position to: (int) toPosition{
     // Looks if my King is checked and validates that my move removes it.
-    if(color == self.board.check){
-        Board * auxBoard = [self.board copy];
-        [auxBoard.positions[position] move:toPosition];
-        if(auxBoard.check == color || auxBoard.checkmate == color){
-            return NO;
-        }
+    
+    Board * auxBoard = [self.board copyBoard];
+    Piece * piece = auxBoard.positions[position];
+    
+    [auxBoard positions][position] = [NSNull null];
+    piece.position = toPosition;
+    [auxBoard positions][toPosition] = piece;
+    [auxBoard lookForChecks: self.color];
+
+    if(auxBoard.check == color || auxBoard.checkmate == color){
+        return NO;
     }
+
     return YES;
 }
+
 
 - (NSString*) description{
     return (self.color == 0 ? @" Black-Pawn " : @" White-Pawn ");
