@@ -13,8 +13,8 @@
 
 - (id) initWithColor:(int)color {
     self = [super init];
-    if(color == 1){
-            self.color = color;
+    self.color = color;
+    if(color == 0){
         self.imageResourceName = @"black_tower.png";
     }else{
         self.imageResourceName = @"white_tower.png";
@@ -24,7 +24,7 @@
 }
 
 - (void) printPosition{
-    NSLog(@"Tower: %s in (%d,%d)", (self.color == 1 ? "Black" : "White"), (self.position/8),(self.position%8));
+    NSLog(@"Tower: %s in (%d,%d)", (self.color == 0 ? "Black" : "White"), (self.position/8),(self.position%8));
 }
 
 - (BOOL) move:(int)toPosition{
@@ -61,7 +61,7 @@
 }
 
 - (NSString*) description{
-    return (self.color == 1 ? @"Black-Tower " : @"White-Tower");
+    return (self.color == 0 ? @"Black-Tower " : @"White-Tower");
 }
 
 - (NSMutableArray *) canEat:(Board *)board{

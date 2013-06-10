@@ -58,7 +58,7 @@
         NSNumber* matchId = [messageJSON valueForKey:@"MatchId"];
         NSString * uniqueIdentifier = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
         NSNumber* colorNumber = [messageJSON valueForKey:uniqueIdentifier];
-        self.myColor = [colorNumber intValue] + 1;
+        self.myColor = [colorNumber intValue];
         int theValue = [matchId intValue];
         NSLog(@"Conected %d", theValue);
         

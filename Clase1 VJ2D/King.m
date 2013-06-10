@@ -15,7 +15,7 @@
 - (id) initWithColor:(int)color {
     self = [super init];
     self.color = color;
-    if(color == 1){
+    if(color == 0){
         self.imageResourceName = @"black_king.png";
     }else{
         self.imageResourceName = @"white_king.png";
@@ -29,7 +29,7 @@
 }
 
 - (NSString*) description{
-    return (self.color == 1 ? @" Black-King " : @" White-King ");
+    return (self.color == 0 ? @" Black-King " : @" White-King ");
 
 }
 

@@ -16,7 +16,7 @@
 - (id) initWithColor:(int)color {
     self = [super init];
     self.color = color;
-    if(color == 1){
+    if(color == 0){
         self.imageResourceName = @"black_queen.png";
     }else{
         self.imageResourceName = @"white_queen.png";
@@ -30,7 +30,7 @@
 }
 
 - (NSString*) description{
-    return (self.color == 1 ? @"Black-Queen " : @"White-Queen");
+    return (self.color == 0 ? @"Black-Queen " : @"White-Queen");
 }
 
 - (BOOL)move:(int)toPosition

@@ -31,6 +31,7 @@
 
 - (id) initWithArray:(NSArray*)boardArray{
      if(self = [super init]){
+         NSLog(@"Init Array");
          _pieces = [[NSMutableSet alloc] initWithCapacity:32];
          _positions = [[NSMutableArray alloc] initWithCapacity:64];
          for (int i = 0; i < 64; i++) {
@@ -38,10 +39,13 @@
                  [_positions addObject:[NSNull null]];
              }else{
                  int type = [[boardArray[i] objectForKey:@"type"] intValue];
-                 int color = [[boardArray[i] objectForKey:@"color"] intValue];
+                 int color = [[boardArray[i] objectForKey:@"white"] intValue];
                  Piece* currentPiece = [self getPieceFromType:type andColor:color];
                  [currentPiece setPosition:i];
+                 [_pieces addObject:currentPiece];
+                 NSLog(@" color %d, type %d , position %d ", color, type, i);
                  [_positions addObject:currentPiece];
+                 
              }
          }
 
@@ -111,6 +115,17 @@
     return newBoard;
 }
 
+- (void) rotateBoard{
+    int j = 63;
+    NSLog(@"Rotando el tablero.");
+    for(int i = 0; i< 32; i++){
+        Piece *swapPiece = self.positions[i];
+        self.positions[i] = self.positions[j-i];
+        self.positions[j-i] = swapPiece;
+        NSLog(@" origin position %d, destination %d ,cambio %@,por %@", i, j-i, self.positions[i],self.positions[j-i]);
+    }
+}
+
 - (BOOL) lookForChecks{
     //TODO:
     return NO;
@@ -122,7 +137,7 @@
         Piece *piece = self.positions[i];
         if(![piece isEqual:[NSNull null]]){
             NSNumber *type = [[NSNumber alloc] initWithInt:piece.type];
-            [piecesArray addObject:@{@"type":type , @"white": [NSNumber numberWithInt:piece.color]}];
+            [piecesArray addObject:@{@"type":type , @"white": [NSNumber numberWithInt:piece.color % 2]}];
            // [piecesArray addObject:[NSDictionary dictionaryWithObjectsAndKeys:type ,@"type", piece.color == 0, @"color", nil]];
         }else{
             [piecesArray addObject:[NSNull null]];
@@ -144,7 +159,7 @@ NSMutableArray* getPawns(Board* board, int myColor) {
     for (int i = 6 * 8; i < 8 * 7; i ++) {
         Pawn *pawn = [[Pawn alloc] initWithColor:otherColor];
         [pawn setPosition:i];
-        [pawn setColor:2];
+        [pawn setColor:otherColor];
         [pawn setBoard:board];
         [pawns addObject:pawn];
     }
@@ -158,14 +173,14 @@ NSMutableArray* getTowers(Board* board, int myColor) {
     for (int i = 0; i < 8; i = i + 7) {
         Tower* tower = [[Tower alloc] initWithColor:myColor];
         [tower setPosition:i];
-        [tower setColor:1];
+        [tower setColor:myColor];
         [tower setBoard:board];
         [towers addObject:tower];
     }
     for (int i = 56; i < 64; i = i + 7) {
         Tower* tower = [[Tower alloc] initWithColor:otherColor];
         [tower setPosition:i];
-        [tower setColor:2];
+        [tower setColor:otherColor];
         [tower setBoard:board];
         [towers addObject:tower];
     }
@@ -178,14 +193,14 @@ NSMutableArray* getKnights(Board* board, int myColor) {
     for (int i = 1; i < 7; i = i + 5) {
         Knight * knight = [[Knight alloc] initWithColor:myColor];
         [knight setPosition:i];
-        [knight setColor:1];
+        [knight setColor:myColor];
         [knight setBoard:board];
         [knights addObject:knight];
     }
     for (int i = 57; i < 63; i = i + 5) {
         Knight * knight = [[Knight alloc] initWithColor:otherColor];
         [knight setPosition:i];
-        [knight setColor:2];
+        [knight setColor:otherColor];
         [knight setBoard:board];
         [knights addObject:knight];
     }
@@ -198,14 +213,14 @@ NSMutableArray* getBishops(Board* board, int myColor) {
     for (int i = 2; i < 6; i = i + 3) {
         Bishop * bishop = [[Bishop alloc] initWithColor:myColor];
         [bishop setPosition:i];
-        [bishop setColor:1];
+        [bishop setColor:myColor];
         [bishop setBoard:board];
         [bishops addObject:bishop];
     }
     for (int i = 58; i < 62; i = i + 3) {
         Bishop * bishop = [[Bishop alloc] initWithColor:otherColor];
         [bishop setPosition:i];
-        [bishop setColor:2];
+        [bishop setColor:otherColor];
         [bishop setBoard:board];
         [bishops addObject:bishop];
     }
@@ -218,12 +233,12 @@ NSMutableArray* getQueens(Board* board, int myColor) {
     int otherColor = myColor == 1 ? 0:1;
     Queen * queen1 = [[Queen alloc] initWithColor:myColor];
     [queen1 setPosition:4];
-    [queen1 setColor:1];
+    [queen1 setColor:myColor];
     [queen1 setBoard:board];
     [queens addObject:queen1];
     Queen * queen2 = [[Queen alloc] initWithColor:otherColor];
     [queen2 setPosition:60];
-    [queen2 setColor:2];
+    [queen2 setColor:otherColor];
     [queen2 setBoard:board];
     [queens addObject:queen2];
     return queens;
@@ -234,12 +249,12 @@ NSMutableArray* getKings(Board* board, int myColor) {
     int otherColor = myColor == 1 ? 0:1;
     King * king1 = [[King alloc] initWithColor:myColor];
     [king1 setPosition:3];
-    [king1 setColor:1];
+    [king1 setColor:myColor];
     [king1 setBoard:board];
     [kings addObject:king1];
     King * king2 = [[King alloc] initWithColor:otherColor];
     [king2 setPosition:59];
-    [king2 setColor:2];
+    [king2 setColor:otherColor];
     [king2 setBoard:board];
     [kings addObject:king2];
     return kings;

@@ -95,6 +95,8 @@
 }
 
 - (IBAction)confirmButton:(UIButton *)sender {
+    self.confirmationNeeded = NO;
+    [self.confirmButton setEnabled:self.confirmationNeeded];
     [self sendBoard];
 }
 
@@ -111,6 +113,10 @@
         NSArray *boardArray = [messageJSON objectForKey:@"Game"];
         Board* boardFromServer = [[Board alloc] initWithArray:boardArray];
         self.board = boardFromServer;
+        if([self.myColor intValue] != 0){
+            [self.board rotateBoard];
+        }
+        
         [self loadPiecesFromBoard];
         NSNumber *turn = [messageJSON objectForKey:@"turn"];
         self.turn = turn;
@@ -137,10 +143,14 @@
     
     int theValue = [results intValue];
     NSLog(@"Move %d", theValue);
-    NSMutableArray *boardArray = [self.board getBoardArray];
+    NSMutableArray *boardArray;
+    if([self.myColor intValue] != 0){
+        [self.board rotateBoard];
+    }
+    boardArray = [self.board getBoardArray];
     int nextTurn = [self.turn intValue];
     NSDictionary* gameDict = @{@"turn":[NSNumber numberWithInt:++nextTurn],@"array":boardArray};
-//    NSMutableDictionary* commandDict = [NSDictionary dictionaryWithObjectsAndKeys:@"GameMessage", @"Command",results,@"MatchId",uniqueIdentifier, @"Id", @"Move",@"MessageType",gameDict,@"Game",nil];
+
     NSDictionary* commandDict = @{@"Command": @"GameMessage",
                                          @"MatchId":results,
                                          @"Id":uniqueIdentifier,

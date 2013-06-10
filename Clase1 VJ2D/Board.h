@@ -25,6 +25,6 @@
 
 - (BOOL) lookForChecks;
 - (id) initWithArray:(NSArray*)boardArray;
-
+- (void) rotateBoard;
 
 @end
