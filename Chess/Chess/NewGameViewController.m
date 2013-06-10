@@ -9,6 +9,7 @@
 #import "NewGameViewController.h"
 #import <GameKit/GameKit.h>
 #import "AppDelegate.h"
+#import "GameViewController.h"
 #import "UIDevice+IdentifierAddition.h"
 
 @interface NewGameViewController ()
@@ -55,6 +56,9 @@
         
         NSLog(@"Start match");
         NSNumber* matchId = [messageJSON valueForKey:@"MatchId"];
+        NSString * uniqueIdentifier = [[UIDevice currentDevice] uniqueGlobalDeviceIdentifier];
+        NSNumber* colorNumber = [messageJSON valueForKey:uniqueIdentifier];
+        self.myColor = [colorNumber intValue] + 1;
         int theValue = [matchId intValue];
         NSLog(@"Conected %d", theValue);
         
@@ -99,4 +103,18 @@
     
     [socket send:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
 }
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    /*
+     When a row is selected, the segue creates the detail view controller as the destination.
+     Set the detail view controller's detail item to the item associated with the selected row.
+     */
+    if ([[segue identifier] isEqualToString:@"GOTO_GAME"]) {
+        GameViewController *gameViewController = [segue destinationViewController];
+        gameViewController.myColor = [NSNumber numberWithInt:self.myColor];
+        
+    }
+}
+
 @end

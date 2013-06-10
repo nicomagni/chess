@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "GameViewController.h"
 
 @interface NewGameViewController : ViewController
 
 - (IBAction)confirmationButton:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *confirmationButton;
+@property (nonatomic) int myColor;
 
 @end

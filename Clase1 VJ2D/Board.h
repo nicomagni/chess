@@ -18,12 +18,13 @@
 @property (nonatomic) int checkmate;    // 0 no, 1 black, 2 white
 
 
-- (Board*) createNewBoard;
+- (Board*) createNewBoardMyColoris:(int)myColor;
 
 - (void) printBoard;
 - (NSMutableArray*) getBoardArray;
 
 - (BOOL) lookForChecks;
 - (id) initWithArray:(NSArray*)boardArray;
+
 
 @end

@@ -33,7 +33,7 @@
     
     [super viewDidLoad];
     Board * board= [[Board alloc] init];
-    self.board = [board createNewBoard];
+    self.board = [board createNewBoardMyColoris:[self.myColor intValue]];
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
     [self.confirmButton setTitle:@"Su Turno" forState:UIControlStateDisabled];
@@ -65,20 +65,17 @@
 
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
     int pieceTag = [sender tag] - 100;
-
-    if(!self.confirmationNeeded){
+//    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
+    BOOL myTurn = true;
+    if(!self.confirmationNeeded && myTurn){
         if (self.startPiece != nil) {
             //This is the target button
-            
 
             NSLog(@"Setting the destintion");
-            if([self.startPiece move:pieceTag]){
-                self.startPiece = nil;
-                self.confirmationNeeded = NO;
-
-            }else{
-                self.startPiece = nil;
-            }
+    
+            self.confirmationNeeded = [self.startPiece move:pieceTag];
+            self.startPiece = nil;
+            
             [self loadPiecesFromBoard];
             
         }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]]){
@@ -109,10 +106,14 @@
     
     NSString* messageId = [messageJSON valueForKey:@"Command"];
     
-    if ([messageId isEqualToString:@"Move"]) {
-        NSLog(@"Move");
+    if ([messageId isEqualToString:@"Moved"]) {
+        NSLog(@"Moved");
         NSArray *boardArray = [messageJSON objectForKey:@"Game"];
         Board* boardFromServer = [[Board alloc] initWithArray:boardArray];
+        self.board = boardFromServer;
+        [self loadPiecesFromBoard];
+        NSNumber *turn = [messageJSON objectForKey:@"turn"];
+        self.turn = turn;
     }
 }
 
@@ -137,7 +138,8 @@
     int theValue = [results intValue];
     NSLog(@"Move %d", theValue);
     NSMutableArray *boardArray = [self.board getBoardArray];
-    NSDictionary* gameDict = @{@"turn":[NSNumber numberWithInt:1],@"array":boardArray};
+    int nextTurn = [self.turn intValue];
+    NSDictionary* gameDict = @{@"turn":[NSNumber numberWithInt:++nextTurn],@"array":boardArray};
 //    NSMutableDictionary* commandDict = [NSDictionary dictionaryWithObjectsAndKeys:@"GameMessage", @"Command",results,@"MatchId",uniqueIdentifier, @"Id", @"Move",@"MessageType",gameDict,@"Game",nil];
     NSDictionary* commandDict = @{@"Command": @"GameMessage",
                                          @"MatchId":results,
@@ -150,7 +152,6 @@
     
     [socket send:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
 }
-
 
 
 @end
