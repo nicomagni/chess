@@ -90,6 +90,7 @@
 		A7F0F4AD1711D49600A1F406 /* chess_board.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F4AC1711D49600A1F406 /* chess_board.png */; };
 		A7F0F4B01711DFE300A1F406 /* black_pawn.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F4AE1711DFE300A1F406 /* black_pawn.png */; };
 		A7F0F4B11711DFE300A1F406 /* white_pawn.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F0F4AF1711DFE300A1F406 /* white_pawn.png */; };
+		A7FD4D871767DAF800EE3846 /* SinglePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FD4D861767DAF800EE3846 /* SinglePlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +221,8 @@
 		A7F0F4AC1711D49600A1F406 /* chess_board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chess_board.png; path = Chess/chess_board.png; sourceTree = "<group>"; };
 		A7F0F4AE1711DFE300A1F406 /* black_pawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = black_pawn.png; path = Chess/black_pawn.png; sourceTree = "<group>"; };
 		A7F0F4AF1711DFE300A1F406 /* white_pawn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = white_pawn.png; path = Chess/white_pawn.png; sourceTree = "<group>"; };
+		A7FD4D851767DAF800EE3846 /* SinglePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePlayerViewController.h; sourceTree = "<group>"; };
+		A7FD4D861767DAF800EE3846 /* SinglePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +270,8 @@
 				A7F0F41A1710DE6B00A1F406 /* MenuViewController.m */,
 				A7F0F41C1710DE6B00A1F406 /* GameViewController.h */,
 				A7F0F41D1710DE6B00A1F406 /* GameViewController.m */,
+				A7FD4D851767DAF800EE3846 /* SinglePlayerViewController.h */,
+				A7FD4D861767DAF800EE3846 /* SinglePlayerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 				A7F0F4611711C7F900A1F406 /* NewGameViewController.m in Sources */,
 				A7D24A09171B18C0002BE00C /* NSString+MD5Addition.m in Sources */,
 				A7D24A0C171B191A002BE00C /* UIDevice+IdentifierAddition.m in Sources */,
+				A7FD4D871767DAF800EE3846 /* SinglePlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
