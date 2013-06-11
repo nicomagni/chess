@@ -2153,43 +2153,6 @@
         <image name="2_CampañaSanValentinWassarette4.jpg" width="16" height="16"/>
         <image name="chess_board.png" width="1099" height="1118"/>
     </resources>
-    <classes>
-        <class className="GameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButton:" candidateClass="UIButton"/>
-                <relationship kind="action" name="confirmButton:" candidateClass="UIButton"/>
-                <relationship kind="action" name="pieceSelected:forEvent:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="confirmButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="HomeViewController" superclassName="ViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomeViewController.h"/>
-        </class>
-        <class className="NewGameViewController" superclassName="ViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="confirmationButton:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="confirmationButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SinglePlayerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SinglePlayerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelButton:" candidateClass="UIButton"/>
-                <relationship kind="action" name="confirmButton:" candidateClass="UIButton"/>
-                <relationship kind="action" name="pieceSelected:forEvent:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="confirmButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="newButton:"/>
-                <relationship kind="action" name="newGame:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

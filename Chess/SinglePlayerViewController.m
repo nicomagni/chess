@@ -65,7 +65,7 @@
     int pieceTag = [sender tag] - 100;
     //    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
     BOOL myTurn = true;
-    if(!self.confirmationNeeded && myTurn){
+    if(myTurn){
         if (self.startPiece != nil) {
             //This is the target button
             
@@ -86,7 +86,7 @@
         }
         
     }
-    [self.confirmButton setEnabled:self.confirmationNeeded];
+
 }
 
 - (IBAction)cancelButton:(UIButton *)sender {
