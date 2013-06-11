@@ -28,10 +28,10 @@
 }
 
 - (BOOL) initialPosition:(int) row player:(int) color {
-    if(color == 1){
-        return row == 1;
-    }else if (color == 2){
+    if(color == kWhite){
         return row == 6;
+    }else if (color == kBlack){
+        return row == 1;
     }
     return NO;
 }
@@ -62,7 +62,7 @@
     }
     
     // If pawn is black it should move foward if not backwards
-    int move = self.color == 1 ? -1: 1;
+    int move = self.color == kWhite ? 1: -1;
     int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
     int startRow = [self.mathUtils getRowIndexForPosition:self.position];
     
@@ -115,7 +115,7 @@ return NO;
 -(NSMutableArray *)canEat{
     NSMutableArray * positions = [[NSMutableArray alloc] init];
 
-    int move = self.color == 1? -1 : 1;
+    int move = self.color == kWhite? -1 : 1;
     
     if( [self couldMoveToPosition:(self.position - (7 * move)) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position - (7 * move))]];
@@ -153,7 +153,7 @@ return NO;
 
 
 - (NSString*) description{
-    return (self.color == 0 ? @" Black-Pawn " : @" White-Pawn ");
+    return (self.color == kBlack ? @" Black-Pawn " : @" White-Pawn ");
 }
 
 

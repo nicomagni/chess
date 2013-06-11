@@ -19,3 +19,5 @@
 #define kTower 3
 #define kQueen 4
 #define kKing 5
+#define kWhite 1
+#define kBlack 0
