@@ -61,5 +61,34 @@
 
 
 }
+- (NSMutableArray *)canEat{
+    NSMutableArray * positions = [[NSMutableArray alloc] init];
+    if([self couldMoveToPosition:(self.position - 9) checkingCheck:NO]){
+        [positions addObject:[NSNumber numberWithInt:(self.position - 9 )]];
+    }
+    if([self couldMoveToPosition:(self.position - 8) checkingCheck:NO]){
+        [positions addObject:[NSNumber numberWithInt:(self.position - 8 )]];
+    }
+    if([self couldMoveToPosition:(self.position - 7) checkingCheck:NO]){
+        [positions addObject:[NSNumber numberWithInt:(self.position - 7 )]];
+    }
+    if([self couldMoveToPosition:(self.position - 1) checkingCheck:NO]){
+        [positions addObject:[NSNumber numberWithInt:(self.position - 1 )]];
+    }
+    if([self couldMoveToPosition:(self.position + 1) checkingCheck:NO]){
+        [positions addObject:[NSNumber numberWithInt:(self.position + 1 )]];
+    }
+    if([self couldMoveToPosition:(self.position + 7) checkingCheck:NO]){
+        [positions addObject:[NSNumber numberWithInt:(self.position + 7 )]];
+    }
+    if([self couldMoveToPosition:(self.position + 8) checkingCheck:NO]){
+        [positions addObject:[NSNumber numberWithInt:(self.position + 8 )]];
+    }
+    if([self couldMoveToPosition:(self.position + 9) checkingCheck:NO]){
+        [positions addObject:[NSNumber numberWithInt:(self.position + 9 )]];
+    }
+    
+    return positions;
+}
 
 @end

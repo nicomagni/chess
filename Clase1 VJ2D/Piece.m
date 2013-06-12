@@ -30,7 +30,7 @@
     [self.board positions][self.position] = [NSNull null];
     self.position = toPosition;
     [self.board positions][toPosition] = self;
-    [self.board lookForChecks: self.color];
+    [self.board lookForChecks: (self.color == 0 ? 1: 0)];
 
     return YES;
 }
