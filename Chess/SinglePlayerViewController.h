@@ -17,8 +17,6 @@
 @property (nonatomic,strong) NSNumber *turn;
 @property (nonatomic) BOOL confirmationNeeded;
 
+@property (strong, nonatomic) IBOutlet UILabel *playerTurnLabel;
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event;
-- (IBAction)cancelButton:(UIButton *)sender;
-- (IBAction)confirmButton:(UIButton *)sender;
-@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 @end

@@ -110,11 +110,14 @@
         NSNumber *turn = [messageJSON objectForKey:@"turn"];
         self.turn = turn;
         NSLog(@"Turn Recived %d and my color is %d", [turn intValue], [self.myColor intValue]);
-        if([turn intValue] % 2 == kWhite){
-            self.playerTuenLabel.text = @"Turno del Negro";
-        }else{
-            self.playerTuenLabel.text = @"Turno del Blanco";
-        }
+    }
+}
+
+- (void)loadTurn{
+    if([self.turn intValue] % 2 == kWhite){
+        self.playerTuenLabel.text = @"Turno del Negro";
+    }else{
+        self.playerTuenLabel.text = @"Turno del Blanco";
     }
 }
 

@@ -34,8 +34,8 @@
     self.board = [board createNewBoardMyColoris:[self.myColor intValue]];
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
-    [self.confirmButton setTitle:@"Su Turno" forState:UIControlStateDisabled];
-    [self.confirmButton setTitle:@"Confirmar" forState:UIControlStateNormal];
+    self.turn = 0;
+    [self loadTurn];
 
 }
 
@@ -63,10 +63,10 @@
 
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
     int pieceTag = [sender tag] - 100;
-    //    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
-    BOOL myTurn = true;
-    if(myTurn){
-        if (self.startPiece != nil) {
+//    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
+    BOOL colorTurn = [self.turn intValue] % 2 == kWhite;
+    
+        if (self.startPiece != nil && colorTurn == self.startPiece.color) {
             //This is the target button
             
             NSLog(@"Setting the destintion");
@@ -85,17 +85,16 @@
             self.startPiece = nil;
         }
         
+
+
+}
+
+- (void)loadTurn{
+    if([self.turn intValue] % 2 == kWhite){
+        self.playerTurnLabel.text = @"Turno del Negro";
+    }else{
+        self.playerTurnLabel.text = @"Turno del Blanco";
     }
-
-}
-
-- (IBAction)cancelButton:(UIButton *)sender {
-}
-
-- (IBAction)confirmButton:(UIButton *)sender {
-    self.confirmationNeeded = NO;
-    [self.confirmButton setEnabled:self.confirmationNeeded];
-
 }
 
 @end
