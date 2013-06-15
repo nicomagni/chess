@@ -43,7 +43,7 @@
                  Piece* currentPiece = [self getPieceFromType:type andColor:color];
                  [currentPiece setPosition:i];
                  [_pieces addObject:currentPiece];
-                 NSLog(@" color %d, type %d , position %d ", color, type, i);
+//                 NSLog(@" color %d, type %d , position %d ", color, type, i);
                  [_positions addObject:currentPiece];
                  
              }
@@ -55,18 +55,37 @@
 
 - (Piece*) getPieceFromType:(int)type andColor:(int)color{
     switch (type) {
-        case kPawn:
-            return [[Pawn alloc] initWithColor:color];
-        case kBishop:
-            return [[Bishop alloc] initWithColor:color];
-        case kKing:
-            return [[King alloc] initWithColor:color];
-        case kTower:
-            return [[Tower alloc] initWithColor:color];
-        case kQueen:
-            return [[Queen alloc] initWithColor:color];
-        case kKnight:
-            return [[Knight alloc] initWithColor:color];
+        case kPawn:{
+            Pawn *pawn = [[Pawn alloc] initWithColor:color];
+            [pawn setBoard:self];
+            return pawn;
+        }
+        case kBishop:{
+            Bishop *bishop = [[Bishop alloc] initWithColor:color];
+            [bishop setBoard:self];
+            return bishop;
+        }
+        case kKing:{
+            King *king = [[King alloc] initWithColor:color];
+            [king setBoard:self];
+            return king;
+        }
+        case kTower:{
+            Tower *tower = [[Tower alloc] initWithColor:color];
+            [tower setBoard:self];
+            return tower;
+        }
+        case kQueen:{
+            Queen *queen = [[Queen alloc] initWithColor:color];
+            [queen setBoard:self];
+            return queen;
+        }
+        case kKnight:{
+            Knight *knight = [[Knight alloc] initWithColor:color];
+            [knight setBoard:self];
+            return knight;
+        }
+            
 
     }
 }
@@ -122,7 +141,21 @@
         Piece *swapPiece = self.positions[i];
         self.positions[i] = self.positions[j-i];
         self.positions[j-i] = swapPiece;
-        NSLog(@" origin position %d, destination %d ,cambio %@,por %@", i, j-i, self.positions[i],self.positions[j-i]);
+        if(![self.positions[i] isEqual:[NSNull null]]){
+            [self changePiece:self.positions[i] newPosition:i oldPosition:j-i];
+        }
+        if(![self.positions[j-i] isEqual:[NSNull null]]){
+            [self changePiece:self.positions[j-i] newPosition:j-i oldPosition:i];
+        }
+       // NSLog(@" origin position %d, destination %d ,cambio %@,por %@", i, j-i, self.positions[i],self.positions[j-i]);
+    }
+}
+
+- (void)changePiece:(Piece*)piece newPosition:(int)newPostition oldPosition:(int)oldPosition {
+    for(Piece* currentPiece in self.pieces){
+        if(currentPiece.position == oldPosition){
+            currentPiece.position = newPostition;
+        }
     }
 }
 

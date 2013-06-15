@@ -36,9 +36,8 @@
     self.board = [board createNewBoardMyColoris:[self.myColor intValue]];
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
-    [self.confirmButton setTitle:@"Su Turno" forState:UIControlStateDisabled];
-    [self.confirmButton setTitle:@"Confirmar" forState:UIControlStateNormal];
     [AppDelegate sharedInstance].socket.delegate = self;
+    self.turn = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,18 +64,22 @@
 
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
     int pieceTag = [sender tag] - 100;
-//    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
-    BOOL myTurn = true;
+    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
+    NSLog(@"Turn %d",[[NSNumber numberWithBool:([self.turn intValue] % 2) == [self.myColor intValue]] intValue]);
+//    BOOL myTurn = true;
     if(!self.confirmationNeeded && myTurn){
         if (self.startPiece != nil) {
             //This is the target button
 
             NSLog(@"Setting the destintion");
     
-            self.confirmationNeeded = [self.startPiece move:pieceTag];
+            if([self.startPiece move:pieceTag]){
+                [self sendBoard];
+            }
             self.startPiece = nil;
             
             [self loadPiecesFromBoard];
+            
             
         }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]]){
             
@@ -88,18 +91,7 @@
         }
 
     }
-    [self.confirmButton setEnabled:self.confirmationNeeded];
 }
-
-- (IBAction)cancelButton:(UIButton *)sender {
-}
-
-- (IBAction)confirmButton:(UIButton *)sender {
-    self.confirmationNeeded = NO;
-    [self.confirmButton setEnabled:self.confirmationNeeded];
-    [self sendBoard];
-}
-
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
 {
@@ -113,13 +105,22 @@
         NSArray *boardArray = [messageJSON objectForKey:@"Game"];
         Board* boardFromServer = [[Board alloc] initWithArray:boardArray];
         self.board = boardFromServer;
-        if([self.myColor intValue] != 0){
-            [self.board rotateBoard];
-        }
-        
+        [self rotateBoard];
         [self loadPiecesFromBoard];
         NSNumber *turn = [messageJSON objectForKey:@"turn"];
         self.turn = turn;
+        NSLog(@"Turn Recived %d and my color is %d", [turn intValue], [self.myColor intValue]);
+        if([turn intValue] % 2 == kWhite){
+            self.playerTuenLabel.text = @"Turno del Negro";
+        }else{
+            self.playerTuenLabel.text = @"Turno del Blanco";
+        }
+    }
+}
+
+- (void)rotateBoard{
+    if([self.myColor intValue] == kBlack){
+        [self.board rotateBoard];
     }
 }
 
@@ -144,9 +145,7 @@
     int theValue = [results intValue];
     NSLog(@"Move %d", theValue);
     NSMutableArray *boardArray;
-    if([self.myColor intValue] != 0){
-        [self.board rotateBoard];
-    }
+    [self rotateBoard];
     boardArray = [self.board getBoardArray];
     int nextTurn = [self.turn intValue];
     NSDictionary* gameDict = @{@"turn":[NSNumber numberWithInt:++nextTurn],@"array":boardArray};
