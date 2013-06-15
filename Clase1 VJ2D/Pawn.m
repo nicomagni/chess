@@ -115,7 +115,7 @@ return NO;
 -(NSMutableArray *)canEat{
     NSMutableArray * positions = [[NSMutableArray alloc] init];
 
-    int move = self.color == kWhite? -1 : 1;
+    int move = self.color == kWhite? 1 : -1;
     
     if( [self couldMoveToPosition:(self.position - (7 * move)) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position - (7 * move))]];

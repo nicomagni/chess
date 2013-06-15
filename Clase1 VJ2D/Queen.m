@@ -66,5 +66,20 @@
     
 }
 
+- (NSMutableArray *) canEat:(Board *)board{
+    NSMutableArray * positions = [[NSMutableArray alloc] init];
+    Bishop * bishop = [[Bishop alloc] initWithColor:self.color];
+    [bishop setPosition: self.position];
+    [bishop setBoard: self.board];
+    Tower * tower = [[Tower alloc] initWithColor:self.color];
+    [tower setPosition: self.position ];
+    [tower setBoard: self.board];
+    
+    //return [bishop couldMoveToPosition:toPosition] || [tower couldMoveToPosition:toPosition];
+    [positions addObjectsFromArray:[tower canEat]];
+    [positions addObjectsFromArray:[bishop canEat]];
+    
+    return positions;
+}
 
 @end

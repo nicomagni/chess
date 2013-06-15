@@ -100,8 +100,8 @@
     for (Piece *piece in _pieces) {
         _positions[[piece position]] = piece;
     }
-    [self setCheck:0];
-    [self setCheckmate:0];
+    [self setCheck:-1];
+    [self setCheckmate:-1];
     
     return self;
 }
@@ -128,8 +128,8 @@
     for (Piece *piece in newBoard.pieces) {
         newBoard.positions[piece.position] = piece;
     }
-    [newBoard setCheck:0];
-    [newBoard setCheckmate:0];
+    [newBoard setCheck:-1];
+    [newBoard setCheckmate:-1];
 
     return newBoard;
 }
@@ -161,11 +161,30 @@
 
 - (BOOL) lookForChecks: (int) color{
     NSMutableSet* positions = [[NSMutableSet alloc] init];
+    Piece *myKing;
     for (Piece * piece in self.pieces) {
-        if(piece.color == color){
+        if(piece.color != color){
             [positions addObjectsFromArray:[piece canEat]];
+        }else{
+            if([piece class] == [King class]){
+                myKing = piece;
+            }
         }
     }
+    if([positions containsObject:[NSNumber numberWithInt:myKing.position]]){
+        for (NSNumber* pos in [myKing canEat]) {
+            if(![positions containsObject:[NSNumber numberWithInt:myKing.position]]){
+                self.check = color;
+                self.checkmate = -1;
+                return YES;
+            }
+        }
+        self.check = -1;
+        self.checkmate = color;
+        return YES;
+    }
+    return NO;
+    
 }
 
 - (NSMutableArray*) getBoardArray{

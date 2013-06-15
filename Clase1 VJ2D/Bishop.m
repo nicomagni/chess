@@ -153,4 +153,35 @@
     return NO;
 }
 
+- (NSMutableArray *) canEat:(Board *)board{
+    NSMutableArray * positions = [[NSMutableArray alloc] init];
+    for (int i = 0;i < 7; ++i) {
+        int pos = ((self.position -7) * i);
+        if(pos>0){
+            if([self couldMoveToPosition:pos  checkingCheck:NO]){
+                [positions addObject:[NSNumber numberWithInt:pos]];
+            }
+        }
+        pos = ((self.position -9) * i);
+        if(pos>0){
+            if([self couldMoveToPosition:pos  checkingCheck:NO]){
+                [positions addObject:[NSNumber numberWithInt:pos]];
+            }
+        }
+        pos = ((self.position +7) * i);
+        if(pos< 63){
+            if([self couldMoveToPosition:pos  checkingCheck:NO]){
+                [positions addObject:[NSNumber numberWithInt:pos]];
+            }
+        }
+        pos = ((self.position +9) * i);
+        if(pos< 63){
+            if([self couldMoveToPosition:pos  checkingCheck:NO]){
+                [positions addObject:[NSNumber numberWithInt:pos]];
+            }
+        }
+    }
+    return positions;
+}
+
 @end
