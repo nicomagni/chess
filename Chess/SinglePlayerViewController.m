@@ -28,7 +28,6 @@
 }
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     Board * board= [[Board alloc] init];
     self.board = [board createNewBoardMyColoris:[self.myColor intValue]];
@@ -64,9 +63,9 @@
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
     int pieceTag = [sender tag] - 100;
 //    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
-    BOOL colorTurn = [self.turn intValue] % 2 == kWhite;
+    int colorTurn = [self.turn intValue] % 2;
     
-        if (self.startPiece != nil && colorTurn == self.startPiece.color) {
+        if (self.startPiece != nil) {
             //This is the target button
             
             NSLog(@"Setting the destintion");
@@ -76,7 +75,7 @@
             
             [self loadPiecesFromBoard];
             
-        }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]]){
+        }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]] && colorTurn == self.startPiece.color){
             
             self.startPiece = [self.board positions][pieceTag];
             NSLog(@"Setting the origin");
