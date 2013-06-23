@@ -72,7 +72,7 @@
     if((startRow - endRow) == (2 * move) && startColumn == endColumn && [self isEmpty:toPosition]){
         BOOL initPos = [self initialPosition:startRow player: self.color];
         if(checkCheck){
-            return initPos && [self validateCheck: self.color piece: self.position to: toPosition];
+            return initPos && [super validateCheck: self.color piece: self.position to: toPosition];
         }else{
             return initPos;
         }
@@ -80,20 +80,20 @@
     }else{
         if((startRow - endRow) == (1 * move) && startColumn == endColumn && [self isEmpty:toPosition]){
             if(checkCheck){
-                return [self validateCheck:self.color piece: self.position to: toPosition];
+                return [super validateCheck:self.color piece: self.position to: toPosition];
             }else{
                 return YES;
             }
 
         }else if((startRow - endRow) == (1 * move) && startColumn - endColumn == (1 * move) && [self isOponentPiece:toPosition for:self.color]){
             if(checkCheck){
-                return [self validateCheck:self.color piece: self.position to: toPosition];
+                return [super validateCheck:self.color piece: self.position to: toPosition];
             }else{
                 return YES;
             }
         }else if((startRow - endRow) == (1 * move) && endColumn - startColumn == (1 * move) && [self isOponentPiece:toPosition for:self.color]){
             if(checkCheck){
-                return [self validateCheck:self.color piece: self.position to: toPosition];
+                return [super validateCheck:self.color piece: self.position to: toPosition];
             }else{
                 return YES;
             }
@@ -131,24 +131,6 @@ return NO;
     }
 
     return positions;
-}
-
-- (BOOL) validateCheck: (int) color piece: (int) position to: (int) toPosition{
-    // Looks if my King is checked and validates that my move removes it.
-    
-    Board * auxBoard = [self.board copyBoard];
-    Piece * piece = auxBoard.positions[position];
-    
-    [auxBoard positions][position] = [NSNull null];
-    piece.position = toPosition;
-    [auxBoard positions][toPosition] = piece;
-    [auxBoard lookForChecks: self.color];
-
-    if(auxBoard.check == color || auxBoard.checkmate == color){
-        return NO;
-    }
-
-    return YES;
 }
 
 

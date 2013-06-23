@@ -51,18 +51,20 @@
     if(actualRow == newRow){
         
         if([self isRowEmpty:actualRow from:actualCol to:newCol ]){
-            [self.board positions][self.position] = [NSNull null];
-            [self.board positions][toPosition] = self;
-            self.position = toPosition;
-            return YES;
+            if(checkCheck){
+                return [super validateCheck:self.color piece: self.position to: toPosition];
+            }else{
+                return YES;
+            }
         }
     }else if(actualCol == newCol){
 
         if([self isColEmpty:actualCol from:actualRow to:newRow ]){
-            [self.board positions][self.position] = [NSNull null];
-            [self.board positions][toPosition] = self;
-            self.position = toPosition;
-            return YES;
+            if(checkCheck){
+                return [super validateCheck:self.color piece: self.position to: toPosition];
+            }else{
+                return YES;
+            }
         }
     }
     return NO;
@@ -78,63 +80,71 @@
     return piece;
 }
 
-- (NSMutableArray *) canEat:(Board *)board{
+- (NSMutableArray *) canEat{
     NSMutableArray * positions = [[NSMutableArray alloc] init];
-    [self addPositionsFromRowTo: positions at: self.position/8];
-    [self addPositionsFromColTo: positions at: self.position%8];
+    [self addPositionsFromRowTo: positions];
+    [self addPositionsFromColTo: positions];
     return positions;
 }
 
-- (void) addPositionsFromRowTo: (NSMutableArray*) positions at:(int) position{
-    for(int i = position + 1; i < 8 ; ++i){
-        if([[self.board positions][(position*8)+i] isEqual:[NSNull null]]){
-            [positions addObject:[NSNumber numberWithInt:i]];
-        }else if(((Tower*)([self.board positions][(position*8)+i])).color != 2){
+- (void) addPositionsFromRowTo: (NSMutableArray*)positions{
+
+    int row = [self.mathUtils getRowIndexForPosition:self.position];
+    int col = [self.mathUtils getColumnIndexForPosition:self.position];
+    
+    for(int i = row + 1; i < 8 ; ++i){
+        if([[self.board positions][(i*8)+col] isEqual:[NSNull null]]){
+            [positions addObject:[NSNumber numberWithInt:((i*8)+col)]];
+        }else if(((Tower*)([self.board positions][(i*8)+col])).color != self.color){
             //Oposite Pice found, could be eaten and position should be added. No more positions to look in row
+            [positions addObject:[NSNumber numberWithInt:(i*8)+col]];
             i = 8;
-            [positions addObject:[NSNumber numberWithInt:i]];
         }else{
             //My Pice found, no more positions to look
             i = 8;
         }
     }
-    for(int i = position - 1; i > 0 ; --i){
-        if([[self.board positions][(position*8)+i] isEqual:[NSNull null]]){
-            [positions addObject:[NSNumber numberWithInt:i]];
-        }else if(((Tower*)([self.board positions][(position*8)+i])).color != 2){
+    for(int i = row - 1; i > 0 ; --i){
+        if([[self.board positions][(i*8)+col] isEqual:[NSNull null]]){
+            [positions addObject:[NSNumber numberWithInt:((i*8)+col)]];
+        }else if(((Tower*)([self.board positions][(i*8)+col])).color != self.color){
             //Oposite Pice found, could be eaten and position should be added. No more positions to look in row
-            i = 8;
-            [positions addObject:[NSNumber numberWithInt:i]];
+            [positions addObject:[NSNumber numberWithInt:(i*8)+col]];
+             i = 0;
         }else{
             //My Pice found, no more positions to look
-            i = 8;
+            i = 0;
         }
     }
 }
 
-- (void) addPositionsFromColTo: (NSMutableArray*) positions at:(int) position{
-    for(int i = position + 1; i < 8 ; ++i){
-        if([[self.board positions][(i*8)+position] isEqual:[NSNull null]]){
-            [positions addObject:[NSNumber numberWithInt:i]];
-        }else if(((Tower*)([self.board positions][(position*8)+i])).color != 2){
+- (void) addPositionsFromColTo: (NSMutableArray*)positions{
+    
+    int row = [self.mathUtils getRowIndexForPosition:self.position];
+    int col = [self.mathUtils getColumnIndexForPosition:self.position];
+
+    for(int i = col + 1; i < 8 ; ++i){
+        if([[self.board positions][(row*8)+i] isEqual:[NSNull null]]){
+            [positions addObject:[NSNumber numberWithInt:((row*8)+i)]];
+        }else if(((Tower*)([self.board positions][(row*8)+i])).color != self.color){
             //Oposite Pice found, could be eaten and position should be added. No more positions to look in row
+            [positions addObject:[NSNumber numberWithInt:(row*8)+i]];
             i = 8;
-            [positions addObject:[NSNumber numberWithInt:i]];
         }else{
             //My Pice found, no more positions to look
             i = 8;
         }
     }
-    for(int i = position - 1; i > 0 ; --i){
-        if([[self.board positions][(i*8)+position] isEqual:[NSNull null]]){
-            [positions addObject:[NSNumber numberWithInt:i]];
-        }else if(((Tower*)([self.board positions][(position*8)+i])).color != 2){
+    for(int i = col - 1; i > 0 ; --i){
+        if([[self.board positions][(row*8)+i] isEqual:[NSNull null]]){
+            [positions addObject:[NSNumber numberWithInt:((row*8)+i)]];
+        }else if(((Tower*)([self.board positions][(row*8)+i])).color != self.color){
             //Oposite Pice found, could be eaten and position should be added. No more positions to look in row
-            i = 8;
-            [positions addObject:[NSNumber numberWithInt:i]];
+            [positions addObject:[NSNumber numberWithInt:(row*8)+i]];
+             i = 0;
         }else{
             //My Pice found, no more positions to look
-            i = 8;
+            i = 0;
         }
     }
 }

@@ -33,7 +33,7 @@
     self.board = [board createNewBoardMyColoris:[self.myColor intValue]];
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
-    self.turn = 0;
+    self.turn = [NSNumber numberWithInt:1] ;
     [self loadTurn];
 
 }
@@ -71,13 +71,28 @@
             NSLog(@"Setting the destintion");
             
             self.confirmationNeeded = [self.startPiece move:pieceTag];
-            self.startPiece = nil;
             
             [self loadPiecesFromBoard];
+            if(self.confirmationNeeded){
+                self.turn = ([self.turn isEqual:[NSNumber numberWithInt:0]] ? [NSNumber numberWithInt:1]:[NSNumber numberWithInt:0]);
+                
+                if(self.startPiece.board.check != -1){
+                    [self loadCheck: self.startPiece.board.check];
+                }else if(self.startPiece.board.checkmate != -1){
+                    [self loadCheckmate: self.startPiece.board.checkmate];
+                }else{
+                 [self loadTurn];
+                }
+            }
             
-        }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]] && colorTurn == self.startPiece.color){
+             self.startPiece = nil;
+            
+        }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]]){
             
             self.startPiece = [self.board positions][pieceTag];
+            if(self.startPiece.color != colorTurn){
+                self.startPiece = nil;
+            }
             NSLog(@"Setting the origin");
         }else{
             NSLog(@"Reset the origin");
@@ -90,9 +105,25 @@
 
 - (void)loadTurn{
     if([self.turn intValue] % 2 == kWhite){
-        self.playerTurnLabel.text = @"Turno del Negro";
-    }else{
         self.playerTurnLabel.text = @"Turno del Blanco";
+    }else{
+        self.playerTurnLabel.text = @"Turno del Negro";
+    }
+}
+
+- (void) loadCheck: (int) color{
+    if(color == kWhite){
+        self.playerTurnLabel.text = @"Jaque al Blanco";
+    }else{
+        self.playerTurnLabel.text = @"jaque al Negro";
+    }
+}
+
+- (void) loadCheckmate: (int) color{
+    if(color == kWhite){
+        self.playerTurnLabel.text = @"Jaque Mate al Blanco";
+    }else{
+        self.playerTurnLabel.text = @"Jaque Mate al Negro";
     }
 }
 

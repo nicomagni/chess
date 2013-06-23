@@ -61,12 +61,20 @@
     //return [bishop couldMoveToPosition:toPosition] || [tower couldMoveToPosition:toPosition];
     BOOL towerType = [tower couldMoveToPosition:toPosition checkingCheck:YES];
     BOOL bishopType = [bishop couldMoveToPosition:toPosition checkingCheck:YES];
-
-    return towerType || bishopType;
     
+    BOOL queenMove = towerType || bishopType;
+    
+    if(queenMove){
+        if(checkCheck){
+            return [super validateCheck:self.color piece: self.position to: toPosition];
+        }else{
+            return YES;
+        }
+    }
+    return NO;
 }
 
-- (NSMutableArray *) canEat:(Board *)board{
+- (NSMutableArray *) canEat{
     NSMutableArray * positions = [[NSMutableArray alloc] init];
     Bishop * bishop = [[Bishop alloc] initWithColor:self.color];
     [bishop setPosition: self.position];

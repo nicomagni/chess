@@ -128,8 +128,8 @@
     for (Piece *piece in newBoard.pieces) {
         newBoard.positions[piece.position] = piece;
     }
-    [newBoard setCheck:-1];
-    [newBoard setCheckmate:-1];
+    [newBoard setCheck:self.check];
+    [newBoard setCheckmate:self.checkmate];
 
     return newBoard;
 }
@@ -160,31 +160,100 @@
 }
 
 - (BOOL) lookForChecks: (int) color{
-    NSMutableSet* positions = [[NSMutableSet alloc] init];
+    NSMutableSet* positionsMyColorEats = [[NSMutableSet alloc] init];
+    NSMutableSet* positionsOtherColorEats = [[NSMutableSet alloc] init];
+    Piece* checkerPiece = nil;
+    
     Piece *myKing;
     for (Piece * piece in self.pieces) {
-        if(piece.color != color){
-            [positions addObjectsFromArray:[piece canEat]];
-        }else{
+        if(piece.color == color){
+            [positionsMyColorEats addObjectsFromArray:[piece canEat]];
+        
             if([piece class] == [King class]){
                 myKing = piece;
             }
         }
     }
-    if([positions containsObject:[NSNumber numberWithInt:myKing.position]]){
+    
+    for(Piece * piece in self.pieces){
+        if(piece.color != color){
+            [positionsOtherColorEats addObjectsFromArray:[piece canEat]];
+        }
+        if( checkerPiece == nil && [positionsOtherColorEats containsObject:[NSNumber numberWithInt:myKing.position]]){
+            checkerPiece = piece;
+        }
+    }
+    if(checkerPiece != nil){
+        //Validate if king can move to empty place
         for (NSNumber* pos in [myKing canEat]) {
-            if(![positions containsObject:[NSNumber numberWithInt:myKing.position]]){
+            if(![positionsOtherColorEats containsObject:pos]){
+                if([self.positions[[pos intValue]] isEqual:[NSNull null]]){
+                    //There is an empty place where the king can move and not be eaten
+                    self.check = color;
+                    self.checkmate = -1;
+                    return YES;
+                }
+            }
+        }
+        //Validate if an oponent piece can eat the piece causing the check
+        if([positionsMyColorEats containsObject:[NSNumber numberWithInt:checkerPiece.position]]){
+            if([self notOnly:myKing cantEat:checkerPiece]){
                 self.check = color;
                 self.checkmate = -1;
                 return YES;
+            }else{
+                Board * auxBoard = [self copyBoard];
+                Piece * auxPiece = auxBoard.positions[myKing.position];
+                NSMutableSet* auxPositions = [[NSMutableSet alloc] init];
+                
+                [auxBoard positions][myKing.position] = [NSNull null];
+                auxPiece.position = checkerPiece.position;
+                if(![[auxBoard positions][auxPiece.position] isEqual:[NSNull null]]){
+                    [auxBoard.pieces removeObject:[auxBoard positions][auxPiece.position]];
+                }
+                [auxBoard positions][checkerPiece.position] = auxPiece;
+                
+                
+                for (Piece * piece in auxBoard.pieces) {
+                    if(piece.color != color){
+                        [auxPositions addObjectsFromArray:[piece canEat]];
+                    }
+                    if([auxPositions containsObject:[NSNumber numberWithInt:checkerPiece.position]]){
+                        self.check = -1;
+                        self.checkmate = color;
+                        return YES;
+                    }
+                }
+                
+            }
+        }
+        //Validate if an oponent piece can get in the way of the cecker piece
+        for (NSNumber* pos in [checkerPiece canEat]) {
+            if(![pos isEqual:[NSNumber numberWithInt:myKing.position] ]){
+                if([positionsMyColorEats containsObject:pos]){
+                    self.check = color;
+                    self.checkmate = -1;
+                    return YES;
+                }
             }
         }
         self.check = -1;
         self.checkmate = color;
         return YES;
     }
+    self.check = -1;
+    self.checkmate = -1;
     return NO;
     
+}
+
+- (BOOL) notOnly:(Piece *) king cantEat: (Piece *) checkerPiece{
+    for(Piece * piece in king.board.pieces){
+        if( ![piece isEqual:king] && piece.color == king.color && [[piece canEat] containsObject:[NSNumber numberWithInt:checkerPiece.position]]){
+            return YES;
+        }
+    }
+    return NO;
 }
 
 - (NSMutableArray*) getBoardArray{

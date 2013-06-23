@@ -57,6 +57,13 @@
     ans |= [self lookInRightDiagonalFor:toPosition];
     ans |= [self lookInTopDiagonalFor:toPosition];
     
+    if(ans){
+        if(checkCheck){
+            return [super validateCheck:self.color piece: self.position to: toPosition];
+        }else{
+            return YES;
+        }        
+    }
     return ans;
 
 }
@@ -153,28 +160,28 @@
     return NO;
 }
 
-- (NSMutableArray *) canEat:(Board *)board{
+- (NSMutableArray *) canEat{
     NSMutableArray * positions = [[NSMutableArray alloc] init];
-    for (int i = 0;i < 7; ++i) {
-        int pos = ((self.position -7) * i);
+    for (int i = 1;i < 7; ++i) {
+        int pos = (self.position - 7 * i);
         if(pos>0){
             if([self couldMoveToPosition:pos  checkingCheck:NO]){
                 [positions addObject:[NSNumber numberWithInt:pos]];
             }
         }
-        pos = ((self.position -9) * i);
+        pos = (self.position - 9 * i);
         if(pos>0){
             if([self couldMoveToPosition:pos  checkingCheck:NO]){
                 [positions addObject:[NSNumber numberWithInt:pos]];
             }
         }
-        pos = ((self.position +7) * i);
+        pos = (self.position +7 * i);
         if(pos< 63){
             if([self couldMoveToPosition:pos  checkingCheck:NO]){
                 [positions addObject:[NSNumber numberWithInt:pos]];
             }
         }
-        pos = ((self.position +9) * i);
+        pos = (self.position +9 * i);
         if(pos< 63){
             if([self couldMoveToPosition:pos  checkingCheck:NO]){
                 [positions addObject:[NSNumber numberWithInt:pos]];

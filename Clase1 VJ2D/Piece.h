@@ -25,6 +25,8 @@
 
 - (BOOL) couldMoveToPosition:(int)position checkingCheck:(BOOL) checkCheck;
 
+- (BOOL) validateCheck: (int) color piece: (int) position to: (int) toPosition;
+
 - (NSMutableArray*) canEat;
 
 - (Piece *) copyPiece;

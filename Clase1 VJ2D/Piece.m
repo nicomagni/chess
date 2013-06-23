@@ -27,8 +27,13 @@
 }
 
 - (BOOL) move :(int)toPosition{
+
     [self.board positions][self.position] = [NSNull null];
     self.position = toPosition;
+    //IF i am eating a piece, remove it from pieces
+    if(![[self.board positions][self.position] isEqual:[NSNull null]]){
+        [self.board.pieces removeObject:[self.board positions][self.position]];
+    }
     [self.board positions][toPosition] = self;
     [self.board lookForChecks: (self.color == 0 ? 1: 0)];
 
@@ -50,6 +55,27 @@
         return NO;
     }
     
+}
+
+- (BOOL) validateCheck: (int) color piece: (int) position to: (int) toPosition{
+    // Looks if my King is checked and validates that my move removes it.
+    
+    Board * auxBoard = [self.board copyBoard];
+    Piece * piece = auxBoard.positions[position];
+    
+    [auxBoard positions][position] = [NSNull null];
+    piece.position = toPosition;
+    if(![[auxBoard positions][piece.position] isEqual:[NSNull null]]){
+        [auxBoard.pieces removeObject:[auxBoard positions][piece.position]];
+    }
+    [auxBoard positions][toPosition] = piece;
+    [auxBoard lookForChecks: self.color];
+    
+    if(auxBoard.check == color || auxBoard.checkmate == color){
+        return NO;
+    }
+    
+    return YES;
 }
 
 - (Piece *) copyPiece{

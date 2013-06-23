@@ -57,8 +57,18 @@
     
     int endColumn = [self.mathUtils getColumnIndexForPosition:toPosition];
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
-    return (abs(startColumn - endColumn) <= 1 && abs(startRow - endRow) <= 1);
+    
+    BOOL kingMove = (abs(startColumn - endColumn) <= 1 && abs(startRow - endRow) <= 1);
+    
+    if(kingMove){
+        if(checkCheck){
+            return [super validateCheck:self.color piece: self.position to: toPosition];
+        }else{
+            return YES;
+        }
 
+    }
+    return NO;
 
 }
 - (NSMutableArray *)canEat{
