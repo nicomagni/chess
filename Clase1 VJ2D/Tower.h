@@ -10,4 +10,10 @@
 
 @interface Tower : Piece
 
+@property (nonatomic) BOOL everMoved;
+
+
+- (BOOL) isRowEmpty:(int)row from: (int)actualCol to: (int) newCol;
+- (BOOL) isColEmpty:(int)col from: (int)actualRow to: (int) newRow;
+
 @end

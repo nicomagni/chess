@@ -8,6 +8,7 @@
 
 #import "King.h"
 #import "Board.h"
+#import "Tower.h"
 #import <math.h>
 
 @implementation King : Piece
@@ -15,6 +16,8 @@
 - (id) initWithColor:(int)color {
     self = [super init];
     self.color = color;
+    self.everChecked = NO;
+    self.everMoved = NO;
     if(color == 0){
         self.imageResourceName = @"black_king.png";
     }else{
@@ -40,7 +43,38 @@
 
 - (BOOL)move:(int)toPosition
 {
+    if ([self.board.positions[toPosition] class] == [Tower class]) {
+        if([self canCastle:toPosition]){
+            //Move
+            [self.board positions][self.position] = [NSNull null];
+            Tower * tower = [self.board positions][toPosition];
+            [self.board positions][toPosition] = [NSNull null];
+            int kingRow = self.position/8;
+            if(toPosition%8 == 0){
+                //Move king left
+                self.position = (kingRow * 8 + 2);
+                tower.position = (kingRow * 8 + 3);
+            }else{
+                //Move king right
+                self.position = (kingRow * 8 + 6);
+                tower.position = (kingRow * 8 + 5);
+            }
+            
+            [self.board positions][tower.position] = tower;
+            [self.board positions][self.position] = self;
+            [self.board lookForChecks: (self.color == 0 ? 1: 0)];
+            self.everMoved = YES;
+            tower.everMoved = YES;
+            return YES;
+        }else{
+            if([self couldMoveToPosition:toPosition checkingCheck:YES]){
+                self.everMoved = YES;
+                return [super move:toPosition];
+            }
+        }
+    }
     if([self couldMoveToPosition:toPosition checkingCheck:YES]){
+        self.everMoved = YES;
         return [super move:toPosition];
     }
     return NO;
@@ -71,6 +105,53 @@
     return NO;
 
 }
+
+- (BOOL) canCastle: (int) toPosition{
+    if(self.everChecked || self.everMoved){
+        return NO;
+    }
+    Tower* tower = self.board.positions[toPosition];
+    if(tower.everMoved || tower.color != self.color){
+        return NO;
+    }
+    int towerCol = tower.position%8;
+
+    //Validate there are no pieces between king and tower.
+    if( ![tower isRowEmpty:(self.position/8) from:(self.position%8) to:towerCol]){
+        return NO;
+    }
+
+    NSMutableSet* positionsOtherColorEats = [[NSMutableSet alloc] init];
+    for (Piece * piece in self.board.pieces) {
+        if(piece.color != self.color){
+            [positionsOtherColorEats addObjectsFromArray:[piece canEat]];
+        }
+    }
+
+    int kingRow = self.position/8;
+
+    if(towerCol == 0){
+        for( int i = 1; i < 3; ++i){
+            if([positionsOtherColorEats containsObject:[NSNumber numberWithInt:(kingRow*8+i)]]){
+                return NO;
+            }
+            return YES;
+        }
+    }else if(towerCol == 7){
+        for( int i = 4; i < 7; ++i){
+            if([positionsOtherColorEats containsObject:[NSNumber numberWithInt:(kingRow*8+i)]]){
+                return NO;
+            }
+            return YES;
+        }
+    }else{
+        return NO;
+    }
+
+    return NO;
+
+}
+
 - (NSMutableArray *)canEat{
     NSMutableArray * positions = [[NSMutableArray alloc] init];
     if([self couldMoveToPosition:(self.position - 9) checkingCheck:NO]){

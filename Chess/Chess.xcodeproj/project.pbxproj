@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A505C9F4177A56340034C749 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505C9F3177A56340034C749 /* ViewController.m */; };
+		A505C9F5177A58140034C749 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505C9F3177A56340034C749 /* ViewController.m */; };
 		A72BFDF31714D50800A03D63 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF21714D50800A03D63 /* libicucore.dylib */; };
 		A72BFDF51714D51100A03D63 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF41714D51100A03D63 /* Security.framework */; };
 		A72BFDF71714D51900A03D63 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF61714D51900A03D63 /* CFNetwork.framework */; };
@@ -55,8 +57,6 @@
 		A7F0F4081710DDCB00A1F406 /* ChessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4071710DDCB00A1F406 /* ChessTests.m */; };
 		A7F0F42F1710DE6B00A1F406 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4121710DE6B00A1F406 /* AppDelegate.m */; };
 		A7F0F4301710DE6B00A1F406 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4121710DE6B00A1F406 /* AppDelegate.m */; };
-		A7F0F4311710DE6B00A1F406 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4141710DE6B00A1F406 /* ViewController.m */; };
-		A7F0F4321710DE6B00A1F406 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4141710DE6B00A1F406 /* ViewController.m */; };
 		A7F0F4331710DE6B00A1F406 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4161710DE6B00A1F406 /* Piece.m */; };
 		A7F0F4341710DE6B00A1F406 /* Piece.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4161710DE6B00A1F406 /* Piece.m */; };
 		A7F0F4351710DE6B00A1F406 /* Pawn.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F0F4181710DE6B00A1F406 /* Pawn.m */; };
@@ -132,6 +132,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A505C9F2177A56340034C749 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A505C9F3177A56340034C749 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A72BFDF21714D50800A03D63 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		A72BFDF41714D51100A03D63 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A72BFDF61714D51900A03D63 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -186,8 +188,6 @@
 		A7F0F4071710DDCB00A1F406 /* ChessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChessTests.m; sourceTree = "<group>"; };
 		A7F0F4111710DE6B00A1F406 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "../../Clase1 VJ2D/AppDelegate.h"; sourceTree = "<group>"; };
 		A7F0F4121710DE6B00A1F406 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "../../Clase1 VJ2D/AppDelegate.m"; sourceTree = "<group>"; };
-		A7F0F4131710DE6B00A1F406 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "../Clase1 VJ2D/ViewController.h"; sourceTree = "<group>"; };
-		A7F0F4141710DE6B00A1F406 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "../Clase1 VJ2D/ViewController.m"; sourceTree = "<group>"; };
 		A7F0F4151710DE6B00A1F406 /* Piece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Piece.h; path = "../../Clase1 VJ2D/Piece.h"; sourceTree = "<group>"; };
 		A7F0F4161710DE6B00A1F406 /* Piece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Piece.m; path = "../../Clase1 VJ2D/Piece.m"; sourceTree = "<group>"; };
 		A7F0F4171710DE6B00A1F406 /* Pawn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Pawn.h; path = "../../Clase1 VJ2D/Pawn.h"; sourceTree = "<group>"; };
@@ -260,12 +260,12 @@
 		A74D8ECE17511BAB00F8BAFF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A505C9F2177A56340034C749 /* ViewController.h */,
+				A505C9F3177A56340034C749 /* ViewController.m */,
 				A7F0F4541711C49400A1F406 /* HomeViewController.h */,
 				A7F0F4551711C49400A1F406 /* HomeViewController.m */,
 				A7F0F45F1711C7F900A1F406 /* NewGameViewController.h */,
 				A7F0F4601711C7F900A1F406 /* NewGameViewController.m */,
-				A7F0F4131710DE6B00A1F406 /* ViewController.h */,
-				A7F0F4141710DE6B00A1F406 /* ViewController.m */,
 				A7F0F4191710DE6B00A1F406 /* MenuViewController.h */,
 				A7F0F41A1710DE6B00A1F406 /* MenuViewController.m */,
 				A7F0F41C1710DE6B00A1F406 /* GameViewController.h */,
@@ -609,7 +609,6 @@
 			files = (
 				A7F0F3E31710DDCB00A1F406 /* main.m in Sources */,
 				A7F0F42F1710DE6B00A1F406 /* AppDelegate.m in Sources */,
-				A7F0F4311710DE6B00A1F406 /* ViewController.m in Sources */,
 				A7F0F4331710DE6B00A1F406 /* Piece.m in Sources */,
 				A7F0F4351710DE6B00A1F406 /* Pawn.m in Sources */,
 				A7F0F4371710DE6B00A1F406 /* MenuViewController.m in Sources */,
@@ -626,6 +625,7 @@
 				A7D24A09171B18C0002BE00C /* NSString+MD5Addition.m in Sources */,
 				A7D24A0C171B191A002BE00C /* UIDevice+IdentifierAddition.m in Sources */,
 				A7FD4D871767DAF800EE3846 /* SinglePlayerViewController.m in Sources */,
+				A505C9F5177A58140034C749 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,7 +635,6 @@
 			files = (
 				A7F0F4081710DDCB00A1F406 /* ChessTests.m in Sources */,
 				A7F0F4301710DE6B00A1F406 /* AppDelegate.m in Sources */,
-				A7F0F4321710DE6B00A1F406 /* ViewController.m in Sources */,
 				A7F0F4341710DE6B00A1F406 /* Piece.m in Sources */,
 				A7F0F4361710DE6B00A1F406 /* Pawn.m in Sources */,
 				A7F0F4381710DE6B00A1F406 /* MenuViewController.m in Sources */,
@@ -647,6 +646,7 @@
 				A7F0F4481710DE6B00A1F406 /* Queen.m in Sources */,
 				A7F0F44A1710DE6B00A1F406 /* King.m in Sources */,
 				A7F0F44C1710DE6B00A1F406 /* MathUtils.m in Sources */,
+				A505C9F4177A56340034C749 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

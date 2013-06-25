@@ -14,6 +14,7 @@
 - (id) initWithColor:(int)color {
     self = [super init];
     self.color = color;
+    self.everMoved = NO;
     if(color == 0){
         self.imageResourceName = @"black_tower.png";
     }else{
@@ -30,6 +31,7 @@
 - (BOOL) move:(int)toPosition{
     
     if([self couldMoveToPosition:toPosition checkingCheck:YES]){
+        self.everMoved = YES;
         return [super move:toPosition];
     }
     return NO;
@@ -104,7 +106,7 @@
             i = 8;
         }
     }
-    for(int i = row - 1; i > 0 ; --i){
+    for(int i = row - 1; i >= 0 ; --i){
         if([[self.board positions][(i*8)+col] isEqual:[NSNull null]]){
             [positions addObject:[NSNumber numberWithInt:((i*8)+col)]];
         }else if(((Tower*)([self.board positions][(i*8)+col])).color != self.color){
@@ -135,7 +137,7 @@
             i = 8;
         }
     }
-    for(int i = col - 1; i > 0 ; --i){
+    for(int i = col - 1; i >= 0 ; --i){
         if([[self.board positions][(row*8)+i] isEqual:[NSNull null]]){
             [positions addObject:[NSNumber numberWithInt:((row*8)+i)]];
         }else if(((Tower*)([self.board positions][(row*8)+i])).color != self.color){

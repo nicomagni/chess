@@ -10,4 +10,7 @@
 
 @interface King : Piece
 
+@property (nonatomic) BOOL everChecked;
+@property (nonatomic) BOOL everMoved;
+
 @end
