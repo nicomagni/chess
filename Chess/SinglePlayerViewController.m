@@ -7,7 +7,7 @@
 //
 
 #import "SinglePlayerViewController.h"
-#import "Board.h"
+#import "Game.h"
 #import "Piece.h"
 #import "AppDelegate.h"
 #import "UIDevice+IdentifierAddition.h"
@@ -29,11 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Board * board= [[Board alloc] init];
-    self.board = [board createNewBoardMyColoris:[self.myColor intValue]];
+    self.game = [[Game alloc] initGameWithColor:0];
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
-    self.turn = [NSNumber numberWithInt:1] ;
     [self loadTurn];
 
 }
@@ -46,8 +44,8 @@
 
 -(void)loadPiecesFromBoard
 {
-    for (int i = 0; i < [[self.board positions] count] ; i++) {
-        Piece *piece = [self.board positions][i];
+    for (int i = 0; i < [[self.game.board positions] count] ; i++) {
+        Piece *piece = [self.game.board positions][i];
         if(![piece isEqual:[NSNull null]]){
             NSString *resource = [piece imageResourceName];
             UIImage * image = [UIImage imageNamed:resource];
@@ -63,7 +61,7 @@
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
     int pieceTag = [sender tag] - 100;
 //    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
-    int colorTurn = [self.turn intValue] % 2;
+    int colorTurn = [self.game.turn intValue] % 2;
     
         if (self.startPiece != nil) {
             //This is the target button
@@ -74,7 +72,7 @@
             
             [self loadPiecesFromBoard];
             if(self.confirmationNeeded){
-                self.turn = ([self.turn isEqual:[NSNumber numberWithInt:0]] ? [NSNumber numberWithInt:1]:[NSNumber numberWithInt:0]);
+                self.game.turn = ([self.game.turn isEqual:[NSNumber numberWithInt:0]] ? [NSNumber numberWithInt:1]:[NSNumber numberWithInt:0]);
                 
                 if(self.startPiece.board.check != -1){
                     [self loadCheck: self.startPiece.board.check];
@@ -87,9 +85,9 @@
             
              self.startPiece = nil;
             
-        }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]]){
+        }else if(![[self.game.board positions][pieceTag] isEqual:[NSNull null]]){
             
-            self.startPiece = [self.board positions][pieceTag];
+            self.startPiece = [self.game.board positions][pieceTag];
             if(self.startPiece.color != colorTurn){
                 self.startPiece = nil;
             }
@@ -104,7 +102,7 @@
 }
 
 - (void)loadTurn{
-    if([self.turn intValue] % 2 == kWhite){
+    if([self.game.turn intValue] % 2 == kWhite){
         self.playerTurnLabel.text = @"Turno del Blanco";
     }else{
         self.playerTurnLabel.text = @"Turno del Negro";
@@ -127,4 +125,10 @@
     }
 }
 
+- (IBAction)saveGame:(id)sender {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *file = [((NSString*)[paths objectAtIndex:0]) stringByAppendingPathComponent:@"saveFile"];
+    
+    [NSKeyedArchiver archiveRootObject:self.game toFile:file];
+}
 @end

@@ -386,4 +386,22 @@ NSMutableArray* getKings(Board* board, int myColor) {
 
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:self.positions forKey:@"Positions"];
+    [aCoder encodeObject:self.pieces forKey:@"Pieces"];
+    [aCoder encodeInt:self.check forKey:@"Check"];
+    [aCoder encodeInt:self.checkmate forKey:@"Checkmate"];
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    if(self = [super init]){
+        self.positions = [aDecoder decodeObjectForKey:@"Positions"];
+        self.pieces = [aDecoder decodeObjectForKey:@"Pieces"];
+        self.check = [aDecoder decodeIntForKey:@"Check"];
+        self.checkmate = [aDecoder decodeIntForKey:@"Checkmate"];
+    }
+    return self;
+    
+}
+
 @end

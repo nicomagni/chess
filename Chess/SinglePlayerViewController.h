@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Board.h"
 #import "Piece.h"
+#import "Game.h"
+
 @interface SinglePlayerViewController : UIViewController
 
-@property (nonatomic) Board * board;
+@property (nonatomic) Game * game;
 @property (nonatomic) Piece * startPiece;
-@property (nonatomic,strong) NSNumber *myColor;
-@property (nonatomic,strong) NSNumber *turn;
 @property (nonatomic) BOOL confirmationNeeded;
+- (IBAction)saveGame:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UILabel *playerTurnLabel;
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event;

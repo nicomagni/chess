@@ -10,7 +10,7 @@
 
 @class Piece;
 
-@interface Board : NSObject
+@interface Board : NSObject <NSCoding>
 
 @property (nonatomic) NSMutableSet* pieces;
 @property (nonatomic) NSMutableArray *positions;

@@ -7,8 +7,8 @@
 //
 
 #import "GameViewController.h"
-#import "Board.h"
 #import "Piece.h"
+#import "Game.h"
 #import "AppDelegate.h"
 #import "UIDevice+IdentifierAddition.h"
 
@@ -32,12 +32,9 @@
 {
     
     [super viewDidLoad];
-    Board * board= [[Board alloc] init];
-    self.board = [board createNewBoardMyColoris:[self.myColor intValue]];
-    self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
+    self.confirmationNeeded = NO;
     [AppDelegate sharedInstance].socket.delegate = self;
-    self.turn = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,8 +45,8 @@
 
 -(void)loadPiecesFromBoard
 {
-    for (int i = 0; i < [[self.board positions] count] ; i++) {
-        Piece *piece = [self.board positions][i];
+    for (int i = 0; i < [[self.game.board positions] count] ; i++) {
+        Piece *piece = [self.game.board positions][i];
         if(![piece isEqual:[NSNull null]]){
             NSString *resource = [piece imageResourceName];
             UIImage * image = [UIImage imageNamed:resource];
@@ -64,8 +61,8 @@
 
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
     int pieceTag = [sender tag] - 100;
-    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
-    NSLog(@"Turn %d",[[NSNumber numberWithBool:([self.turn intValue] % 2) == [self.myColor intValue]] intValue]);
+    BOOL myTurn = ([self.game.turn intValue] % 2 == [self.game.myColor intValue]);
+    NSLog(@"Turn %d",[[NSNumber numberWithBool:([self.game.turn intValue] % 2) == [self.game.myColor intValue]] intValue]);
 //    BOOL myTurn = true;
     if(!self.confirmationNeeded && myTurn){
         if (self.startPiece != nil) {
@@ -81,9 +78,9 @@
             [self loadPiecesFromBoard];
             
             
-        }else if(![[self.board positions][pieceTag] isEqual:[NSNull null]]){
+        }else if(![[self.game.board positions][pieceTag] isEqual:[NSNull null]]){
             
-            self.startPiece = [self.board positions][pieceTag];
+            self.startPiece = [self.game.board positions][pieceTag];
             NSLog(@"Setting the origin");
         }else{
             NSLog(@"Reset the origin");
@@ -104,17 +101,17 @@
         NSLog(@"Moved");
         NSArray *boardArray = [messageJSON objectForKey:@"Game"];
         Board* boardFromServer = [[Board alloc] initWithArray:boardArray];
-        self.board = boardFromServer;
+        self.game.board = boardFromServer;
         [self rotateBoard];
         [self loadPiecesFromBoard];
         NSNumber *turn = [messageJSON objectForKey:@"turn"];
-        self.turn = turn;
-        NSLog(@"Turn Recived %d and my color is %d", [turn intValue], [self.myColor intValue]);
+        self.game.turn = turn;
+        NSLog(@"Turn Recived %d and my color is %d", [turn intValue], [self.game.myColor intValue]);
     }
 }
 
 - (void)loadTurn{
-    if([self.turn intValue] % 2 == kWhite){
+    if([self.game.turn intValue] % 2 == kWhite){
         self.playerTuenLabel.text = @"Turno del Negro";
     }else{
         self.playerTuenLabel.text = @"Turno del Blanco";
@@ -122,8 +119,8 @@
 }
 
 - (void)rotateBoard{
-    if([self.myColor intValue] == kBlack){
-        [self.board rotateBoard];
+    if([self.game.myColor intValue] == kBlack){
+        [self.game.board rotateBoard];
     }
 }
 
@@ -149,8 +146,8 @@
     NSLog(@"Move %d", theValue);
     NSMutableArray *boardArray;
     [self rotateBoard];
-    boardArray = [self.board getBoardArray];
-    int nextTurn = [self.turn intValue];
+    boardArray = [self.game.board getBoardArray];
+    int nextTurn = [self.game.turn intValue];
     NSDictionary* gameDict = @{@"turn":[NSNumber numberWithInt:++nextTurn],@"array":boardArray};
 
     NSDictionary* commandDict = @{@"Command": @"GameMessage",

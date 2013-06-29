@@ -93,6 +93,25 @@
     return Nil;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:self.board forKey:@"Board"];
+    [aCoder encodeObject:self.imageResourceName forKey:@"ImageResourceName"];
+    [aCoder encodeInt:self.position forKey:@"Position"];
+    [aCoder encodeInt:self.color forKey:@"Color"];
+    [aCoder encodeInt:self.type forKey:@"Type"];
+    
+}
 
-
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    if (self = [super init]){
+        self.mathUtils = [[MathUtils alloc] initWithColumngCount:8 andRowCount:8];
+        self.board = [aDecoder decodeObjectForKey:@"Board"];
+        self.position = [aDecoder decodeIntForKey:@"Position"];
+        self.color = [aDecoder decodeIntForKey:@"Color"];
+        self.type = [aDecoder decodeIntForKey:@"Type"];
+        self.imageResourceName = [aDecoder decodeObjectForKey:@"ImageResourceName"];
+        
+    }
+    return self;
+}
 @end

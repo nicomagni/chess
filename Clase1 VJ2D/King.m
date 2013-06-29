@@ -182,4 +182,20 @@
     return positions;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder{
+    [super encodeWithCoder:aCoder];
+    [aCoder encodeBool:self.everMoved forKey:@"EverMoved"];
+    [aCoder encodeBool:self.everChecked forKey:@"EverChecked"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    
+    if(self = [super init]){
+        self = [super initWithCoder:aDecoder];
+        self.everMoved = [aDecoder decodeBoolForKey:@"EverMoved"];
+        self.everChecked = [aDecoder decodeBoolForKey:@"EverChecked"];
+    }
+    return self;
+}
+
 @end

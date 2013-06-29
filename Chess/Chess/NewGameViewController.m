@@ -112,7 +112,7 @@
      */
     if ([[segue identifier] isEqualToString:@"GOTO_GAME"]) {
         GameViewController *gameViewController = [segue destinationViewController];
-        gameViewController.myColor = [NSNumber numberWithInt:self.myColor];
+        gameViewController.game = [[Game alloc] initGameWithColor:self.myColor];
         
     }
 }

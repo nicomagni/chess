@@ -10,7 +10,7 @@
 #import "MathUtils.h"
 @class Board;
 
-@interface Piece : NSObject
+@interface Piece : NSObject <NSCoding>
 
 @property (nonatomic) int color; // 1 = white 0 = black
 @property (nonatomic) int type; // 0 = Pawn 1 = Knight, 2 = Bishop, 3 = Tower, 4 = Queen, 5 = King 
