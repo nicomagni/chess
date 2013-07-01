@@ -13,10 +13,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="2_CampañaSanValentinWassarette4.jpg" id="AKt-s2-APv">
-                                <rect key="frame" x="0.0" y="138" width="320" height="278"/>
+                                <rect key="frame" x="0.0" y="136" width="320" height="278"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="scL-DL-XmG">
-                                <rect key="frame" x="77" y="274" width="166" height="44"/>
+                                <rect key="frame" x="79" y="273" width="166" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Continuar Partida">
@@ -27,11 +27,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ykY-U7-2LF" kind="push" id="Rbb-UP-GHL"/>
+                                    <segue destination="7rH-zY-4CP" kind="push" identifier="SAVED_GAME" id="Rkj-jg-IHj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K27-aG-UuB">
-                                <rect key="frame" x="77" y="218" width="166" height="44"/>
+                                <rect key="frame" x="79" y="217" width="166" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Singleplayer">
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UEC-NZ-9jc">
-                                <rect key="frame" x="77" y="327" width="166" height="44"/>
+                                <rect key="frame" x="79" y="324" width="166" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Multiplayer">
@@ -2094,7 +2094,13 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xSg-KY-0L5"/>
+                    <navigationItem key="navigationItem" id="xSg-KY-0L5">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="AQ1-Bv-grP">
+                            <connections>
+                                <action selector="saveGame:" destination="7rH-zY-4CP" id="e7p-R4-o6j"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="playerTurnLabel" destination="s0R-2v-f20" id="kti-2q-j2Q"/>
                     </connections>
@@ -2130,6 +2136,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SinglePlayerViewController.h"/>
             <relationships>
                 <relationship kind="action" name="pieceSelected:forEvent:" candidateClass="UIButton"/>
+                <relationship kind="action" name="saveGame:"/>
                 <relationship kind="outlet" name="playerTurnLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -2147,6 +2154,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Rbb-UP-GHL"/>
+        <segue reference="Rkj-jg-IHj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -29,7 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.game = [[Game alloc] initGameWithColor:0];
+    if(self.game == nil){
+        self.game = [[Game alloc] initGameWithColor:0];
+    }
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
     [self loadTurn];
@@ -130,5 +132,13 @@
     NSString *file = [((NSString*)[paths objectAtIndex:0]) stringByAppendingPathComponent:@"saveFile"];
     
     [NSKeyedArchiver archiveRootObject:self.game toFile:file];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Chess Game"
+                                                   message: @"Partida Guardada"
+                                                  delegate: self
+                                         cancelButtonTitle:nil
+                                         otherButtonTitles:@"OK",nil];
+    
+    [alert show];
+
 }
 @end

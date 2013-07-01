@@ -10,6 +10,7 @@
 #import <GameKit/GameKit.h>
 #import "AppDelegate.h"
 #import "UIDevice+IdentifierAddition.h"
+#import "SinglePlayerViewController.h"
 
 @interface HomeViewController ()
 @property (nonatomic) BOOL connected;
@@ -91,5 +92,23 @@
     NSLog(@"socket closed");
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    /*
+     When a row is selected, the segue creates the detail view controller as the destination.
+     Set the detail view controller's detail item to the item associated with the selected row.
+     */
+    if ([[segue identifier] isEqualToString:@"SAVED_GAME"]) {
+        NSLog(@"Where am I");
+        SinglePlayerViewController *singlePlayerViewController = [segue destinationViewController];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *file = [((NSString*)[paths objectAtIndex:0]) stringByAppendingPathComponent:@"saveFile"];
+        
+        if ([[NSFileManager defaultManager] fileExistsAtPath:file]) {
+               singlePlayerViewController.game = [NSKeyedUnarchiver unarchiveObjectWithFile:file];
+        }
+        
+    }
+}
 
 @end
