@@ -178,7 +178,7 @@
     if([self couldMoveToPosition:(self.position + 9) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position + 9 )]];
     }
-    NSLog(@"King can eat: %@",positions);
+    NSLog(@"%@ can eat: %@",self,positions);
     return positions;
 }
 

@@ -175,7 +175,7 @@
     if([self couldMoveToPosition:(self.position +17)  checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position +17)]];
     }
-    NSLog(@"Knight can eat: %@",positions);
+    NSLog(@"%@ can eat: %@",self,positions);
     return positions;
 }
 

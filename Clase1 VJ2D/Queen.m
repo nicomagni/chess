@@ -87,7 +87,7 @@
     [positions addObjectsFromArray:[tower canEat]];
     [positions addObjectsFromArray:[bishop canEat]];
 
-    NSLog(@"Queen can eat: %@",positions);
+    NSLog(@"%@ can eat: %@",self,positions);
     return positions;
 }
 

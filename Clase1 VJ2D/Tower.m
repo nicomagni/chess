@@ -86,7 +86,7 @@
     NSMutableArray * positions = [[NSMutableArray alloc] init];
     [self addPositionsFromRowTo: positions];
     [self addPositionsFromColTo: positions];
-    NSLog(@"Tower can eat: %@",positions);
+    NSLog(@"%@ can eat: %@",self,positions);
     return positions;
 }
 
