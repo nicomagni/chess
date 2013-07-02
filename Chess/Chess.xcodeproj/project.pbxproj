@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A505C9F4177A56340034C749 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505C9F3177A56340034C749 /* ViewController.m */; };
 		A505C9F5177A58140034C749 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505C9F3177A56340034C749 /* ViewController.m */; };
+		A505C9F8177A5BE60034C749 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A505C9F7177A5BE60034C749 /* Game.m */; };
 		A72BFDF31714D50800A03D63 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF21714D50800A03D63 /* libicucore.dylib */; };
 		A72BFDF51714D51100A03D63 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF41714D51100A03D63 /* Security.framework */; };
 		A72BFDF71714D51900A03D63 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF61714D51900A03D63 /* CFNetwork.framework */; };
@@ -134,6 +135,8 @@
 /* Begin PBXFileReference section */
 		A505C9F2177A56340034C749 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		A505C9F3177A56340034C749 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A505C9F6177A5BE60034C749 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		A505C9F7177A5BE60034C749 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		A72BFDF21714D50800A03D63 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		A72BFDF41714D51100A03D63 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A72BFDF61714D51900A03D63 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -359,6 +362,8 @@
 				A7D24A08171B18C0002BE00C /* NSString+MD5Addition.m */,
 				A7D24A0A171B191A002BE00C /* UIDevice+IdentifierAddition.h */,
 				A7D24A0B171B191A002BE00C /* UIDevice+IdentifierAddition.m */,
+				A505C9F6177A5BE60034C749 /* Game.h */,
+				A505C9F7177A5BE60034C749 /* Game.m */,
 			);
 			path = Chess;
 			sourceTree = "<group>";
@@ -626,6 +631,7 @@
 				A7D24A0C171B191A002BE00C /* UIDevice+IdentifierAddition.m in Sources */,
 				A7FD4D871767DAF800EE3846 /* SinglePlayerViewController.m in Sources */,
 				A505C9F5177A58140034C749 /* ViewController.m in Sources */,
+				A505C9F8177A5BE60034C749 /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +698,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Sebastian Palatnik (X6QR98EEHT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -709,7 +715,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "219CBC67-B12F-4C73-87D6-0A7CED0D6AA4";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -726,7 +732,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Sebastian Palatnik (X6QR98EEHT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -736,7 +742,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "219CBC67-B12F-4C73-87D6-0A7CED0D6AA4";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
