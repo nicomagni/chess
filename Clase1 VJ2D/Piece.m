@@ -61,7 +61,7 @@
 
 - (BOOL) validateCheck: (int) color piece: (int) position to: (int) toPosition{
     // Looks if my King is checked and validates that my move removes it.
-    
+    NSLog(@"Validating Checks for color %d: ", color);
     Board * auxBoard = [self.board copyBoard];
     
     Piece * piece = auxBoard.positions[position];

@@ -192,7 +192,7 @@
             }
         }
     }
-    NSLog(@"Bishop can eat: %@",positions);
+    NSLog(@"%@ can eat: %@",self,positions);
     return positions;
 }
 

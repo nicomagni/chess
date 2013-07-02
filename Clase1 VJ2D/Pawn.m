@@ -136,6 +136,7 @@ return NO;
         move = self.color == kWhite? 1 : -1;
     }else{
         move = [[AppDelegate sharedInstance].game.myColor intValue] == self.color ? 1 : -1;
+
     }
     
     if( [self couldMoveToPosition:(self.position - (7 * move)) checkingCheck:NO]){
@@ -152,13 +153,13 @@ return NO;
         [positions addObject:[NSNumber numberWithInt:(self.position - (9 * move))]];
     }
 
-    NSLog(@"Pawn can eat: %@",positions);
+    NSLog(@"%@ can eat: %@",self,positions);
     return positions;
 }
 
 
 - (NSString*) description{
-    return [NSString stringWithFormat:@"PAwn Color = %d position = %d",self.color, self.position];
+    return [NSString stringWithFormat:@"Pawn Color = %d position = %d",self.color, self.position];
 }
 
 
