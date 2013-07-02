@@ -8,6 +8,7 @@
 
 #import "Pawn.h"
 #import "Board.h"
+#import "AppDelegate.h"
 
 @implementation Pawn
 
@@ -62,7 +63,13 @@
     }
     
     // If pawn is black it should move foward if not backwards
-    int move = self.color == kWhite ? 1: -1;
+    int move;
+    if([[AppDelegate sharedInstance].playerMode intValue] == kSinglePlayer){
+        move = self.color == kWhite ? 1: -1;
+    }else{
+        move = -1;
+    }
+
     int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
     int startRow = [self.mathUtils getRowIndexForPosition:self.position];
     

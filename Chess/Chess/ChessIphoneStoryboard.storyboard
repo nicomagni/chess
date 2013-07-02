@@ -1104,8 +1104,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="VX6-y0-kYo"/>
                     <connections>
-                        <outlet property="PlayerTuenLabel" destination="BIj-hB-90I" id="zDR-Lm-Fzm"/>
-                        <outlet property="playerTuenLabel" destination="BIj-hB-90I" id="R68-35-lO6"/>
+                        
+                        <outlet property="playerTurnLabel" destination="BIj-hB-90I" id="Ven-WN-pqE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmG-k1-G1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2119,7 +2119,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameViewController.h"/>
             <relationships>
                 <relationship kind="action" name="pieceSelected:forEvent:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="playerTuenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerTuLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerTurnLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="HomeViewController" superclassName="ViewController">

@@ -35,6 +35,8 @@
     [self loadPiecesFromBoard];
     self.confirmationNeeded = NO;
     [AppDelegate sharedInstance].socket.delegate = self;
+    [AppDelegate sharedInstance].playerMode = [NSNumber numberWithInt:kMultiPlayer];
+    [self loadTurn];
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,14 +109,16 @@
         NSNumber *turn = [messageJSON objectForKey:@"turn"];
         self.game.turn = turn;
         NSLog(@"Turn Recived %d and my color is %d", [turn intValue], [self.game.myColor intValue]);
+        
     }
+    [self loadTurn];
 }
 
 - (void)loadTurn{
     if([self.game.turn intValue] % 2 == kWhite){
-        self.playerTuenLabel.text = @"Turno del Negro";
+        self.playerTurnLabel.text = @"Turno del Negro";
     }else{
-        self.playerTuenLabel.text = @"Turno del Blanco";
+        self.playerTurnLabel.text = @"Turno del Blanco";
     }
 }
 

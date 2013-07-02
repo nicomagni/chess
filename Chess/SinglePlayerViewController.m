@@ -35,6 +35,7 @@
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
     [self loadTurn];
+    [AppDelegate sharedInstance].playerMode = [NSNumber numberWithInt:kSinglePlayer];
 
 }
 

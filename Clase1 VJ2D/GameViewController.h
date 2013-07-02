@@ -18,7 +18,7 @@
 @property (nonatomic) Piece * startPiece;
 
 
-@property (strong, nonatomic) IBOutlet UILabel *playerTuenLabel;
+@property (strong, nonatomic) IBOutlet UILabel *playerTurnLabel;
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event;
 
 @end

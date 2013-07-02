@@ -21,3 +21,5 @@
 #define kKing 5
 #define kWhite 1
 #define kBlack 0
+#define kSinglePlayer 1
+#define kMultiPlayer 2

@@ -10,9 +10,11 @@
 #import <SocketRocket/SRWebSocket.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+}
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) SRWebSocket* socket;
+@property (strong, nonatomic) NSNumber* playerMode;
 
 + (AppDelegate*) sharedInstance;
 

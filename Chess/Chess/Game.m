@@ -18,6 +18,7 @@
         self.turn = [NSNumber numberWithInt:1];
         //    [self loadPiecesFromBoard];
         //    [AppDelegate sharedInstance].socket.delegate = self;
+        self.myColor = [NSNumber numberWithInt:color];
         
     }
     return self;
