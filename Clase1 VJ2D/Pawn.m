@@ -78,15 +78,18 @@
     
     if((startRow - endRow) == (2 * move) && startColumn == endColumn && [self isEmpty:toPosition]){
         BOOL initPos;
+        BOOL firstRowEmpty;
             if([[AppDelegate sharedInstance].playerMode intValue] == kSinglePlayer){
                 initPos = [self initialPosition:startRow player: self.color];
+                firstRowEmpty = [self.board.positions[(self.color == kWhite ? 5 : 2)*8+startColumn] isEqual:[NSNull null]];
             }else{
                 initPos = 6;
+                firstRowEmpty = [self.board.positions[5*8+startColumn] isEqual:[NSNull null]];
             }
         if(checkCheck){
-            return initPos && [super validateCheck: self.color piece: self.position to: toPosition];
+            return initPos && firstRowEmpty && [super validateCheck: self.color piece: self.position to: toPosition];
         }else{
-            return initPos;
+            return initPos && firstRowEmpty;
         }
 
     }else{
@@ -139,12 +142,13 @@ return NO;
     }
     if( [self couldMoveToPosition:(self.position - (8 * move)) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position - (8 * move))]];
+        
+        if( [self couldMoveToPosition:(self.position - (2 * 8 * move)) checkingCheck:NO]){
+            [positions addObject:[NSNumber numberWithInt:(self.position - (2 * 8 * move))]];
+        }
     }
     if( [self couldMoveToPosition:(self.position - (9 * move)) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position - (9 * move))]];
-    }
-    if( [self couldMoveToPosition:(self.position - (2 * 8 * move)) checkingCheck:NO]){
-        [positions addObject:[NSNumber numberWithInt:(self.position - (2 * 8 * move))]];
     }
 
     NSLog(@"Pawn can eat: %@",positions);
