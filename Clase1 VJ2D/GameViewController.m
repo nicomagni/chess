@@ -113,10 +113,10 @@
         NSLog(@"Turn Recived %d and my color is %d", [turn intValue], [self.game.myColor intValue]);
         self.game.board.check = isCheck;
     }
-    if(self.startPiece.board.check != -1){
-        [self loadCheck: self.startPiece.board.check];
-    }else if(self.startPiece.board.checkmate != -1){
-        [self loadCheckmate: self.startPiece.board.checkmate];
+    if(self.game.board.check != -1){
+        [self loadCheck: self.game.board.check];
+    }else if(self.game.board.checkmate != -1){
+        [self loadCheckmate: self.game.board.checkmate];
     }else{
         [self loadTurn];
     }
