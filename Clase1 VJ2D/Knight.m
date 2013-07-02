@@ -58,7 +58,7 @@
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
     //TOP LEFT
     if (startColumn - 1 >= 0 && startRow - 2 >= 0) {
-        NSLog(@"TOP LEFT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+//        NSLog(@"TOP LEFT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if (startColumn - 1 == endColumn && startRow - 2 == endRow) {
             if(checkCheck){
                 return [super validateCheck:self.color piece: self.position to: toPosition];
@@ -69,7 +69,7 @@
     }
     //TOP RIGHT
     if(startColumn + 1 <= 7 && startRow - 2 >= 0){
-        NSLog(@"TOP RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+//        NSLog(@"TOP RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn + 1 == endColumn && startRow - 2 == endRow){
             if(checkCheck){
                 return [super validateCheck:self.color piece: self.position to: toPosition];
@@ -80,7 +80,7 @@
     }
     //Right TOP
     if(startColumn + 2 <= 7 && startRow - 1 >= 0){
-        NSLog(@"RIGHT TOP Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+//        NSLog(@"RIGHT TOP Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn + 2 == endColumn && startRow - 1 == endRow){
             if(checkCheck){
                 return [super validateCheck:self.color piece: self.position to: toPosition];
@@ -91,7 +91,7 @@
     }
     //Right BOTTOM
     if(startColumn + 2 <= 7 && startRow + 1 <= 7){
-        NSLog(@"BOTTOM RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+//        NSLog(@"BOTTOM RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn + 2 == endColumn && startRow + 1 == endRow){
             if(checkCheck){
                 return [super validateCheck:self.color piece: self.position to: toPosition];
@@ -102,7 +102,7 @@
     }
     //BOTTOM RIGHT
     if (startColumn - 1 >= 0 && startRow + 2 <= 7) {
-        NSLog(@"BOTTOM RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+//        NSLog(@"BOTTOM RIGHT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn - 1 == endColumn && startRow + 2 == endRow){
             if(checkCheck){
                 return [super validateCheck:self.color piece: self.position to: toPosition];
@@ -113,7 +113,7 @@
     }
     //BOTTOM LEFT
     if(startColumn + 1 <= 7 && startRow + 2 <= 7){
-        NSLog(@"BOTTOM LEFT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+//        NSLog(@"BOTTOM LEFT Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn + 1 == endColumn && startRow + 2 == endRow){
             if(checkCheck){
                 return [super validateCheck:self.color piece: self.position to: toPosition];
@@ -124,7 +124,7 @@
     }
     //LEFT BOTTOM
     if(startColumn - 2 >= 0 && startRow - 1 >= 0){
-        NSLog(@"LEFT BOTTOM Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+//        NSLog(@"LEFT BOTTOM Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn - 2 == endColumn && startRow - 1 == endRow){
             if(checkCheck){
                 return [super validateCheck:self.color piece: self.position to: toPosition];
@@ -135,7 +135,7 @@
     }
     //LEFT TOP
     if(startColumn - 2 >= 0 && startRow + 1 <= 7){
-        NSLog(@"LEFT TOP Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
+//        NSLog(@"LEFT TOP Start point( %d, %d ) end Point ( %d, %d)",startRow,startColumn,endRow,endColumn);
         if(startColumn - 2 == endColumn && startRow + 1 == endRow){
             if(checkCheck){
                 return [super validateCheck:self.color piece: self.position to: toPosition];
@@ -175,6 +175,7 @@
     if([self couldMoveToPosition:(self.position +17)  checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position +17)]];
     }
+    NSLog(@"Knight can eat: %@",positions);
     return positions;
 }
 

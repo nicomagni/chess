@@ -86,7 +86,8 @@
     //return [bishop couldMoveToPosition:toPosition] || [tower couldMoveToPosition:toPosition];
     [positions addObjectsFromArray:[tower canEat]];
     [positions addObjectsFromArray:[bishop canEat]];
-    
+
+    NSLog(@"Queen can eat: %@",positions);
     return positions;
 }
 

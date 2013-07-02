@@ -188,6 +188,7 @@
             }
         }
     }
+    NSLog(@"Bishop can eat: %@",positions);
     return positions;
 }
 

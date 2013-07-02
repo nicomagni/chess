@@ -147,6 +147,7 @@ return NO;
         [positions addObject:[NSNumber numberWithInt:(self.position - (2 * 8 * move))]];
     }
 
+    NSLog(@"Pawn can eat: %@",positions);
     return positions;
 }
 

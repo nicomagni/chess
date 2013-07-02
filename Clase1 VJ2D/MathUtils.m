@@ -21,7 +21,7 @@
 - (int)getColumnIndexForPosition:(int)position
 {
     int rowIndex = position / self.collumnCount;
-    NSLog(@"%d",rowIndex);
+//    NSLog(@"%d",rowIndex);
     return position - (rowIndex * self.rowCount);
 }
 
