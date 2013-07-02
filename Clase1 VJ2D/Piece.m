@@ -9,6 +9,7 @@
 #import "Piece.h"
 #import "MathUtils.h"
 #import "Board.h"
+#import "AppDelegate.h"
 
 @implementation Piece : NSObject
 
@@ -62,8 +63,11 @@
     // Looks if my King is checked and validates that my move removes it.
     
     Board * auxBoard = [self.board copyBoard];
-    Piece * piece = auxBoard.positions[position];
     
+    Piece * piece = auxBoard.positions[position];
+    if([AppDelegate sharedInstance].game.myColor == kBlack){
+        [auxBoard rotateBoard];
+    }
     [auxBoard positions][position] = [NSNull null];
     piece.position = toPosition;
     if(![[auxBoard positions][piece.position] isEqual:[NSNull null]]){

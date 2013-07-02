@@ -72,9 +72,9 @@
             //This is the target button
 
             NSLog(@"Setting the destintion");
-            [self rotateBoard];
+
             BOOL couldMove = [self.startPiece move:pieceTag];
-            [self rotateBoard];
+
             if(couldMove){
                 
                 [self sendBoard];
