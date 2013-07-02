@@ -72,21 +72,22 @@
 {
     //Creating diagonal point
     int currentPosition = self.position;
-    int piecesInpathCount = 0;
-    BOOL outsideBoard = NO;
+    int currentColumn = [self.mathUtils getColumnIndexForPosition:currentPosition] + 1;
+    int currentRow = [self.mathUtils getRowIndexForPosition:currentPosition] - 1;
+    int destinationRow = [self.mathUtils getRowIndexForPosition:toPosition];
+    int destinationColum = [self.mathUtils getColumnIndexForPosition:toPosition];
     
-    while (!outsideBoard) {
-        currentPosition -= 7;
-        outsideBoard = currentPosition < 0;
-        
-        if(toPosition == currentPosition){
-            //HERE remains the validation if exist another piece in the path
-            return piecesInpathCount == 0;
-        }else if(!outsideBoard && ![[self.board positions][currentPosition] isEqual:[NSNull null]]){
-            //The end posiiton it's empty or is another piece.
-            piecesInpathCount++;
+    while (currentColumn < 8 && currentRow >= 0) {
+        Piece* currentPiece = ((Piece*)[self.board positions][currentRow*8 + currentColumn]);
+        if(currentColumn == destinationColum && currentRow == destinationRow){
+            return [currentPiece isEqual:[NSNull null]] || currentPiece.color != self.color;
+        }else{
+            if(![currentPiece isEqual:[NSNull null]]){
+                return false;
+            }
         }
-
+        currentColumn++;
+        currentRow--;
     }
     
     return NO;
@@ -94,71 +95,74 @@
 
 - (BOOL)lookInBackDiagonalFor:(int)toPosition
 {
-    //Creating diagonal point
     int currentPosition = self.position;
-    int piecesInpathCount = 0;
-    BOOL outsideBoard = NO;
+    int currentColumn = [self.mathUtils getColumnIndexForPosition:currentPosition] - 1;
+    int currentRow = [self.mathUtils getRowIndexForPosition:currentPosition] + 1;
+    int destinationRow = [self.mathUtils getRowIndexForPosition:toPosition];
+    int destinationColum = [self.mathUtils getColumnIndexForPosition:toPosition];
     
-    while (!outsideBoard) {
-        currentPosition += 7;
-        outsideBoard = currentPosition > 63;
-        
-        if(toPosition == currentPosition){
-            //HERE remains the validation if exist another piece in the path
-           return piecesInpathCount == 0;
-        }else if(!outsideBoard && ![[self.board positions][currentPosition] isEqual:[NSNull null]]){
-            //The end posiiton it's empty or is another piece.
-            piecesInpathCount++;
+    while (currentColumn >= 0 && currentRow < 8) {
+        Piece* currentPiece = ((Piece*)[self.board positions][currentRow*8 + currentColumn]);
+        if(currentColumn == destinationColum && currentRow == destinationRow){
+            return [currentPiece isEqual:[NSNull null]] || currentPiece.color != self.color;
+        }else{
+            if(![currentPiece isEqual:[NSNull null]]){
+                return false;
+            }
         }
-
+        currentColumn--;
+        currentRow++;
     }
+    
     return NO;
 }
 
 - (BOOL)lookInRightDiagonalFor:(int)toPosition
 {
-    //Creating diagonal point
     int currentPosition = self.position;
-    int piecesInpathCount = 0;
-    BOOL outsideBoard = NO;
+    int currentColumn = [self.mathUtils getColumnIndexForPosition:currentPosition] + 1;
+    int currentRow = [self.mathUtils getRowIndexForPosition:currentPosition] + 1;
+    int destinationRow = [self.mathUtils getRowIndexForPosition:toPosition];
+    int destinationColum = [self.mathUtils getColumnIndexForPosition:toPosition];
     
-    while (!outsideBoard) {
-        currentPosition += 9;
-        outsideBoard = currentPosition > 63;
-        
-        if(toPosition == currentPosition){
-            //HERE remains the validation if exist another piece in the path
-            return piecesInpathCount == 0;
-        }else if(!outsideBoard && ![[self.board positions][currentPosition] isEqual:[NSNull null]]){
-            //The end posiiton it's empty or is another piece.
-            piecesInpathCount++;
+    while (currentColumn < 8 && currentRow < 8) {
+        Piece* currentPiece = ((Piece*)[self.board positions][currentRow*8 + currentColumn]);
+        if(currentColumn == destinationColum && currentRow == destinationRow){
+            return [currentPiece isEqual:[NSNull null]] || currentPiece.color != self.color;
+        }else{
+            if(![currentPiece isEqual:[NSNull null]]){
+                return false;
+            }
         }
-
+        currentColumn++;
+        currentRow++;
     }
+    
     return NO;
 }
 
 - (BOOL)lookInLeftDiagonalFor:(int)toPosition
 {
-    //Creating diagonal point
     int currentPosition = self.position;
-    int piecesInpathCount = 0;
-    BOOL outsideBoard = NO;
+    int currentColumn = [self.mathUtils getColumnIndexForPosition:currentPosition] - 1;
+    int currentRow = [self.mathUtils getRowIndexForPosition:currentPosition] - 1;
+    int destinationRow = [self.mathUtils getRowIndexForPosition:toPosition];
+    int destinationColum = [self.mathUtils getColumnIndexForPosition:toPosition];
     
-    while (!outsideBoard) {
-        currentPosition -= 9;
-        outsideBoard = currentPosition < 0;
-        
-        if(toPosition == currentPosition){
-            //HERE remains the validation if exist another piece in the path
-           return piecesInpathCount == 0;
-        }else if(!outsideBoard && ![[self.board positions][currentPosition] isEqual:[NSNull null]]){
-            //The end posiiton it's empty or is another piece.
-            piecesInpathCount++;
+    while (currentColumn >= 0 && currentRow >= 0) {
+        Piece* currentPiece = ((Piece*)[self.board positions][currentRow*8 + currentColumn]);
+        if(currentColumn == destinationColum && currentRow == destinationRow){
+            return [currentPiece isEqual:[NSNull null]] || currentPiece.color != self.color;
+        }else{
+            if(![currentPiece isEqual:[NSNull null]]){
+                return false;
+            }
         }
+        currentColumn--;
+        currentRow--;
     }
-    return NO;
-}
+    
+    return NO;}
 
 - (NSMutableArray *) canEat{
     NSMutableArray * positions = [[NSMutableArray alloc] init];
