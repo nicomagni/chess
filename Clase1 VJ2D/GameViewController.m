@@ -124,6 +124,13 @@
         [self loadCheck: self.game.board.check];
     }else if(self.game.board.checkmate != -1){
         [self loadCheckmate: self.game.board.checkmate];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Chess Game"
+                                                       message: @"Partida Finalizada"
+                                                      delegate: self
+                                             cancelButtonTitle:nil
+                                             otherButtonTitles:@"OK",nil];
+        
+        [alert show];
     }else{
         [self loadTurn];
     }

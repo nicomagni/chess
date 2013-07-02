@@ -77,6 +77,14 @@
     [auxBoard lookForChecks: self.color];
     
     if(auxBoard.check == color || auxBoard.checkmate == color){
+   
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Chess Game"
+                                                       message: @"No se puede realizar ese movimiento"
+                                                      delegate: self
+                                             cancelButtonTitle:nil
+                                             otherButtonTitles:@"OK",nil];
+        
+        [alert show];
         return NO;
     }
     
