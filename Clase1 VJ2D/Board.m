@@ -162,7 +162,8 @@
 //    for(Piece* currentPiece in self.pieces){
 //        NSLog(@"Pieces %@ and position %d", currentPiece, currentPiece.position);
 //    }
-    
+    [self setCheck:self.check == 1 ? 0:1];
+    [self setCheckmate:self.checkmate== 1 ? 0:1];
 }
 
 - (void)changePiece:(Piece*)piece newPosition:(int)newPostition oldPosition:(int)oldPosition {
