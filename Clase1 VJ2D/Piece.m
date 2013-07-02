@@ -35,9 +35,9 @@
         [self.board.pieces removeObject:[self.board positions][self.position]];
     }
     [self.board positions][toPosition] = self;
-    [self.board rotateBoard];
+//    [self.board rotateBoard];
     [self.board lookForChecks: (self.color == 0 ? 1: 0)];
-    [self.board rotateBoard];
+  //  [self.board rotateBoard];
     return YES;
 }
 

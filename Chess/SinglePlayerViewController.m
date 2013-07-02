@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     if(self.game == nil){
-        self.game = [[Game alloc] initGameWithColor:0];
+        self.game = [[Game alloc] initGameWithColor:1];
     }
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
