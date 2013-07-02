@@ -111,7 +111,7 @@
         NSNumber *turn = [messageJSON objectForKey:@"turn"];
         self.game.turn = turn;
         NSLog(@"Turn Recived %d and my color is %d", [turn intValue], [self.game.myColor intValue]);
-        self.game.board.check = isCheck;
+        
     }
     if(self.game.board.check != -1){
         [self loadCheck: self.game.board.check];
