@@ -32,6 +32,7 @@
     if(self.game == nil){
         self.game = [[Game alloc] initGameWithColor:1];
     }
+    [AppDelegate sharedInstance].game = self.game;
     self.confirmationNeeded = NO;
     [self loadPiecesFromBoard];
     [self loadTurn];

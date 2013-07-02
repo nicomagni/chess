@@ -35,6 +35,7 @@
     [self loadPiecesFromBoard];
     self.confirmationNeeded = NO;
     [AppDelegate sharedInstance].socket.delegate = self;
+    [AppDelegate sharedInstance].game = self.game;
     [AppDelegate sharedInstance].playerMode = [NSNumber numberWithInt:kMultiPlayer];
     [self loadTurn];
 }
@@ -71,9 +72,9 @@
             //This is the target button
 
             NSLog(@"Setting the destintion");
-            [self rotateBoard];
+
             BOOL couldMove = [self.startPiece move:pieceTag];
-            [self rotateBoard];
+
             if(couldMove){
                 
                 [self sendBoard];

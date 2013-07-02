@@ -126,8 +126,13 @@ return NO;
 
 -(NSMutableArray *)canEat{
     NSMutableArray * positions = [[NSMutableArray alloc] init];
-
-    int move = self.color == kWhite? 1 : -1;
+    int move;
+    
+    if([[AppDelegate sharedInstance].playerMode intValue] == kSinglePlayer){
+        move = self.color == kWhite? 1 : -1;
+    }else{
+        move = 1;
+    }
     
     if( [self couldMoveToPosition:(self.position - (7 * move)) checkingCheck:NO]){
         [positions addObject:[NSNumber numberWithInt:(self.position - (7 * move))]];
@@ -147,7 +152,7 @@ return NO;
 
 
 - (NSString*) description{
-    return (self.color == kBlack ? @" Black-Pawn " : @" White-Pawn ");
+    return [NSString stringWithFormat:@"PAwn Color = %d position = %d",self.color, self.position];
 }
 
 

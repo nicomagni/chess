@@ -36,7 +36,7 @@
 }
 
 - (NSString*) description{
-    return (self.color == 0 ? @"Black-Knight" : @"White-Knight");
+        return [NSString stringWithFormat:@"Knight Color = %d position = %d",self.color, self.position];
 }
 
 - (Knight *) copyPiece{

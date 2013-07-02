@@ -30,7 +30,7 @@
 }
 
 - (NSString*) description{
-    return (self.color == 0 ? @"Black-Queen " : @"White-Queen");
+    return [NSString stringWithFormat:@"Queen Color = %d position = %d",self.color, self.position];
 }
 
 - (Queen *) copyPiece{

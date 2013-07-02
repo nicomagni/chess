@@ -73,7 +73,7 @@
 }
 
 - (NSString*) description{
-    return (self.color == 0 ? @"Black-Tower " : @"White-Tower");
+        return [NSString stringWithFormat:@"Tower Color = %d position = %d",self.color, self.position];
 }
 
 - (Tower *) copyPiece{

@@ -1104,7 +1104,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="VX6-y0-kYo"/>
                     <connections>
-                        
                         <outlet property="playerTurnLabel" destination="BIj-hB-90I" id="Ven-WN-pqE"/>
                     </connections>
                 </viewController>
@@ -2119,7 +2118,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameViewController.h"/>
             <relationships>
                 <relationship kind="action" name="pieceSelected:forEvent:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="playerTuLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="playerTurnLabel" candidateClass="UILabel"/>
             </relationships>
         </class>

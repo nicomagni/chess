@@ -28,7 +28,7 @@
 }
 
 - (NSString*) description{
-    return (self.color == 0 ? @"Black-Bishop" : @"White-Bishop");
+        return [NSString stringWithFormat:@"Bishop Color = %d position = %d",self.color, self.position];
 }
 
 - (Bishop *) copyPiece{
