@@ -67,7 +67,7 @@
     if([[AppDelegate sharedInstance].playerMode intValue] == kSinglePlayer){
         move = self.color == kWhite ? 1: -1;
     }else{
-        move = -1;
+        move = 1;
     }
 
     int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
@@ -77,7 +77,12 @@
     int endRow = [self.mathUtils getRowIndexForPosition:toPosition];
     
     if((startRow - endRow) == (2 * move) && startColumn == endColumn && [self isEmpty:toPosition]){
-        BOOL initPos = [self initialPosition:startRow player: self.color];
+        BOOL initPos;
+            if([[AppDelegate sharedInstance].playerMode intValue] == kSinglePlayer){
+                initPos = [self initialPosition:startRow player: self.color];
+            }else{
+                initPos = 6;
+            }
         if(checkCheck){
             return initPos && [super validateCheck: self.color piece: self.position to: toPosition];
         }else{

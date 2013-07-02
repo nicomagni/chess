@@ -14,11 +14,12 @@
 - (id) initGameWithColor: (int) color{
     if(self = [super init]){
         Board * board= [[Board alloc] init];
+        self.myColor = [NSNumber numberWithInt:color];
         self.board = [board createNewBoardMyColoris:color];
         self.turn = [NSNumber numberWithInt:1];
         //    [self loadPiecesFromBoard];
         //    [AppDelegate sharedInstance].socket.delegate = self;
-        self.myColor = [NSNumber numberWithInt:color];
+
         
     }
     return self;

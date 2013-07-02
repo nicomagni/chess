@@ -277,13 +277,13 @@ NSMutableArray* getPawns(Board* board, int myColor) {
     NSMutableArray * pawns = [[NSMutableArray alloc] initWithCapacity:16];
     int otherColor = myColor == 1 ? 0:1;
     for (int i = 8; i < 2 * 8; i ++) {
-        Pawn *pawn = [[Pawn alloc] initWithColor:myColor];
+        Pawn *pawn = [[Pawn alloc] initWithColor:otherColor];
         [pawn setPosition:i];
         [pawn setBoard:board];
         [pawns addObject:pawn];
     }
     for (int i = 6 * 8; i < 8 * 7; i ++) {
-        Pawn *pawn = [[Pawn alloc] initWithColor:otherColor];
+        Pawn *pawn = [[Pawn alloc] initWithColor:myColor];
         [pawn setPosition:i];
         [pawn setColor:otherColor];
         [pawn setBoard:board];
