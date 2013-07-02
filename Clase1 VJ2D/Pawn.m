@@ -67,7 +67,8 @@
     if([[AppDelegate sharedInstance].playerMode intValue] == kSinglePlayer){
         move = self.color == kWhite ? 1: -1;
     }else{
-        move = 1;
+        move = [[AppDelegate sharedInstance].game.myColor intValue] == self.color ? 1 : -1;
+        
     }
 
     int startColumn = [self.mathUtils getColumnIndexForPosition:self.position];
@@ -134,7 +135,7 @@ return NO;
     if([[AppDelegate sharedInstance].playerMode intValue] == kSinglePlayer){
         move = self.color == kWhite? 1 : -1;
     }else{
-        move = 1;
+        move = [[AppDelegate sharedInstance].game.myColor intValue] == self.color ? 1 : -1;
     }
     
     if( [self couldMoveToPosition:(self.position - (7 * move)) checkingCheck:NO]){
