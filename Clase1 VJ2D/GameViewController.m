@@ -111,7 +111,7 @@
         Board* boardFromServer = [[Board alloc] initWithArray:boardArray];
         self.game.board = boardFromServer;
 
-        [boardFromServer lookForChecks:0];
+        [boardFromServer lookForChecks:1];
         
         [self rotateBoard];
         [self loadPiecesFromBoard];
