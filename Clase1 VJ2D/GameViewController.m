@@ -104,12 +104,14 @@
         NSArray *boardArray = [messageJSON objectForKey:@"Game"];
         Board* boardFromServer = [[Board alloc] initWithArray:boardArray];
         self.game.board = boardFromServer;
+        int otherColor = [self.game.myColor intValue] == 1? 0:1;
+        BOOL isCheck = [boardFromServer lookForChecks:otherColor];
         [self rotateBoard];
         [self loadPiecesFromBoard];
         NSNumber *turn = [messageJSON objectForKey:@"turn"];
         self.game.turn = turn;
         NSLog(@"Turn Recived %d and my color is %d", [turn intValue], [self.game.myColor intValue]);
-        
+        self.game.board.check = isCheck;
     }
     if(self.startPiece.board.check != -1){
         [self loadCheck: self.startPiece.board.check];
