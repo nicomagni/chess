@@ -141,7 +141,9 @@
     for(int i = 0; i< 32; i++){
         Piece *swapPiece = self.positions[i];
         self.positions[i] = self.positions[j-i];
+        ((Piece*)self.positions[i]).position = i;
         self.positions[j-i] = swapPiece;
+        swapPiece.position = j-i;
         if(![self.positions[i] isEqual:[NSNull null]]){
             [self changePiece:self.positions[i] newPosition:i oldPosition:j-i];
         }

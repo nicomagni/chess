@@ -85,9 +85,13 @@
             
             
         }else if(![[self.game.board positions][pieceTag] isEqual:[NSNull null]]){
-            
-            self.startPiece = [self.game.board positions][pieceTag];
-            NSLog(@"Setting the origin");
+            if([self.game.myColor intValue] == self.startPiece.color){
+                self.startPiece = [self.game.board positions][pieceTag];
+                NSLog(@"Setting the origin");
+            }else{
+                NSLog(@"Reset the origin");
+                self.startPiece = nil;
+            }
         }else{
             NSLog(@"Reset the origin");
             self.startPiece = nil;
