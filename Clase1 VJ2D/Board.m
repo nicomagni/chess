@@ -140,10 +140,16 @@
     NSLog(@"Rotando el tablero.");
     for(int i = 0; i< 32; i++){
         Piece *swapPiece = self.positions[i];
-        self.positions[i] = self.positions[j-i];
-        ((Piece*)self.positions[i]).position = i;
+        Piece *oldPiece = self.positions[j-i];
+        self.positions[i] = oldPiece;
         self.positions[j-i] = swapPiece;
-        swapPiece.position = j-i;
+        
+        if(![swapPiece isEqual:[NSNull null]]){
+            swapPiece.position = j-i;
+        }
+        if(![oldPiece isEqual:[NSNull null]]){
+            oldPiece.position = i;
+        }
         if(![self.positions[i] isEqual:[NSNull null]]){
             [self changePiece:self.positions[i] newPosition:i oldPosition:j-i];
         }
