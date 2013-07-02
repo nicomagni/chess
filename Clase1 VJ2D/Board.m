@@ -41,10 +41,11 @@
                  int type = [[boardArray[i] objectForKey:@"type"] intValue];
                  int color = [[boardArray[i] objectForKey:@"white"] intValue];
                  Piece* currentPiece = [self getPieceFromType:type andColor:color];
+                 [currentPiece setBoard:self];
                  [currentPiece setPosition:i];
                  [_pieces addObject:currentPiece];
 //                 NSLog(@" color %d, type %d , position %d ", color, type, i);
-                 [_positions addObject:currentPiece];
+                 _positions[i] = currentPiece;
                  
              }
          }

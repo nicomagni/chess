@@ -30,7 +30,7 @@
 
 - (BOOL) move:(int)toPosition{
     
-    if([self couldMoveToPosition:toPosition checkingCheck:YES]){
+    if([self couldMoveToPosition:toPosition checkingCheck:NO]){
         self.everMoved = YES;
         return [super move:toPosition];
     }
