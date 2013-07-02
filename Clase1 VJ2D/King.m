@@ -67,7 +67,7 @@
             tower.everMoved = YES;
             return YES;
         }else{
-            if([self couldMoveToPosition:toPosition checkingCheck:NO]){
+            if([self couldMoveToPosition:toPosition checkingCheck:YES]){
                 self.everMoved = YES;
                 return [super move:toPosition];
             }

@@ -111,14 +111,36 @@
         NSLog(@"Turn Recived %d and my color is %d", [turn intValue], [self.game.myColor intValue]);
         
     }
-    [self loadTurn];
+    if(self.startPiece.board.check != -1){
+        [self loadCheck: self.startPiece.board.check];
+    }else if(self.startPiece.board.checkmate != -1){
+        [self loadCheckmate: self.startPiece.board.checkmate];
+    }else{
+        [self loadTurn];
+    }
 }
 
 - (void)loadTurn{
-    if([self.game.turn intValue] % 2 == kWhite){
+    if([self.game.turn intValue] % 2 == kBlack){
         self.playerTurnLabel.text = @"Turno del Negro";
     }else{
         self.playerTurnLabel.text = @"Turno del Blanco";
+    }
+}
+
+- (void) loadCheck: (int) color{
+    if(color == kWhite){
+        self.playerTurnLabel.text = @"Jaque al Blanco";
+    }else{
+        self.playerTurnLabel.text = @"jaque al Negro";
+    }
+}
+
+- (void) loadCheckmate: (int) color{
+    if(color == kWhite){
+        self.playerTurnLabel.text = @"Jaque Mate al Blanco";
+    }else{
+        self.playerTurnLabel.text = @"Jaque Mate al Negro";
     }
 }
 
