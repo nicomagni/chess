@@ -16,6 +16,14 @@
 @property (nonatomic) Game * game;
 @property (nonatomic) BOOL confirmationNeeded;
 @property (nonatomic) Piece * startPiece;
+@property (strong, nonatomic) IBOutlet UIButton *towerUp;
+@property (strong, nonatomic) IBOutlet UIButton *towerDown;
+@property (strong, nonatomic) IBOutlet UIButton *bishopUp;
+@property (strong, nonatomic) IBOutlet UIButton *bishopDown;
+@property (strong, nonatomic) IBOutlet UIButton *knightUp;
+@property (strong, nonatomic) IBOutlet UIButton *knightDown;
+@property (strong, nonatomic) IBOutlet UIButton *pown;
+@property (strong, nonatomic) IBOutlet UIButton *queen;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *playerTurnLabel;

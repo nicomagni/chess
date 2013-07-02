@@ -151,17 +151,17 @@
         self.positions[i] = oldPiece;
         self.positions[j-i] = swapPiece;
         
-        if(![self.positions[i] isEqual:[NSNull null]]){
-            [self changePiece:self.positions[i] newPosition:i oldPosition:j-i];
-        }
-        if(![self.positions[j-i] isEqual:[NSNull null]]){
-            [self changePiece:self.positions[j-i] newPosition:j-i oldPosition:i];
-        }
-        NSLog(@" origin position %d, destination %d ,cambio %@,por %@", i, j-i, self.positions[i],self.positions[j-i]);
+//        if(![self.positions[i] isEqual:[NSNull null]]){
+//            [self changePiece:self.positions[i] newPosition:i oldPosition:j-i];
+//        }
+//        if(![self.positions[j-i] isEqual:[NSNull null]]){
+//            [self changePiece:self.positions[j-i] newPosition:j-i oldPosition:i];
+//        }
+//        NSLog(@" origin position %d, destination %d ,cambio %@,por %@", i, j-i, self.positions[i],self.positions[j-i]);
     }
-    for(Piece* currentPiece in self.pieces){
-        NSLog(@"Pieces %@ and position %d", currentPiece, currentPiece.position);
-    }
+//    for(Piece* currentPiece in self.pieces){
+//        NSLog(@"Pieces %@ and position %d", currentPiece, currentPiece.position);
+//    }
     
 }
 
