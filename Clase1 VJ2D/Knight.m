@@ -35,6 +35,11 @@
     return NO;
 }
 
+- (BOOL) superMove:(int)toPosition {
+    
+    return [super move:toPosition];
+}
+
 - (NSString*) description{
         return [NSString stringWithFormat:@"Knight Color = %d position = %d",self.color, self.position];
 }

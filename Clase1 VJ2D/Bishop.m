@@ -45,6 +45,11 @@
     return NO;
 }
 
+- (BOOL) superMove:(int)toPosition {
+    
+    return [super move:toPosition];
+}
+
 - (BOOL)couldMoveToPosition:(int)toPosition checkingCheck:(BOOL)checkCheck{
     
     if(![super couldMoveToPosition:toPosition checkingCheck:checkCheck]){

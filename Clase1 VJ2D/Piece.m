@@ -41,6 +41,9 @@
   //  [self.board rotateBoard];
     return YES;
 }
+- (BOOL) superMove :(int)toPosition{
+    return [self move:toPosition];
+}
 
 - (BOOL)couldMoveToPosition:(int)position checkingCheck:(BOOL) checkCheck{
     BOOL isValid = (position >= 0 && position <= 63) && self.position != position;
