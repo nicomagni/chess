@@ -10,6 +10,10 @@
 		A505C9F4177A56340034C749 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505C9F3177A56340034C749 /* ViewController.m */; };
 		A505C9F5177A58140034C749 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A505C9F3177A56340034C749 /* ViewController.m */; };
 		A505C9F8177A5BE60034C749 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = A505C9F7177A5BE60034C749 /* Game.m */; };
+		A51FAD2D179760EA00862C14 /* 3d-chess-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A51FAD2B179760EA00862C14 /* 3d-chess-2.jpg */; };
+		A51FAD2E179760EA00862C14 /* 3d-chess-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A51FAD2B179760EA00862C14 /* 3d-chess-2.jpg */; };
+		A51FAD2F179760EA00862C14 /* greyButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A51FAD2C179760EA00862C14 /* greyButton@2x.png */; };
+		A51FAD30179760EA00862C14 /* greyButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A51FAD2C179760EA00862C14 /* greyButton@2x.png */; };
 		A72BFDF31714D50800A03D63 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF21714D50800A03D63 /* libicucore.dylib */; };
 		A72BFDF51714D51100A03D63 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF41714D51100A03D63 /* Security.framework */; };
 		A72BFDF71714D51900A03D63 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72BFDF61714D51900A03D63 /* CFNetwork.framework */; };
@@ -137,6 +141,8 @@
 		A505C9F3177A56340034C749 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A505C9F6177A5BE60034C749 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		A505C9F7177A5BE60034C749 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		A51FAD2B179760EA00862C14 /* 3d-chess-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "3d-chess-2.jpg"; path = "Chess/3d-chess-2.jpg"; sourceTree = "<group>"; };
+		A51FAD2C179760EA00862C14 /* greyButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "greyButton@2x.png"; path = "Chess/greyButton@2x.png"; sourceTree = "<group>"; };
 		A72BFDF21714D50800A03D63 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		A72BFDF41714D51100A03D63 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A72BFDF61714D51900A03D63 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -404,6 +410,8 @@
 		A7F0F4AB1711D39A00A1F406 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A51FAD2B179760EA00862C14 /* 3d-chess-2.jpg */,
+				A51FAD2C179760EA00862C14 /* greyButton@2x.png */,
 				A79DE8C717309C39007D3740 /* bishop.png */,
 				A79DE8C817309C39007D3740 /* black_bishop.png */,
 				A79DE8C917309C39007D3740 /* black_bishop@2x.png */,
@@ -576,6 +584,8 @@
 				A79DE8F217309C39007D3740 /* white_queen@2x.png in Resources */,
 				A79DE8F317309C39007D3740 /* white_tower.png in Resources */,
 				A79DE8F417309C39007D3740 /* white_tower@2x.png in Resources */,
+				A51FAD2D179760EA00862C14 /* 3d-chess-2.jpg in Resources */,
+				A51FAD2F179760EA00862C14 /* greyButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +596,8 @@
 				A7F0F4051710DDCB00A1F406 /* InfoPlist.strings in Resources */,
 				A7F0F43A1710DE6B00A1F406 /* View.xib in Resources */,
 				A7F0F43E1710DE6B00A1F406 /* GameView.xib in Resources */,
+				A51FAD2E179760EA00862C14 /* 3d-chess-2.jpg in Resources */,
+				A51FAD30179760EA00862C14 /* greyButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
