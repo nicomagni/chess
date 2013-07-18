@@ -39,6 +39,7 @@
     }
     [AppDelegate sharedInstance].game = self.game;
     self.confirmationNeeded = NO;
+    self.crowning = NO;
     [self loadPiecesFromBoard];
     [self loadTurn];
     [AppDelegate sharedInstance].playerMode = [NSNumber numberWithInt:kSinglePlayer];
@@ -76,7 +77,7 @@
     UIImage * image = [UIImage imageNamed:resource];
     [self.CrownQueenButton setBackgroundImage:image forState:UIControlStateNormal];
     [self.CrownQueenButton setTag:piceTag];
-    [self.CrownQueenButton setEnabled:YES];
+    [self.CrownQueenButton setHidden:NO];
     //Tower
     Tower* tower = [[Tower alloc] initWithColor:pawn.color];
     [tower setPosition:pawn.position];
@@ -85,7 +86,7 @@
     image = [UIImage imageNamed:resource];
     [self.CrownTowerButton setBackgroundImage:image forState:UIControlStateNormal];
     [self.CrownTowerButton setTag:piceTag];
-    [self.CrownTowerButton setEnabled:YES];
+    [self.CrownTowerButton setHidden:NO];
     //Knight
     Knight* knight = [[Knight alloc] initWithColor:pawn.color];
     [knight setPosition:pawn.position];
@@ -94,7 +95,7 @@
     image = [UIImage imageNamed:resource];
     [self.CrownKnightButton setBackgroundImage:image forState:UIControlStateNormal];
     [self.CrownKnightButton setTag:piceTag];
-    [self.CrownKnightButton setEnabled:YES];
+    [self.CrownKnightButton setHidden:NO];
     //Bishop
     Bishop * bishop = [[Bishop alloc] initWithColor:pawn.color];
     [bishop setPosition:pawn.position];
@@ -103,7 +104,8 @@
     image = [UIImage imageNamed:resource];
     [self.CrownBishopButton setBackgroundImage:image forState:UIControlStateNormal];
     [self.CrownBishopButton setTag:piceTag];
-    [self.CrownBishopButton setEnabled:YES];
+    [self.CrownBishopButton setHidden:NO];
+    self.crowning = YES;
 
 }
 
@@ -112,7 +114,7 @@
 //    BOOL myTurn = ([self.turn intValue] % 2 == [self.myColor intValue]);
     int colorTurn = [self.game.turn intValue] % 2;
     
-    if([self.CrownQueenButton isEnabled]){
+    if(self.crowning){
         return;
     }
     
@@ -250,14 +252,11 @@
     }
     
     self.startPiece = nil;
-    [self.CrownQueenButton setEnabled:NO];
     [self.CrownQueenButton setHidden:YES];
-    [self.CrownTowerButton setEnabled:NO];
     [self.CrownTowerButton setHidden:YES];
-    [self.CrownKnightButton setEnabled:NO];
     [self.CrownKnightButton setHidden:YES];
-    [self.CrownBishopButton setEnabled:NO];
     [self.CrownBishopButton setHidden:YES];
+    self.crowning = NO;
 }
 - (IBAction)crownTower:(id)sender {
     
@@ -293,14 +292,11 @@
     }
     
     self.startPiece = nil;
-    [self.CrownQueenButton setEnabled:NO];
     [self.CrownQueenButton setHidden:YES];
-    [self.CrownTowerButton setEnabled:NO];
     [self.CrownTowerButton setHidden:YES];
-    [self.CrownKnightButton setEnabled:NO];
     [self.CrownKnightButton setHidden:YES];
-    [self.CrownBishopButton setEnabled:NO];
     [self.CrownBishopButton setHidden:YES];
+    self.crowning = NO;
 }
 - (IBAction)crownKnight:(id)sender {
     
@@ -336,14 +332,11 @@
     }
     
     self.startPiece = nil;
-    [self.CrownQueenButton setEnabled:NO];
     [self.CrownQueenButton setHidden:YES];
-    [self.CrownTowerButton setEnabled:NO];
     [self.CrownTowerButton setHidden:YES];
-    [self.CrownKnightButton setEnabled:NO];
     [self.CrownKnightButton setHidden:YES];
-    [self.CrownBishopButton setEnabled:NO];
     [self.CrownBishopButton setHidden:YES];
+    self.crowning = NO;
 }
 - (IBAction)crownBishop:(id)sender {
    
@@ -379,13 +372,10 @@
     }
     
     self.startPiece = nil;
-    [self.CrownQueenButton setEnabled:NO];
     [self.CrownQueenButton setHidden:YES];
-    [self.CrownTowerButton setEnabled:NO];
     [self.CrownTowerButton setHidden:YES];
-    [self.CrownKnightButton setEnabled:NO];
     [self.CrownKnightButton setHidden:YES];
-    [self.CrownBishopButton setEnabled:NO];
     [self.CrownBishopButton setHidden:YES];
+    self.crowning = NO;
 }
 @end

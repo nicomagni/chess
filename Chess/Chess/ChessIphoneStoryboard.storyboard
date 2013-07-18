@@ -2211,7 +2211,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5wc-Sv-fhf" userLabel="CrownQueen">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5wc-Sv-fhf" userLabel="CrownQueen">
                                 <rect key="frame" x="3" y="373" width="73" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -2226,7 +2226,7 @@
                                     <action selector="crownQueen:" destination="7rH-zY-4CP" eventType="touchUpInside" id="pcC-ll-fBV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ONL-dz-zs4" userLabel="CrownTower">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ONL-dz-zs4" userLabel="CrownTower">
                                 <rect key="frame" x="84" y="373" width="73" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -2241,7 +2241,7 @@
                                     <action selector="crownTower:" destination="7rH-zY-4CP" eventType="touchUpInside" id="Yxt-dw-FCa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j4J-A3-1Fh" userLabel="CrownKnight">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="j4J-A3-1Fh" userLabel="CrownKnight">
                                 <rect key="frame" x="165" y="373" width="73" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -2256,7 +2256,7 @@
                                     <action selector="crownKnight:" destination="7rH-zY-4CP" eventType="touchUpInside" id="b73-th-gSl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f2L-Ef-mjP" userLabel="CrownBishop">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="f2L-Ef-mjP" userLabel="CrownBishop">
                                 <rect key="frame" x="245" y="373" width="73" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -2328,10 +2328,6 @@
         <class className="SinglePlayerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SinglePlayerViewController.h"/>
             <relationships>
-                <relationship kind="action" name="crownBishop:"/>
-                <relationship kind="action" name="crownKnight:"/>
-                <relationship kind="action" name="crownQueen:"/>
-                <relationship kind="action" name="crownTower:"/>
                 <relationship kind="action" name="pieceSelected:forEvent:" candidateClass="UIButton"/>
                 <relationship kind="action" name="saveGame:"/>
                 <relationship kind="outlet" name="CrownBishopButton" candidateClass="UIButton"/>

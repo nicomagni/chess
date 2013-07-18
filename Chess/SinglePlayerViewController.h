@@ -16,6 +16,7 @@
 @property (nonatomic) Game * game;
 @property (nonatomic) Piece * startPiece;
 @property (nonatomic) BOOL confirmationNeeded;
+@property (nonatomic) BOOL crowning;
 - (IBAction)saveGame:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UILabel *playerTurnLabel;
