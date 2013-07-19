@@ -16,6 +16,7 @@
 @property (nonatomic) Game * game;
 @property (nonatomic) BOOL confirmationNeeded;
 @property (nonatomic) Piece * startPiece;
+@property (nonatomic) BOOL crowning;
 @property (strong, nonatomic) IBOutlet UIButton *towerUp;
 @property (strong, nonatomic) IBOutlet UIButton *towerDown;
 @property (strong, nonatomic) IBOutlet UIButton *bishopUp;
@@ -28,5 +29,10 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *playerTurnLabel;
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event;
+
+@property (weak, nonatomic) IBOutlet UIButton *CrownQueenButton;
+@property (weak, nonatomic) IBOutlet UIButton *CrownTowerButton;
+@property (weak, nonatomic) IBOutlet UIButton *CrownKnightButton;
+@property (weak, nonatomic) IBOutlet UIButton *CrownBishopButton;
 
 @end

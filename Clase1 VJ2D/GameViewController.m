@@ -9,6 +9,11 @@
 #import "GameViewController.h"
 #import "Piece.h"
 #import "Game.h"
+#import "Pawn.h"
+#import "Queen.h"
+#import "Tower.h"
+#import "Bishop.h"
+#import "Knight.h"
 #import "AppDelegate.h"
 #import "UIDevice+IdentifierAddition.h"
 
@@ -34,6 +39,7 @@
     [super viewDidLoad];
     [self loadPiecesFromBoard];
     self.confirmationNeeded = NO;
+    self.crowning = NO;
     [AppDelegate sharedInstance].socket.delegate = self;
     [AppDelegate sharedInstance].game = self.game;
     [AppDelegate sharedInstance].playerMode = [NSNumber numberWithInt:kMultiPlayer];
@@ -62,16 +68,73 @@
     }
 }
 
+-(void)loadPiecesForCrowning: (Piece *) pawn to: (int) piceTag{
+    //Queen
+    Queen* queen = [[Queen alloc] initWithColor:pawn.color];
+    [queen setPosition:pawn.position];
+    [queen setBoard:pawn.board];
+    NSString *resource = [queen imageResourceName];
+    UIImage * image = [UIImage imageNamed:resource];
+    [self.CrownQueenButton setBackgroundImage:image forState:UIControlStateNormal];
+    [self.CrownQueenButton setTag:piceTag];
+    [self.CrownQueenButton setHidden:NO];
+    //Tower
+    Tower* tower = [[Tower alloc] initWithColor:pawn.color];
+    [tower setPosition:pawn.position];
+    [tower setBoard:pawn.board];
+    resource = [tower imageResourceName];
+    image = [UIImage imageNamed:resource];
+    [self.CrownTowerButton setBackgroundImage:image forState:UIControlStateNormal];
+    [self.CrownTowerButton setTag:piceTag];
+    [self.CrownTowerButton setHidden:NO];
+    //Knight
+    Knight* knight = [[Knight alloc] initWithColor:pawn.color];
+    [knight setPosition:pawn.position];
+    [knight setBoard:pawn.board];
+    resource = [knight imageResourceName];
+    image = [UIImage imageNamed:resource];
+    [self.CrownKnightButton setBackgroundImage:image forState:UIControlStateNormal];
+    [self.CrownKnightButton setTag:piceTag];
+    [self.CrownKnightButton setHidden:NO];
+    //Bishop
+    Bishop * bishop = [[Bishop alloc] initWithColor:pawn.color];
+    [bishop setPosition:pawn.position];
+    [bishop setBoard:pawn.board];
+    resource = [bishop imageResourceName];
+    image = [UIImage imageNamed:resource];
+    [self.CrownBishopButton setBackgroundImage:image forState:UIControlStateNormal];
+    [self.CrownBishopButton setTag:piceTag];
+    [self.CrownBishopButton setHidden:NO];
+    self.crowning = YES;
+    
+}
+
 - (IBAction)pieceSelected:(UIButton *)sender forEvent:(UIEvent *)event {
     int pieceTag = [sender tag] - 100;
     BOOL myTurn = ([self.game.turn intValue] % 2 == [self.game.myColor intValue]);
     NSLog(@"Turn %d",[[NSNumber numberWithBool:([self.game.turn intValue] % 2) == [self.game.myColor intValue]] intValue]);
 //    BOOL myTurn = true;
     if(!self.confirmationNeeded && myTurn){
+        
+        if(self.crowning){
+            return;
+        }
+        
         if (self.startPiece != nil) {
             //This is the target button
 
             NSLog(@"Setting the destintion");
+            
+            //Validate if Pawn Crown
+            if([self.startPiece class] == [Pawn class]){
+                if(pieceTag/8 == 0){
+                    //Rotated board, always crowns in first row
+                    if([self.startPiece couldMoveToPosition:pieceTag checkingCheck:YES]){
+                        [self loadPiecesForCrowning: self.startPiece to: pieceTag];
+                        return;
+                    }
+                }
+            }
 
             BOOL couldMove = [self.startPiece move:pieceTag];
 
@@ -205,4 +268,115 @@
 }
 
 
+- (IBAction)CrownQueen:(id)sender {
+    
+    Queen * queen = [[Queen alloc] initWithColor: self.startPiece.color];
+    [queen setPosition:self.startPiece.position];
+    [queen setBoard:self.startPiece.board];
+    [queen.board positions][queen.position] = queen;
+    [queen.board.pieces removeObject:self.startPiece];
+    [queen.board.pieces addObject:queen];
+    self.startPiece = queen;
+
+    BOOL couldMove = [self.startPiece superMove:[self.CrownQueenButton tag]];
+    
+    if(couldMove){
+        
+        [self sendBoard];
+    }
+    self.startPiece = nil;
+    
+    [self loadPiecesFromBoard];
+    
+    self.startPiece = nil;
+    [self.CrownQueenButton setHidden:YES];
+    [self.CrownTowerButton setHidden:YES];
+    [self.CrownKnightButton setHidden:YES];
+    [self.CrownBishopButton setHidden:YES];
+    self.crowning = NO;
+}
+- (IBAction)CrownTower:(id)sender {
+    
+    Tower * tower = [[Tower alloc] initWithColor: self.startPiece.color];
+    [tower setPosition:self.startPiece.position];
+    [tower setBoard:self.startPiece.board];
+    [tower.board positions][tower.position] = tower;
+    [tower.board.pieces removeObject:self.startPiece];
+    [tower.board.pieces addObject:tower];
+    self.startPiece = tower;
+
+    BOOL couldMove = [self.startPiece superMove:[self.CrownQueenButton tag]];
+    
+    if(couldMove){
+        
+        [self sendBoard];
+    }
+    self.startPiece = nil;
+    
+    [self loadPiecesFromBoard];
+    
+    self.startPiece = nil;
+    [self.CrownQueenButton setHidden:YES];
+    [self.CrownTowerButton setHidden:YES];
+    [self.CrownKnightButton setHidden:YES];
+    [self.CrownBishopButton setHidden:YES];
+    self.crowning = NO;
+}
+- (IBAction)CrownKnight:(id)sender {
+    
+    Knight * knight = [[Knight alloc] initWithColor: self.startPiece.color];
+    [knight setPosition:self.startPiece.position];
+    [knight setBoard:self.startPiece.board];
+    [knight.board positions][knight.position] = knight;
+    [knight.board.pieces removeObject:self.startPiece];
+    [knight.board.pieces addObject:knight];
+    self.startPiece = knight;
+
+    BOOL couldMove = [self.startPiece superMove:[self.CrownQueenButton tag]];
+    
+    if(couldMove){
+        
+        [self sendBoard];
+    }
+    self.startPiece = nil;
+    
+    [self loadPiecesFromBoard];
+    
+    self.startPiece = nil;
+    [self.CrownQueenButton setHidden:YES];
+    [self.CrownTowerButton setHidden:YES];
+    [self.CrownKnightButton setHidden:YES];
+    [self.CrownBishopButton setHidden:YES];
+    self.crowning = NO;
+}
+- (IBAction)CrownBishop:(id)sender {
+    
+    Bishop * bishop = [[Bishop alloc] initWithColor: self.startPiece.color];
+    [bishop setPosition:self.startPiece.position];
+    [bishop setBoard:self.startPiece.board];
+    [bishop.board positions][bishop.position] = bishop;
+    [bishop.board.pieces removeObject:self.startPiece];
+    [bishop.board.pieces addObject:bishop];
+    self.startPiece = bishop;
+    
+    BOOL couldMove = [self.startPiece superMove:[self.CrownQueenButton tag]];
+    
+    if(couldMove){
+        
+        [self sendBoard];
+    }
+    self.startPiece = nil;
+    
+    [self loadPiecesFromBoard];
+    
+    
+    
+    
+    self.startPiece = nil;
+    [self.CrownQueenButton setHidden:YES];
+    [self.CrownTowerButton setHidden:YES];
+    [self.CrownKnightButton setHidden:YES];
+    [self.CrownBishopButton setHidden:YES];
+    self.crowning = NO;
+}
 @end

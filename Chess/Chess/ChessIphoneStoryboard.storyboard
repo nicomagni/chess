@@ -1090,15 +1090,15 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BIj-hB-90I">
-                                <rect key="frame" x="52" y="348" width="222" height="35"/>
+                                <rect key="frame" x="49" y="332" width="222" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="156" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="w6L-2h-uIm">
-                                <rect key="frame" x="83" y="337" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WmZ-KD-wYA" userLabel="CrownQueen">
+                                <rect key="frame" x="-31" y="375" width="92" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1108,12 +1108,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="v7g-q8-e5J"/>
+                                    <action selector="crownQueen:" destination="7rH-zY-4CP" eventType="touchUpInside" id="2Dh-2t-GVX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="156" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aqW-OZ-5D3">
-                                <rect key="frame" x="83" y="377" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Hnp-EP-tbD">
+                                <rect key="frame" x="3" y="371" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1123,12 +1123,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="3Qz-QT-ozX"/>
+                                    <action selector="CrownQueen:" destination="ykY-U7-2LF" eventType="touchUpInside" id="aMB-fk-J26"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="156" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1L3-Zl-ce7">
-                                <rect key="frame" x="123" y="337" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="B6t-iD-g8t">
+                                <rect key="frame" x="84" y="371" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1138,12 +1138,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="dvh-W0-zLC"/>
+                                    <action selector="CrownTower:" destination="ykY-U7-2LF" eventType="touchUpInside" id="kgp-I0-znH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="156" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fNR-hx-WmB">
-                                <rect key="frame" x="123" y="377" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TSb-3y-EV1">
+                                <rect key="frame" x="165" y="371" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1153,7 +1153,22 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pieceSelected:forEvent:" destination="ykY-U7-2LF" eventType="touchUpInside" id="Xv9-kj-EKJ"/>
+                                    <action selector="CrownKnight:" destination="ykY-U7-2LF" eventType="touchUpInside" id="FiJ-G7-9gM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="k1y-Ly-doX">
+                                <rect key="frame" x="245" y="371" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="CrownBishop:" destination="ykY-U7-2LF" eventType="touchUpInside" id="0mn-BR-sG0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1161,11 +1176,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="VX6-y0-kYo"/>
                     <connections>
-                        <outlet property="knightDown" destination="aqW-OZ-5D3" id="V63-Of-Kq9"/>
-                        <outlet property="knightUp" destination="w6L-2h-uIm" id="mq5-cf-fWq"/>
+                        <outlet property="CrownBishopButton" destination="k1y-Ly-doX" id="43z-yU-XSe"/>
+                        <outlet property="CrownKnightButton" destination="TSb-3y-EV1" id="gOa-sT-oPa"/>
+                        <outlet property="CrownQueenButton" destination="Hnp-EP-tbD" id="NKv-W9-eNC"/>
+                        <outlet property="CrownTowerButton" destination="k1y-Ly-doX" id="jkB-lH-Fx6"/>
                         <outlet property="playerTurnLabel" destination="BIj-hB-90I" id="Ven-WN-pqE"/>
-                        <outlet property="pown" destination="1L3-Zl-ce7" id="d3f-XM-wAJ"/>
-                        <outlet property="queen" destination="fNR-hx-WmB" id="fuN-G3-mXA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmG-k1-G1N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2304,6 +2319,10 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameViewController.h"/>
             <relationships>
                 <relationship kind="action" name="pieceSelected:forEvent:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="CrownBishopButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="CrownKnightButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="CrownQueenButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="CrownTowerButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bishopDown" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bishopUp" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="knightDown" candidateClass="UIButton"/>
