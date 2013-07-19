@@ -1164,7 +1164,7 @@
                         <outlet property="CrownBishopButton" destination="k1y-Ly-doX" id="43z-yU-XSe"/>
                         <outlet property="CrownKnightButton" destination="TSb-3y-EV1" id="gOa-sT-oPa"/>
                         <outlet property="CrownQueenButton" destination="Hnp-EP-tbD" id="NKv-W9-eNC"/>
-                        <outlet property="CrownTowerButton" destination="k1y-Ly-doX" id="jkB-lH-Fx6"/>
+                        <outlet property="CrownTowerButton" destination="B6t-iD-g8t" id="VFc-TX-PJm"/>
                         <outlet property="playerTurnLabel" destination="BIj-hB-90I" id="Ven-WN-pqE"/>
                     </connections>
                 </viewController>
@@ -2336,6 +2336,10 @@
         <class className="SinglePlayerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SinglePlayerViewController.h"/>
             <relationships>
+                <relationship kind="action" name="crownBishop:"/>
+                <relationship kind="action" name="crownKnight:"/>
+                <relationship kind="action" name="crownQueen:"/>
+                <relationship kind="action" name="crownTower:"/>
                 <relationship kind="action" name="pieceSelected:forEvent:" candidateClass="UIButton"/>
                 <relationship kind="action" name="saveGame:"/>
                 <relationship kind="outlet" name="CrownBishopButton" candidateClass="UIButton"/>

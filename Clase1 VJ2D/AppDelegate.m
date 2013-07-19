@@ -55,7 +55,7 @@
 
 - (SRWebSocket*) socket {
     if (_socket == nil) {
-        NSMutableURLRequest* joinMatchRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"ws://10.6.0.247:9000/connectWS"]];
+        NSMutableURLRequest* joinMatchRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"ws://192.168.2.4:9000/connectWS"]];
         _socket = [[SRWebSocket alloc] initWithURLRequest:joinMatchRequest];
     }
     return _socket;
